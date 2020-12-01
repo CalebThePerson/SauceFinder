@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DF4B8E7EA98A708657DF9AF /* Pods_SauceFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */; };
 		C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224B25760ABD0005CDEE /* AppDelegate.swift */; };
 		C38F224E25760ABD0005CDEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224D25760ABD0005CDEE /* SceneDelegate.swift */; };
 		C38F225025760ABD0005CDEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224F25760ABD0005CDEE /* ContentView.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		302E1E27763EAC938CA32C6A /* Pods-SauceFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SauceFinder.debug.xcconfig"; path = "Target Support Files/Pods-SauceFinder/Pods-SauceFinder.debug.xcconfig"; sourceTree = "<group>"; };
+		B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SauceFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38F224825760ABD0005CDEE /* SauceFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SauceFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38F224B25760ABD0005CDEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C38F224D25760ABD0005CDEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		C38F225425760AC00005CDEE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C38F225725760AC00005CDEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C38F225925760AC00005CDEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBDB7BF13992D3F2245173CF /* Pods-SauceFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SauceFinder.release.xcconfig"; path = "Target Support Files/Pods-SauceFinder/Pods-SauceFinder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DF4B8E7EA98A708657DF9AF /* Pods_SauceFinder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044C1A46B90768C6B5C6C80A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D2FAC40A1DA285164BAA345 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				302E1E27763EAC938CA32C6A /* Pods-SauceFinder.debug.xcconfig */,
+				EBDB7BF13992D3F2245173CF /* Pods-SauceFinder.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C38F223F25760ABD0005CDEE = {
 			isa = PBXGroup;
 			children = (
 				C38F224A25760ABD0005CDEE /* SauceFinder */,
 				C38F224925760ABD0005CDEE /* Products */,
+				1D2FAC40A1DA285164BAA345 /* Pods */,
+				044C1A46B90768C6B5C6C80A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C38F225C25760AC00005CDEE /* Build configuration list for PBXNativeTarget "SauceFinder" */;
 			buildPhases = (
+				CE712CD8AB4787D19CCA5AA8 /* [CP] Check Pods Manifest.lock */,
 				C38F224425760ABD0005CDEE /* Sources */,
 				C38F224525760ABD0005CDEE /* Frameworks */,
 				C38F224625760ABD0005CDEE /* Resources */,
+				3E350DC2F12317DF0AF7B566 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +166,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E350DC2F12317DF0AF7B566 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SauceFinder/Pods-SauceFinder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SauceFinder/Pods-SauceFinder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SauceFinder/Pods-SauceFinder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE712CD8AB4787D19CCA5AA8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SauceFinder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C38F224425760ABD0005CDEE /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		C38F225D25760AC00005CDEE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 302E1E27763EAC938CA32C6A /* Pods-SauceFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -304,6 +374,7 @@
 		};
 		C38F225E25760AC00005CDEE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBDB7BF13992D3F2245173CF /* Pods-SauceFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
