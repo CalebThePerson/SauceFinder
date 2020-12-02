@@ -6,7 +6,8 @@ target 'SauceFinder' do
   use_frameworks!
     pod 'SwiftyJSON', '~> 4.0'
 pod 'Alamofire', '~> 5.2'
-pod 'RealmSwift'
+    pod 'RealmSwift'
+
   # Pods for SauceFinder
 
 end

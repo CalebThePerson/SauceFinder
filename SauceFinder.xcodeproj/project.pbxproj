@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,10 @@
 		C38F225225760AC00005CDEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38F225125760AC00005CDEE /* Assets.xcassets */; };
 		C38F225525760AC00005CDEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38F225425760AC00005CDEE /* Preview Assets.xcassets */; };
 		C38F225825760AC00005CDEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38F225625760AC00005CDEE /* LaunchScreen.storyboard */; };
+		C3C0FF3A25776AE800B8E4BE /* DoujinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF3925776AE800B8E4BE /* DoujinAPI.swift */; };
+		C3C0FF3E257777BA00B8E4BE /* SaveAndSuch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF3D257777BA00B8E4BE /* SaveAndSuch.swift */; };
+		C3C0FF422577785B00B8E4BE /* DoujinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF412577785B00B8E4BE /* DoujinInfo.swift */; };
+		C3C0FF452577797A00B8E4BE /* DoujinTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF442577797A00B8E4BE /* DoujinTags.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		C38F225425760AC00005CDEE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C38F225725760AC00005CDEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C38F225925760AC00005CDEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3C0FF3925776AE800B8E4BE /* DoujinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinAPI.swift; sourceTree = "<group>"; };
+		C3C0FF3D257777BA00B8E4BE /* SaveAndSuch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAndSuch.swift; sourceTree = "<group>"; };
+		C3C0FF412577785B00B8E4BE /* DoujinInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinInfo.swift; sourceTree = "<group>"; };
+		C3C0FF442577797A00B8E4BE /* DoujinTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinTags.swift; sourceTree = "<group>"; };
 		EBDB7BF13992D3F2245173CF /* Pods-SauceFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SauceFinder.release.xcconfig"; path = "Target Support Files/Pods-SauceFinder/Pods-SauceFinder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +64,6 @@
 				302E1E27763EAC938CA32C6A /* Pods-SauceFinder.debug.xcconfig */,
 				EBDB7BF13992D3F2245173CF /* Pods-SauceFinder.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,7 +90,8 @@
 			children = (
 				C38F224B25760ABD0005CDEE /* AppDelegate.swift */,
 				C38F224D25760ABD0005CDEE /* SceneDelegate.swift */,
-				C38F224F25760ABD0005CDEE /* ContentView.swift */,
+				C3E41B9D25775BAB0032C85B /* Model */,
+				C3E41B9C25775BA00032C85B /* View */,
 				C38F225125760AC00005CDEE /* Assets.xcassets */,
 				C38F225625760AC00005CDEE /* LaunchScreen.storyboard */,
 				C38F225925760AC00005CDEE /* Info.plist */,
@@ -98,6 +106,41 @@
 				C38F225425760AC00005CDEE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C3C0FF372577622000B8E4BE /* DoujinViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DoujinViews;
+			sourceTree = "<group>";
+		};
+		C3C0FF3C257777AD00B8E4BE /* Saves */ = {
+			isa = PBXGroup;
+			children = (
+				C3C0FF3D257777BA00B8E4BE /* SaveAndSuch.swift */,
+				C3C0FF412577785B00B8E4BE /* DoujinInfo.swift */,
+				C3C0FF442577797A00B8E4BE /* DoujinTags.swift */,
+			);
+			path = Saves;
+			sourceTree = "<group>";
+		};
+		C3E41B9C25775BA00032C85B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3C0FF372577622000B8E4BE /* DoujinViews */,
+				C38F224F25760ABD0005CDEE /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3E41B9D25775BAB0032C85B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3C0FF3925776AE800B8E4BE /* DoujinAPI.swift */,
+				C3C0FF3C257777AD00B8E4BE /* Saves */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,7 +257,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C0FF452577797A00B8E4BE /* DoujinTags.swift in Sources */,
 				C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */,
+				C3C0FF3A25776AE800B8E4BE /* DoujinAPI.swift in Sources */,
+				C3C0FF422577785B00B8E4BE /* DoujinInfo.swift in Sources */,
+				C3C0FF3E257777BA00B8E4BE /* SaveAndSuch.swift in Sources */,
 				C38F224E25760ABD0005CDEE /* SceneDelegate.swift in Sources */,
 				C38F225025760ABD0005CDEE /* ContentView.swift in Sources */,
 			);
