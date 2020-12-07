@@ -11,7 +11,7 @@ import SwiftyJSON
 import RealmSwift
 
 class DoujinAPI:ObservableObject {
-    
+    @Published var EnterSauceAlert: Bool = false
     
     func bookInfo(SauceNum: String) {
         
@@ -27,8 +27,13 @@ class DoujinAPI:ObservableObject {
                 let NewDoujin = DoujinInfo()
                 
                 guard let Name = json["title"]["pretty"].string else {return}
-                guard let Pages = json["num_pages"].string else {return}
+                print("1")
+
+                guard let Pages = json["num_pages"].int else {return}
+                print("2")
+
                 guard let MediaID = json["media_id"].string else {return}
+                print("3")
                 let Tags = List<String>()
                 var count = 0
                 let TagJson = json["tags"]
@@ -46,8 +51,10 @@ class DoujinAPI:ObservableObject {
                 NewDoujin.MediaID = MediaID
                 NewDoujin.NumPages = Pages
                 NewDoujin.PictureString = self.getPitcture(Media: MediaID)
+                NewDoujin.UniqueID = UUID().uuidString
                 
                 save(Doujin: NewDoujin)
+                print("Saved")
             }
         }
 
@@ -57,10 +64,9 @@ class DoujinAPI:ObservableObject {
 extension DoujinAPI{
     func getPitcture(Media: String) -> String{
         
-        let imageURl = URL(string: "https://t.nhentai.net/galleries/\(Media)/cover.p")
         var ImageString = ""
         
-        AF.request(imageURl as! URLRequestConvertible).responseData { (response) in
+        AF.request("https://t.nhentai.net/galleries/\(Media)/cover.p", method:.get).responseImage { (response) in
             if response.error == nil {
                 if let Data = response.data{
                     ImageString = self.convertImageToBase64(UIImage(data: Data)!)

@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		2DF4B8E7EA98A708657DF9AF /* Pods_SauceFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */; };
+		C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065A25785F4500E99E2F /* DoujinView.swift */; };
+		C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065E2578622800E99E2F /* DoujinCell.swift */; };
 		C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224B25760ABD0005CDEE /* AppDelegate.swift */; };
 		C38F224E25760ABD0005CDEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224D25760ABD0005CDEE /* SceneDelegate.swift */; };
 		C38F225025760ABD0005CDEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224F25760ABD0005CDEE /* ContentView.swift */; };
 		C38F225225760AC00005CDEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38F225125760AC00005CDEE /* Assets.xcassets */; };
 		C38F225525760AC00005CDEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38F225425760AC00005CDEE /* Preview Assets.xcassets */; };
 		C38F225825760AC00005CDEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38F225625760AC00005CDEE /* LaunchScreen.storyboard */; };
+		C395250E2579D72D0052099B /* DoujinCellWithNODoujin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C395250D2579D72D0052099B /* DoujinCellWithNODoujin.swift */; };
+		C39525112579D8210052099B /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39525102579D8210052099B /* FloatingMenu.swift */; };
+		C39525162579DEBD0052099B /* AddDoujin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39525152579DEBC0052099B /* AddDoujin.swift */; };
 		C3C0FF3A25776AE800B8E4BE /* DoujinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF3925776AE800B8E4BE /* DoujinAPI.swift */; };
 		C3C0FF3E257777BA00B8E4BE /* SaveAndSuch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF3D257777BA00B8E4BE /* SaveAndSuch.swift */; };
 		C3C0FF422577785B00B8E4BE /* DoujinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF412577785B00B8E4BE /* DoujinInfo.swift */; };
@@ -23,6 +28,8 @@
 /* Begin PBXFileReference section */
 		302E1E27763EAC938CA32C6A /* Pods-SauceFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SauceFinder.debug.xcconfig"; path = "Target Support Files/Pods-SauceFinder/Pods-SauceFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SauceFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C33F065A25785F4500E99E2F /* DoujinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinView.swift; sourceTree = "<group>"; };
+		C33F065E2578622800E99E2F /* DoujinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinCell.swift; sourceTree = "<group>"; };
 		C38F224825760ABD0005CDEE /* SauceFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SauceFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38F224B25760ABD0005CDEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C38F224D25760ABD0005CDEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +38,9 @@
 		C38F225425760AC00005CDEE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C38F225725760AC00005CDEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C38F225925760AC00005CDEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C395250D2579D72D0052099B /* DoujinCellWithNODoujin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinCellWithNODoujin.swift; sourceTree = "<group>"; };
+		C39525102579D8210052099B /* FloatingMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
+		C39525152579DEBC0052099B /* AddDoujin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoujin.swift; sourceTree = "<group>"; };
 		C3C0FF3925776AE800B8E4BE /* DoujinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinAPI.swift; sourceTree = "<group>"; };
 		C3C0FF3D257777BA00B8E4BE /* SaveAndSuch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAndSuch.swift; sourceTree = "<group>"; };
 		C3C0FF412577785B00B8E4BE /* DoujinInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinInfo.swift; sourceTree = "<group>"; };
@@ -108,9 +118,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C39525132579D82E0052099B /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+				C39525102579D8210052099B /* FloatingMenu.swift */,
+			);
+			path = SupportingViews;
+			sourceTree = "<group>";
+		};
 		C3C0FF372577622000B8E4BE /* DoujinViews */ = {
 			isa = PBXGroup;
 			children = (
+				C33F065A25785F4500E99E2F /* DoujinView.swift */,
+				C395250D2579D72D0052099B /* DoujinCellWithNODoujin.swift */,
+				C33F065E2578622800E99E2F /* DoujinCell.swift */,
+				C39525152579DEBC0052099B /* AddDoujin.swift */,
 			);
 			path = DoujinViews;
 			sourceTree = "<group>";
@@ -128,8 +150,9 @@
 		C3E41B9C25775BA00032C85B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C3C0FF372577622000B8E4BE /* DoujinViews */,
 				C38F224F25760ABD0005CDEE /* ContentView.swift */,
+				C3C0FF372577622000B8E4BE /* DoujinViews */,
+				C39525132579D82E0052099B /* SupportingViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,9 +284,14 @@
 				C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */,
 				C3C0FF3A25776AE800B8E4BE /* DoujinAPI.swift in Sources */,
 				C3C0FF422577785B00B8E4BE /* DoujinInfo.swift in Sources */,
+				C395250E2579D72D0052099B /* DoujinCellWithNODoujin.swift in Sources */,
 				C3C0FF3E257777BA00B8E4BE /* SaveAndSuch.swift in Sources */,
 				C38F224E25760ABD0005CDEE /* SceneDelegate.swift in Sources */,
 				C38F225025760ABD0005CDEE /* ContentView.swift in Sources */,
+				C39525162579DEBD0052099B /* AddDoujin.swift in Sources */,
+				C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */,
+				C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */,
+				C39525112579D8210052099B /* FloatingMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
