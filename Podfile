@@ -7,6 +7,8 @@ target 'SauceFinder' do
     pod 'SwiftyJSON', '~> 4.0'
 pod 'Alamofire', '~> 5.2'
     pod 'RealmSwift'
+pod 'AlamofireImage', '~> 4.1'
+
 
   # Pods for SauceFinder
 
