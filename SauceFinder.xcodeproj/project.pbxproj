@@ -10,6 +10,7 @@
 		2DF4B8E7EA98A708657DF9AF /* Pods_SauceFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */; };
 		C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065A25785F4500E99E2F /* DoujinView.swift */; };
 		C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065E2578622800E99E2F /* DoujinCell.swift */; };
+		C3679945259D3C100098BF78 /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3679944259D3C100098BF78 /* LoadingCircle.swift */; };
 		C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224B25760ABD0005CDEE /* AppDelegate.swift */; };
 		C38F224E25760ABD0005CDEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224D25760ABD0005CDEE /* SceneDelegate.swift */; };
 		C38F225025760ABD0005CDEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224F25760ABD0005CDEE /* ContentView.swift */; };
@@ -30,6 +31,7 @@
 		B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SauceFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33F065A25785F4500E99E2F /* DoujinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinView.swift; sourceTree = "<group>"; };
 		C33F065E2578622800E99E2F /* DoujinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinCell.swift; sourceTree = "<group>"; };
+		C3679944259D3C100098BF78 /* LoadingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
 		C38F224825760ABD0005CDEE /* SauceFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SauceFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38F224B25760ABD0005CDEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C38F224D25760ABD0005CDEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				C39525102579D8210052099B /* FloatingMenu.swift */,
+				C3679944259D3C100098BF78 /* LoadingCircle.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				C3C0FF3A25776AE800B8E4BE /* DoujinAPI.swift in Sources */,
 				C3C0FF422577785B00B8E4BE /* DoujinInfo.swift in Sources */,
 				C395250E2579D72D0052099B /* DoujinCellWithNODoujin.swift in Sources */,
+				C3679945259D3C100098BF78 /* LoadingCircle.swift in Sources */,
 				C3C0FF3E257777BA00B8E4BE /* SaveAndSuch.swift in Sources */,
 				C38F224E25760ABD0005CDEE /* SceneDelegate.swift in Sources */,
 				C38F225025760ABD0005CDEE /* ContentView.swift in Sources */,

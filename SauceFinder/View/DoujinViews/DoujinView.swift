@@ -26,6 +26,9 @@ struct DoujinView: View {
                     }
                 }
                 FloatingMenu(DoujinApi: Doujin)
+                    .onAppear(perform: {
+                        print(Doujinshis.count)
+                    })
             }
         }
         
@@ -38,22 +41,28 @@ struct DoujinView: View {
                     ScrollView(.vertical) {
                         VStack(spacing: 0) {
                             ForEach(Doujinshis, id: \.UniqueID) { Doujinshi in
-//                                Button(action: {
-//                                    self.DetailViewShowing.toggle()
-//                                }) {
-//                                    DoujinCell(TheImage: convertBase64ToImage(Doujinshi.PictureString), ScreenSize: Geometry.size)
-//
-//                                }
-                                DoujinCell(TheImage: convertBase64ToImage(Doujinshi.PictureString), ScreenSize: Geometry.size)
-                                    .onAppear(perform: {
-                                        print(Doujinshi)
-                                    })
+                                Button(action: {
+                                    self.DetailViewShowing.toggle()
+                                }) {
+                                    DoujinCell(TheImage: convertBase64ToImage(Doujinshi.PictureString), ScreenSize: Geometry.size)
+
+                                }
+//                                DoujinCell(TheImage: convertBase64ToImage(Doujinshi.PictureString), ScreenSize: Geometry.size)
+//                                    .onAppear(perform: {
+//                                        print(Doujinshi)
+//                                    })
                                 
+                            }
+                            
+                            if Doujin.LoadingCirclePresent == true{
+                                LoadingCircle(TheAPI: Doujin)
+                                    .padding(.top)
                             }
                             
                         }
                     }
                     FloatingMenu(DoujinApi: Doujin)
+                        .offset(x: 155)
                 }
             }
         }

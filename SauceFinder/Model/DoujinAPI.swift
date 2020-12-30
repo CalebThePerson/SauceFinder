@@ -13,8 +13,12 @@ import RealmSwift
 
 class DoujinAPI:ObservableObject {
     @Published var EnterSauceAlert: Bool = false
+    @Published var LoadingCirclePresent: Bool = false
     
+    
+    //Function that gets all the detils of the doujin
     func bookInfo(SauceNum: String) {
+        LoadingCirclePresent = true
         
         let Headers: HTTPHeaders = [.accept("application/json")]
         
@@ -23,18 +27,15 @@ class DoujinAPI:ObservableObject {
             
             if let Data = response.data {
                 let json = try! JSON(data: Data)
-                print(json)
+//                print(json)
                 
                 let NewDoujin = DoujinInfo()
                 
                 guard let Name = json["title"]["pretty"].string else {return}
-                print("1")
 
                 guard let Pages = json["num_pages"].int else {return}
-                print("2")
 
                 guard let MediaID = json["media_id"].string else {return}
-                print("3")
                 let Tags = List<String>()
                 var count = 0
                 let TagJson = json["tags"]
@@ -42,20 +43,23 @@ class DoujinAPI:ObservableObject {
                 for tag in TagJson {
                     let TheTags = DoujinTags()
                     TheTags.Name = json["tags"][count]["name"].string!
-                    print(TheTags.Name)
+//                    print(TheTags.Name)
                     NewDoujin.Tags.append(TheTags)
                     count += 1
                 }
-                
-                NewDoujin.Name = Name
-                NewDoujin.Id = SauceNum
-                NewDoujin.MediaID = MediaID
-                NewDoujin.NumPages = Pages
-                NewDoujin.PictureString = self.getPitcture(Media: MediaID)
-                NewDoujin.UniqueID = UUID().uuidString
-                
-                save(Doujin: NewDoujin)
-                print("Saved")
+                self.getPitcture(Media: MediaID) {(newstring) in
+                    NewDoujin.Name = Name
+                    NewDoujin.Id = SauceNum
+                    NewDoujin.MediaID = MediaID
+                    NewDoujin.NumPages = Pages
+                    NewDoujin.PictureString = newstring
+                    NewDoujin.UniqueID = UUID().uuidString
+                    
+                    save(Doujin: NewDoujin)
+                    print("Saved")
+                    self.LoadingCirclePresent.toggle()
+                }
+
             }
         }
 
@@ -63,18 +67,22 @@ class DoujinAPI:ObservableObject {
 }
 
 extension DoujinAPI{
-    func getPitcture(Media: String) -> String{
+    //The Function that grabs the picture of the sauce
+    func getPitcture(Media: String,completion: @escaping (String) -> Void){
         
         var ImageString = ""
         
-        AF.request("https://t.nhentai.net/galleries/\(Media)/cover.p", method:.get).responseImage { (response) in
-            if response.error == nil {
-                if let Data = response.data{
-                    ImageString = self.convertImageToBase64(UIImage(data: Data)!)
-                }
+        AF.request("https://t.nhentai.net/galleries/\(Media)/cover.jpg").responseImage { response in
+            
+            if case .success(let image) = response.result {
+                print("Image downlaoded \(image)")
+                
+                ImageString = self.convertImageToBase64(image)
+                completion(ImageString)
+
+                
             }
         }
-        return ImageString
         
     }
     
