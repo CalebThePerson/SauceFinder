@@ -12,7 +12,7 @@ struct DoujinCellWithNODoujin: View {
 
     var body: some View {
         VStack {
-            Image(uiImage: UIImage(imageLiteralResourceName: "TestingWithOne"))
+            Image(uiImage: UIImage(imageLiteralResourceName: "TestingOne"))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: ScreenSize.width, height: 140)

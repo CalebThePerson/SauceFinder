@@ -9,12 +9,10 @@ import SwiftUI
 import RealmSwift
 
 struct DoujinView: View {
+    
     @ObservedObject var Doujin = DoujinAPI()
     @State private var Doujinshis: Results<DoujinInfo> = realm.objects(DoujinInfo.self)
     @State private var DetailViewShowing:Bool = false
-    
-    @State var InputDoujin:String = ""
-
     
     var body: some View {
         if Doujinshis.count == 0 {
@@ -22,13 +20,22 @@ struct DoujinView: View {
             GeometryReader { Geometry in
                 ZStack {
                     ScrollView(.vertical){
-//                        DoujinCellWithNODoujin(ScreenSize: Geometry.size)
+                        VStack(spacing:0){
+                            Button(action: {
+                                self.DetailViewShowing.toggle()
+                            }){
+                                DoujinCellWithNODoujin(ScreenSize: Geometry.size)
+
+                            }
+                        }
+                        if Doujin.LoadingCirclePresent == true{
+                            LoadingCircle(TheAPI: Doujin)
+                                .padding(.top)
+                        }
                     }
                 }
-                FloatingMenu(DoujinApi: Doujin)
-                    .onAppear(perform: {
-                        print(Doujinshis.count)
-                    })
+//                FloatingMenu(DoujinApi: Doujin)
+                    .offset(x: 300)
             }
         }
         
@@ -47,10 +54,7 @@ struct DoujinView: View {
                                     DoujinCell(TheImage: convertBase64ToImage(Doujinshi.PictureString), ScreenSize: Geometry.size)
 
                                 }
-//                                DoujinCell(TheImage: convertBase64ToImage(Doujinshi.PictureString), ScreenSize: Geometry.size)
-//                                    .onAppear(perform: {
-//                                        print(Doujinshi)
-//                                    })
+
                                 
                             }
                             
@@ -61,9 +65,10 @@ struct DoujinView: View {
                             
                         }
                     }
-                    FloatingMenu(DoujinApi: Doujin)
-                        .offset(x: 155)
+//                    FloatingMenu(DoujinApi: Doujin)
+                        .offset(x: 150, y: -10 )
                 }
+                .edgesIgnoringSafeArea(.all)
             }
         }
     }

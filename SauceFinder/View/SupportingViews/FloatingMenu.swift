@@ -14,6 +14,8 @@ struct FloatingMenu: View {
     @State var showMenuItem2 = false
     @State var showMenuItem3 = false
     
+    var Width, Height: CGFloat
+    
     
     @State var ShowView = false
     @State var EnterSauceAlert: Bool = false
@@ -67,7 +69,7 @@ struct FloatingMenu: View {
             }) {
                 Image(systemName: "ellipsis.circle.fill")
                     .resizable()
-                    .frame(width: 55, height: 55)
+                    .frame(width: Width/7, height: Height/9)
                     .foregroundColor(Color(red: 153/255, green: 102/255, blue: 255/255))
                     .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
             }
@@ -108,7 +110,9 @@ struct FloatingMenu: View {
 
 struct FloatingMenu_Previews: PreviewProvider {
     static var previews: some View {
-        FloatingMenu(DoujinApi: DoujinAPI())
+        GeometryReader{ geo in
+            FloatingMenu(Width: geo.size.width, Height: geo.size.height, DoujinApi: DoujinAPI())
+        }
     }
 }
 

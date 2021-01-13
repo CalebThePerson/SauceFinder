@@ -24,7 +24,7 @@ struct AddDoujin: View {
                     TextField("Enter the Sauce Degen", text:$InputDoujin, onCommit: {
                         UIApplication.shared.keyWindow?.endEditing(true)
                         
-                        
+
                     })
                     .keyboardType(.numberPad)
                 }
