@@ -12,28 +12,33 @@ struct ContentView: View {
     
     @ObservedObject var Doujin = DoujinAPI()
     @StateObject var viewRouter: ViewRouter
+    @State var AddDoujinShow:Bool = false
+    @State var Removal: Bool = false
     
     var body: some View {
         GeometryReader { geo in
             VStack(alignment: .center){
-//                Spacer()
+                Spacer()
                 
                 switch viewRouter.currentPage {
                 case .Sauce:
-                    DoujinView(Doujin: Doujin)
+                    VStack(alignment:.center){
+                        DoujinView(Doujin: Doujin)
+                    }
+                //                    .offset(x: -500)
                 case .Hentai:
                     Text("HentaiView my guy")
                 }
-//                Spacer()
+                Spacer()
                 
                 //Where we actually code the tab bar into play
                 HStack{
                     TabBarIcon(width: geo.size.width/2, height: geo.size.height/28, systemIconName: "book", tabName: "Sauce", viewRouter: viewRouter, assignedPage: .Sauce)
                     ZStack{
-                        TabBarCircle(Width: geo.size.width, Height: geo.size.width)
+                        TabBarCircle(Width: geo.size.width, Height: geo.size.width, AdditionShowing: $AddDoujinShow, Delete: $Removal)
                     }
                     .offset(y:-geo.size.height/8/3)
-
+                    
                     TabBarIcon(width: geo.size.width/2, height: geo.size.height/28, systemIconName: "plus", tabName: "Hentai", viewRouter: viewRouter, assignedPage: .Hentai)
                 }
                 
@@ -42,6 +47,9 @@ struct ContentView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
+        .sheet(isPresented: $AddDoujinShow, content: {
+            AddDoujin(DoujinApi: Doujin, isPresented: $AddDoujinShow)
+        })
     }
 }
 
