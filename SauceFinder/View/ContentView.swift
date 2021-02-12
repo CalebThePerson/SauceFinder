@@ -22,10 +22,10 @@ struct ContentView: View {
                 
                 switch viewRouter.currentPage {
                 case .Sauce:
-                    VStack(alignment:.center){
+                    VStack{
                         DoujinView(Doujin: Doujin)
+                            .offset(x: -300)
                     }
-                //                    .offset(x: -500)
                 case .Hentai:
                     Text("HentaiView my guy")
                 }
@@ -47,6 +47,7 @@ struct ContentView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
+        .ignoresSafeArea(.all)
         .sheet(isPresented: $AddDoujinShow, content: {
             AddSauceView(DoujinApi: Doujin, isPresented: $AddDoujinShow)
         })

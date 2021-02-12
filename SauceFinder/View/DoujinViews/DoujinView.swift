@@ -13,6 +13,7 @@ struct DoujinView: View {
     @ObservedObject var Doujin = DoujinAPI()
     @State private var Doujinshis: Results<DoujinInfo> = realm.objects(DoujinInfo.self)
     @State private var DetailViewShowing:Bool = false
+    @State private var SelectedDoujin: DoujinInfo?
     
     var body: some View {
         if Doujinshis.count == 0 {
@@ -25,22 +26,22 @@ struct DoujinView: View {
                                 self.DetailViewShowing.toggle()
                             }){
                                 DoujinCellWithNODoujin(ScreenSize: Geometry.size)
-
-                            }
+                                
+                            }                        .sheet(isPresented: $DetailViewShowing, content: {
+                                DoujinInformation(TheDoujin: self.$SelectedDoujin)
+                                
+                            })
                         }
+                        
                         if Doujin.LoadingCirclePresent == true{
                             LoadingCircle(TheAPI: Doujin)
                                 .padding(.top)
                         }
                     }
                 }
-//                FloatingMenu(DoujinApi: Doujin)
-                    .offset(x: 300)
+                .offset(x: 300)
             }
         }
-        
-        
-        
         if Doujinshis.count != 0{
             //Code if there are any Doujins
             GeometryReader{ Geometry in
@@ -49,21 +50,31 @@ struct DoujinView: View {
                         VStack(spacing: 0) {
                             ForEach(Doujinshis, id: \.UniqueID) { Doujinshi in
                                 Button(action: {
-                                    self.DetailViewShowing.toggle()
+                                    self.DetailViewShowing = true
+                                    self.SelectedDoujin = Doujinshi
+                                    print("VIEW NOW")
                                 }) {
                                     DoujinCell(TheImage: convertBase64ToImage(Doujinshi.PictureString), ScreenSize: Geometry.size)
                                 }
+                                
+                                
                             }
-                            
+                            .sheet(isPresented: $DetailViewShowing, content: {
+//                                DoujinInformation(TheDoujin: self.$SelectedDoujin)
+                                Text("peeepeepoopo")
+                                
+                            })
                             if Doujin.LoadingCirclePresent == true{
                                 LoadingCircle(TheAPI: Doujin)
                                     .padding(.top)
                             }
                         }
+                        
                     }
-//                    FloatingMenu(DoujinApi: Doujin)
-                        .offset(x: 150, y: -10 )
+                    
+                    .offset(x: 320)
                 }
+                
                 .edgesIgnoringSafeArea(.all)
             }
         }
@@ -78,10 +89,10 @@ struct DoujinView_Previews: PreviewProvider {
 
 extension DoujinView {
     func convertBase64ToImage(_ str: String) -> UIImage {
-           let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
-           let decodedimage = UIImage(data: dataDecoded)
-           return decodedimage!
-       }
+        let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
+        let decodedimage = UIImage(data: dataDecoded)
+        return decodedimage!
+    }
     
     func PrintTheThing(Doujin: DoujinInfo){
         print(Doujin.Name)
