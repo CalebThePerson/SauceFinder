@@ -14,47 +14,61 @@ struct AddDoujin: View {
     @State private var RedoEntry:Bool = false
     
     var body: some View {
-        
-        VStack {
-            HStack{
-                Text("Enter The Sauce:")
-                
-                //If It doesn't need to be redone aka when it starts up it will prompt this text field
-                if RedoEntry == false {
-                    TextField("Enter the Sauce Degen", text:$InputDoujin, onCommit: {
-                        UIApplication.shared.keyWindow?.endEditing(true)
-                        
-
-                    })
-                    .keyboardType(.numberPad)
+        GeometryReader{ geo in
+            ZStack {
+                Form {
+                    //                    Section {
+                    Text("Enter The Sauce:")
+                    
+                    //If It doesn't need to be redone aka when it starts up it will prompt this text field
+                    if RedoEntry == false {
+                        TextField("Enter the Sauce Degen", text:$InputDoujin, onCommit: {
+                            UIApplication.shared.keyWindow?.endEditing(true)
+                        })
+                        .keyboardType(.numberPad)
+                    }
+                    //This will only be prompted when it over 6 digits, which will tell the user to redo it
+                    else{
+                        TextField("Under 6 Digits Sped", text:$InputDoujin, onCommit: {
+                            
+                        }).keyboardType(.numberPad)
+                    }
+                    
+                    //                        }
+                    //The button checks if it needs to be redone or not
+                    //If it doesnt it closes the sheet while also calling the api
+                    VStack{
+                        Spacer()
+                        Button(action: {
+                            if CheckLength(Numbers: InputDoujin) == true {
+                                DoujinApi.bookInfo(SauceNum: InputDoujin);self.isPresented.toggle()
+                            } else {
+                                //If it requires to be redone it sets the variable to true and clear the textfield prompting the user to renter because of the issue
+                                RedoEntry = true
+                                InputDoujin = ""
+                            }
+                            
+                        }){
+                            ZStack {
+                                Circle()
+                                    .foregroundColor(Color("DarkPurple"))
+                                    .frame(width: 80, height: 80)
+                                
+                                Text("Search")
+                            }
+                            
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
                 }
                 
-                //This will only be prompted when it over 6 digits, which will tell the user to redo it
-                else{
-                    TextField("Under 6 Digits Sped", text:$InputDoujin, onCommit: {
-                        
-                    }).keyboardType(.numberPad)
-                }
                 
-                
+//                .buttonStyle(PlainButtonStyle())
             }
-            //The button checks if it needs to be redone or not
-            //If it doesnt it closes the sheet while also calling the api
-            Button(action: {
-                if CheckLength(Numbers: InputDoujin) == true {
-                    DoujinApi.bookInfo(SauceNum: InputDoujin);self.isPresented.toggle()
-                } else {
-                    //If it requires to be redone it sets the variable to true and clear the textfield prompting the user to renter because of the issue
-                    RedoEntry = true
-                    InputDoujin = ""
-                }
-                
-            }){
-                Text("Search")
-            }
+//            .frame(width: geo.size.width, height: geo.size.height/2)
+            //                .navigationTitle(Text("Searching For?"))
+            //            }
         }
-        
-        
         
     }
 }

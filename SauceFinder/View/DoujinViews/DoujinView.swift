@@ -52,17 +52,13 @@ struct DoujinView: View {
                                     self.DetailViewShowing.toggle()
                                 }) {
                                     DoujinCell(TheImage: convertBase64ToImage(Doujinshi.PictureString), ScreenSize: Geometry.size)
-
                                 }
-
-                                
                             }
                             
                             if Doujin.LoadingCirclePresent == true{
                                 LoadingCircle(TheAPI: Doujin)
                                     .padding(.top)
                             }
-                            
                         }
                     }
 //                    FloatingMenu(DoujinApi: Doujin)

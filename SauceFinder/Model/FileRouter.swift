@@ -10,8 +10,6 @@ import SwiftUI
 
 class ViewRouter: ObservableObject{
     @Published var currentPage: Page = .Sauce
-    
-    
 }
 
 enum Page {

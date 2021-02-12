@@ -48,7 +48,7 @@ struct ContentView: View {
             .edgesIgnoringSafeArea(.bottom)
         }
         .sheet(isPresented: $AddDoujinShow, content: {
-            AddDoujin(DoujinApi: Doujin, isPresented: $AddDoujinShow)
+            AddSauceView(DoujinApi: Doujin, isPresented: $AddDoujinShow)
         })
     }
 }
