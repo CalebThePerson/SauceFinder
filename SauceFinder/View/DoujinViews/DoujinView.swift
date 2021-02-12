@@ -10,73 +10,61 @@ import RealmSwift
 
 struct DoujinView: View {
     
-    @ObservedObject var Doujin = DoujinAPI()
-    @State private var Doujinshis: Results<DoujinInfo> = realm.objects(DoujinInfo.self)
-    @State private var DetailViewShowing:Bool = false
-    @State private var SelectedDoujin: DoujinInfo?
+    @ObservedObject var doujin = DoujinAPI()
+    @State private var doujinshis: Results<DoujinInfo> = realm.objects(DoujinInfo.self)
+    @State private var detailViewShowing: Bool = false
+    @State private var selectedDoujin: DoujinInfo?
     
     var body: some View {
-        if Doujinshis.count == 0 {
+        
+        if doujinshis.count == 0 {
             //Code if there aren't doujins
-            GeometryReader { Geometry in
-                ZStack {
-                    ScrollView(.vertical){
-                        VStack(spacing:0){
-                            Button(action: {
-                                self.DetailViewShowing.toggle()
-                            }){
-                                DoujinCellWithNODoujin(ScreenSize: Geometry.size)
-                                
-                            }                        .sheet(isPresented: $DetailViewShowing, content: {
-                                DoujinInformation(TheDoujin: self.$SelectedDoujin)
-                                
-                            })
-                        }
-                        
-                        if Doujin.LoadingCirclePresent == true{
-                            LoadingCircle(TheAPI: Doujin)
-                                .padding(.top)
-                        }
-                    }
-                }
-                .offset(x: 300)
-            }
-        }
-        if Doujinshis.count != 0{
-            //Code if there are any Doujins
-            GeometryReader{ Geometry in
-                ZStack {
-                    ScrollView(.vertical) {
-                        VStack(spacing: 0) {
-                            ForEach(Doujinshis, id: \.UniqueID) { Doujinshi in
-                                Button(action: {
-                                    self.DetailViewShowing = true
-                                    self.SelectedDoujin = Doujinshi
-                                    print("VIEW NOW")
-                                }) {
-                                    DoujinCell(TheImage: convertBase64ToImage(Doujinshi.PictureString), ScreenSize: Geometry.size)
-                                }
-                                
-                                
-                            }
-                            .sheet(isPresented: $DetailViewShowing, content: {
-//                                DoujinInformation(TheDoujin: self.$SelectedDoujin)
-                                Text("peeepeepoopo")
-                                
-                            })
-                            if Doujin.LoadingCirclePresent == true{
-                                LoadingCircle(TheAPI: Doujin)
-                                    .padding(.top)
-                            }
-                        }
+            
+            ScrollView(.vertical) {
+                VStack(spacing: 0) {
+                    Button(action: {
+                        self.detailViewShowing.toggle()
+                    }){
+                        DoujinCellWithNODoujin()
                         
                     }
-                    
-                    .offset(x: 320)
+                    .sheet(isPresented: $detailViewShowing, content: {
+                        DoujinInformation(theDoujin: $selectedDoujin)
+                    })
                 }
                 
-                .edgesIgnoringSafeArea(.all)
+                if doujin.loadingCirclePresent == true{
+                    LoadingCircle(TheAPI: doujin)
+                        .padding(.top)
+                }
             }
+            .edgesIgnoringSafeArea(.all)
+            
+        } else {
+            //Code if there are any Doujins
+            ScrollView(.vertical) {
+                VStack(spacing: 0) {
+                    ForEach(doujinshis, id: \.UniqueID) { doujinshi in
+                        Button(action: {
+                            self.detailViewShowing = true
+                            self.selectedDoujin = doujinshi
+                        }) {
+                            DoujinCell(image: convertBase64ToImage(doujinshi.PictureString))
+                        }
+                    }
+                    .sheet(isPresented: $detailViewShowing, content: {
+                        DoujinInformation(theDoujin: $selectedDoujin)
+                    })
+                    
+                    if doujin.loadingCirclePresent == true{
+                        LoadingCircle(TheAPI: doujin)
+                            .padding(.top)
+                    }
+                    
+                }
+                
+            }
+            .edgesIgnoringSafeArea(.all)
         }
     }
 }

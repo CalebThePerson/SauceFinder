@@ -12,22 +12,21 @@ import SwiftyJSON
 import RealmSwift
 
 class DoujinAPI:ObservableObject {
-    @Published var EnterSauceAlert: Bool = false
-    @Published var LoadingCirclePresent: Bool = false
+    @Published var enterSauceAlert: Bool = false
+    @Published var loadingCirclePresent: Bool = false
     
     
     //Function that gets all the detils of the doujin
     func bookInfo(SauceNum: String) {
-        LoadingCirclePresent = true
+        loadingCirclePresent = true
         
-        let Headers: HTTPHeaders = [.accept("application/json")]
+        let headers: HTTPHeaders = [.accept("application/json")]
         
-        AF.request("https://nhentai.net/api/gallery/\(SauceNum)", method: .get, headers: Headers).responseJSON { response in
+        AF.request("https://nhentai.net/api/gallery/\(SauceNum)", method: .get, headers: headers).responseJSON { response in
             print("Working")
             
             if let Data = response.data {
                 let json = try! JSON(data: Data)
-//                print(json)
                 
                 let NewDoujin = DoujinInfo()
                 
@@ -57,7 +56,7 @@ class DoujinAPI:ObservableObject {
                     
                     save(Doujin: NewDoujin)
                     print("Saved")
-                    self.LoadingCirclePresent.toggle()
+                    self.loadingCirclePresent.toggle()
                 }
 
             }

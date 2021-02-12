@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct DoujinInformation: View {
-    @Binding var TheDoujin: DoujinInfo?
+    @Binding var theDoujin: DoujinInfo?
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, World!")
         Text("PEEEPEEEPPOOOPOOOOOOO")
     }
 }
 
 struct DoujinInformation_Previews: PreviewProvider {
     static var previews: some View {
-        DoujinInformation(TheDoujin: .constant(DoujinInfo()))
+        DoujinInformation(theDoujin: .constant(DoujinInfo()))
     }
 }

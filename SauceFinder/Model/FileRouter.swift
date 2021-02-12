@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 class ViewRouter: ObservableObject{
-    @Published var currentPage: Page = .Sauce
+    @Published var currentPage: Page = .sauce
 }
 
 enum Page {
-    case Sauce
-    case Hentai
+    case sauce
+    case hentai
 }
