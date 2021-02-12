@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct TabBarCircle: View {
-    var Width, Height: CGFloat
-    @State var ShowPopUp = false
-    @Binding var AdditionShowing:Bool
-    @Binding var Delete: Bool
+    var length: CGFloat
+    @State var showPopUp = false
+    @Binding var additionShowing:Bool
+    @Binding var delete: Bool
     
     var body: some View {
         ZStack {
-            if ShowPopUp {
-                PlusMenu(widthAndHeight: Width/7, ShowOne: $AdditionShowing, ShowTwo: $Delete)
-                    .offset(y: -Height/6)
+            if showPopUp {
+                PlusMenu(widthAndHeight: length, ShowOne: $additionShowing, ShowTwo: $delete)
+                    .offset(y: -length)
             }
             
             
@@ -25,22 +25,22 @@ struct TabBarCircle: View {
                 ZStack{
                     Circle()
                         .foregroundColor(.white)
-                        .frame(width: Width/7, height: Width/7)
+                        .frame(width: length, height: length)
                         .shadow(radius:4)
                     
                     Image(systemName: "plus.circle.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: Width/7-6, height: Width/7-6)
+                        .frame(width: length, height: length)
                         .foregroundColor(Color("DarkPurple"))
-                        .rotationEffect(Angle(degrees: ShowPopUp ? 90 : 0))
+                        .rotationEffect(Angle(degrees: showPopUp ? 90 : 0))
                 }
             }
         }
-        //        .offset(y: -Height/8/2)
+        
         .onTapGesture {
             withAnimation {
-                ShowPopUp.toggle()
+                showPopUp.toggle()
             }
         }
     }
@@ -48,10 +48,9 @@ struct TabBarCircle: View {
 
 struct TabBarCircle_Previews: PreviewProvider {
     static var previews: some View {
-        GeometryReader{ geo in
-            TabBarCircle(Width: geo.size.width, Height: geo.size.height, AdditionShowing: .constant(false), Delete: .constant(false))
-            
-        }
+        
+        TabBarCircle(length: 50, additionShowing: .constant(false), delete: .constant(false))
+        
     }
 }
 

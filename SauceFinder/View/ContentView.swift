@@ -10,77 +10,73 @@ import RealmSwift
 
 struct ContentView: View {
     
-    @ObservedObject var Doujin = DoujinAPI()
-    @StateObject var viewRouter: ViewRouter
-    @State var AddDoujinShow:Bool = false
-    @State var Removal: Bool = false
+    @ObservedObject var doujin = DoujinAPI()
+    @StateObject var viewRouter = ViewRouter()
+    @State var addDoujinShow: Bool = false
+    @State var removal: Bool = false
     
     var body: some View {
-        GeometryReader { geo in
-            VStack(alignment: .center){
-                Spacer()
-                
-                switch viewRouter.currentPage {
-                case .Sauce:
-                    VStack{
-                        DoujinView(Doujin: Doujin)
-                            .offset(x: -300)
-                    }
-                case .Hentai:
-                    Text("HentaiView my guy")
-                }
-                Spacer()
-                
-                //Where we actually code the tab bar into play
-                HStack{
-                    TabBarIcon(width: geo.size.width/2, height: geo.size.height/28, systemIconName: "book", tabName: "Sauce", viewRouter: viewRouter, assignedPage: .Sauce)
-                    ZStack{
-                        TabBarCircle(Width: geo.size.width, Height: geo.size.width, AdditionShowing: $AddDoujinShow, Delete: $Removal)
-                    }
-                    .offset(y:-geo.size.height/8/3)
-                    
-                    TabBarIcon(width: geo.size.width/2, height: geo.size.height/28, systemIconName: "plus", tabName: "Hentai", viewRouter: viewRouter, assignedPage: .Hentai)
-                }
-                
-                .frame(width: geo.size.width, height: geo.size.height/8)
-                .background(Color("Background").shadow(radius:2))
+        ZStack {
+            switch viewRouter.currentPage {
+            case .sauce:
+                DoujinView()
+            case .hentai:
+                Text("HentaiView my guy")
             }
-            .edgesIgnoringSafeArea(.bottom)
+            
+            VStack {
+
+                Spacer()
+
+                /// Where we actually code the tab bar into play
+                HStack{
+                    TabBarIcon(currentPage: $viewRouter.currentPage, width: 30, height: 30, systemIconName: "book", tabName: "Sauce", assignedPage: .sauce)
+                        .padding(.trailing, 10)
+
+                    TabBarCircle(length: 50, additionShowing: $addDoujinShow, delete: $removal)
+                        .offset(y: -20)
+
+                    TabBarIcon(currentPage: $viewRouter.currentPage, width: 30, height: 30, systemIconName: "plus", tabName: "Hentai", assignedPage: .hentai)
+                        .padding(.leading, 10)
+                }
+
+            }
+            .sheet(isPresented: $addDoujinShow, content: {
+                AddSauceView(DoujinApi: doujin, isPresented: $addDoujinShow)
+            })
         }
-        .ignoresSafeArea(.all)
-        .sheet(isPresented: $AddDoujinShow, content: {
-            AddSauceView(DoujinApi: Doujin, isPresented: $AddDoujinShow)
-        })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewRouter: ViewRouter())
+        ContentView()
     }
 }
 
-struct TabBarIcon: View{
+struct TabBarIcon: View {
+    @Binding var currentPage: Page
+    
     let width, height: CGFloat
     let systemIconName, tabName: String
-    @StateObject var viewRouter: ViewRouter
+    
     let assignedPage: Page
     
     var body: some View {
-        VStack{
-            Image(systemName: systemIconName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: width, height: height)
-                .padding(.top, 10)
-            Text(tabName)
-                .font(.footnote)
-            Spacer()
-        }
-        .padding(.horizontal, -4)
         
-        .onTapGesture {
-            viewRouter.currentPage = assignedPage
+        Button(action: {
+            currentPage = assignedPage
+        }) {
+            VStack{
+                Image(systemName: systemIconName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: width, height: height)
+                    .padding(.top, 10)
+                
+                Text(tabName)
+                    .font(.footnote)
+            }
         }
     }
 }
