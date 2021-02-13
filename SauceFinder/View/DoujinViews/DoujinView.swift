@@ -52,6 +52,7 @@ struct DoujinView: View {
                             DoujinCell(image: convertBase64ToImage(doujinshi.PictureString))
                         }
                     }
+
                     .sheet(isPresented: $detailViewShowing, content: {
                         DoujinInformation(theDoujin: $selectedDoujin)
                     })
@@ -60,10 +61,10 @@ struct DoujinView: View {
                         LoadingCircle(TheAPI: doujin)
                             .padding(.top)
                     }
-                    
                 }
-                
             }
+            .lineSpacing(0)
+
             .edgesIgnoringSafeArea(.all)
         }
     }

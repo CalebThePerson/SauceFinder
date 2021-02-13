@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2DF4B8E7EA98A708657DF9AF /* Pods_SauceFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */; };
+		C31F35C725D7558C00EB65E9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C625D7558800EB65E9 /* ImageView.swift */; };
+		C31F35CA25D759E000EB65E9 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C925D759E000EB65E9 /* TagView.swift */; };
 		C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065A25785F4500E99E2F /* DoujinView.swift */; };
 		C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065E2578622800E99E2F /* DoujinCell.swift */; };
 		C352603825AE7EB800651006 /* TabBarCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352603725AE7EB800651006 /* TabBarCircle.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		302E1E27763EAC938CA32C6A /* Pods-SauceFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SauceFinder.debug.xcconfig"; path = "Target Support Files/Pods-SauceFinder/Pods-SauceFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SauceFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C31F35C625D7558800EB65E9 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		C31F35C925D759E000EB65E9 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		C33F065A25785F4500E99E2F /* DoujinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinView.swift; sourceTree = "<group>"; };
 		C33F065E2578622800E99E2F /* DoujinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinCell.swift; sourceTree = "<group>"; };
 		C352603725AE7EB800651006 /* TabBarCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCircle.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				C352603725AE7EB800651006 /* TabBarCircle.swift */,
+				C31F35C625D7558800EB65E9 /* ImageView.swift */,
+				C31F35C925D759E000EB65E9 /* TagView.swift */,
 				C3679944259D3C100098BF78 /* LoadingCircle.swift */,
 			);
 			path = SupportingViews;
@@ -303,12 +309,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C31F35CA25D759E000EB65E9 /* TagView.swift in Sources */,
 				C3C0FF452577797A00B8E4BE /* DoujinTags.swift in Sources */,
 				C3B9F71D25AF5CF7005EBB3B /* TestingAddDoujin.swift in Sources */,
 				C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */,
 				C3C0FF3A25776AE800B8E4BE /* DoujinAPI.swift in Sources */,
 				C3C0FF422577785B00B8E4BE /* DoujinInfo.swift in Sources */,
 				C35E54DD25D5FEC100977E0A /* AddSauceView.swift in Sources */,
+				C31F35C725D7558C00EB65E9 /* ImageView.swift in Sources */,
 				C395250E2579D72D0052099B /* DoujinCellWithNODoujin.swift in Sources */,
 				C3679945259D3C100098BF78 /* LoadingCircle.swift in Sources */,
 				C3C0FF3E257777BA00B8E4BE /* SaveAndSuch.swift in Sources */,

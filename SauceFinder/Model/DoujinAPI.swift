@@ -18,7 +18,7 @@ class DoujinAPI:ObservableObject {
     
     //Function that gets all the detils of the doujin
     func bookInfo(SauceNum: String) {
-        loadingCirclePresent = true
+        self.loadingCirclePresent = true
         
         let headers: HTTPHeaders = [.accept("application/json")]
         
