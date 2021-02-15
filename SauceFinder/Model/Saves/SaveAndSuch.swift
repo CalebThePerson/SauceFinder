@@ -22,3 +22,15 @@ func save(Doujin : DoujinInfo) {
     print("Saved")
 
 }
+
+func delete(doujin: DoujinInfo){
+    do {
+        try realm.write{
+            realm.delete(doujin)
+        }
+    }
+    catch {
+        print("There was an error \(error)")
+    }
+    print("Deleted")
+}

@@ -11,9 +11,11 @@ import AlamofireImage
 import SwiftyJSON
 import RealmSwift
 
+
 class DoujinAPI:ObservableObject {
     @Published var enterSauceAlert: Bool = false
     @Published var loadingCirclePresent: Bool = false
+    @Published var removing:Bool = false
     
     
     //Function that gets all the detils of the doujin

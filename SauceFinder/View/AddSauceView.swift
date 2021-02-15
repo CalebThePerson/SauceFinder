@@ -23,8 +23,8 @@ struct AddSauceView: View {
         GeometryReader { geo in
             NavigationView{
                 VStack {
+                    
                     //Creating a section where we ask the user if they will be adding hentai or doujin
-                    //                    VStack{
                     Form{
                         Section(header: Text("What you you looking for?")) {
                             Picker(selection: $CurrentSelectionForPicker, label: Text("Please select one")) {
@@ -41,6 +41,7 @@ struct AddSauceView: View {
                             Section(header:Text("Sauce Details")){
                                 Text("Enter The Sauce:")
                                 
+                                
                                 //If It doesn't need to be redone aka when it starts up it will prompt this text field
                                 if RedoEntry == false {
                                     TextField("Enter the Sauce Degen", text:$InputDoujin, onCommit: {
@@ -48,6 +49,8 @@ struct AddSauceView: View {
                                     })
                                     .keyboardType(.numberPad)
                                 }
+                                
+                                
                                 //This will only be prompted when it over 6 digits, which will tell the user to redo it
                                 else{
                                     TextField("Under 6 Digits Sped", text:$InputDoujin, onCommit: {
@@ -55,15 +58,17 @@ struct AddSauceView: View {
                                     }).keyboardType(.numberPad)
                                 }
                                 
-                                //                        }
+
+
                                 //The button checks if it needs to be redone or not
                                 //If it doesnt it closes the sheet while also calling the api
                                 VStack{
                                     Spacer()
                                     Button(action: {
                                         if CheckLength(Numbers: InputDoujin) == true {
-                                            DoujinApi.bookInfo(SauceNum: InputDoujin);self.isPresented.toggle()
+                                            DoujinApi.bookInfo(SauceNum: InputDoujin);self.isPresented.toggle();DoujinApi.loadingCirclePresent=true
                                         } else {
+                                            
                                             //If it requires to be redone it sets the variable to true and clear the textfield prompting the user to renter because of the issue
                                             RedoEntry = true
                                             InputDoujin = ""
@@ -91,11 +96,6 @@ struct AddSauceView: View {
                         }
                     }
                 }
-                
-                
-                
-                
-                
             }
             
         }

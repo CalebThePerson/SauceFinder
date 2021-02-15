@@ -14,6 +14,7 @@ struct ContentView: View {
     @StateObject var viewRouter = ViewRouter()
     @State var addDoujinShow: Bool = false
     @State var removal: Bool = false
+    @State var showView:Bool = false
     
     var body: some View {
         ZStack {
@@ -41,6 +42,7 @@ struct ContentView: View {
                 }
 
             }
+//            .background(Color("Background").shadow(radius:2))
             .sheet(isPresented: $addDoujinShow, content: {
                 AddSauceView(DoujinApi: doujin, isPresented: $addDoujinShow)
             })
