@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2DF4B8E7EA98A708657DF9AF /* Pods_SauceFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */; };
+		3C7783B02602D6A500F3654D /* Swift-SauceNao in Frameworks */ = {isa = PBXBuildFile; productRef = 3C7783AF2602D6A500F3654D /* Swift-SauceNao */; };
 		C31F35C725D7558C00EB65E9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C625D7558800EB65E9 /* ImageView.swift */; };
 		C31F35CA25D759E000EB65E9 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C925D759E000EB65E9 /* TagView.swift */; };
 		C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065A25785F4500E99E2F /* DoujinView.swift */; };
@@ -68,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF4B8E7EA98A708657DF9AF /* Pods_SauceFinder.framework in Frameworks */,
+				3C7783B02602D6A500F3654D /* Swift-SauceNao in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +215,9 @@
 			dependencies = (
 			);
 			name = SauceFinder;
+			packageProductDependencies = (
+				3C7783AF2602D6A500F3654D /* Swift-SauceNao */,
+			);
 			productName = SauceFinder;
 			productReference = C38F224825760ABD0005CDEE /* SauceFinder.app */;
 			productType = "com.apple.product-type.application";
@@ -240,6 +245,9 @@
 				Base,
 			);
 			mainGroup = C38F223F25760ABD0005CDEE;
+			packageReferences = (
+				3C7783AE2602D6A500F3654D /* XCRemoteSwiftPackageReference "Swift-SauceNao" */,
+			);
 			productRefGroup = C38F224925760ABD0005CDEE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -471,6 +479,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SauceFinder/Preview Content\"";
 				DEVELOPMENT_TEAM = MMZA244CU5;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = SauceFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -494,6 +503,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SauceFinder/Preview Content\"";
 				DEVELOPMENT_TEAM = MMZA244CU5;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = SauceFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -529,6 +539,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3C7783AE2602D6A500F3654D /* XCRemoteSwiftPackageReference "Swift-SauceNao" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Isvvc/Swift-SauceNao";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C7783AF2602D6A500F3654D /* Swift-SauceNao */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C7783AE2602D6A500F3654D /* XCRemoteSwiftPackageReference "Swift-SauceNao" */;
+			productName = "Swift-SauceNao";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C38F224025760ABD0005CDEE /* Project object */;
 }
