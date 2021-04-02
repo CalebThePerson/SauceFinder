@@ -59,6 +59,8 @@ struct PlusMenu: View {
     let widthAndHeight: CGFloat
     @Binding var ShowOne: Bool
     @Binding var ShowTwo: Bool
+    @ObservedObject var doujinApi = DoujinAPI()
+
     
     var body: some View {
         HStack(spacing: 50) {
@@ -79,21 +81,30 @@ struct PlusMenu: View {
                     }
                 }
             }
-            Button(action: {
-                self.ShowTwo.toggle()
-            }){
-                ZStack {
-                    Circle()
-                        .foregroundColor(Color("DarkPurple"))
-                        .frame(width: widthAndHeight, height: widthAndHeight)
-                    Image(systemName: "minus")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(15)
-                        .frame(width: widthAndHeight, height: widthAndHeight)
-                        .foregroundColor(.white)
-                }
-            }
+//            Button(action: {
+//
+//                doujinApi.removing.toggle()
+//            }){
+//                ZStack {
+//                    Circle()
+//                        .foregroundColor(Color("DarkPurple"))
+//                        .frame(width: widthAndHeight, height: widthAndHeight)
+//                    Image(systemName: "minus")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .padding(15)
+//                        .frame(width: widthAndHeight, height: widthAndHeight)
+//                        .foregroundColor(.white)
+//                }
+//            }
+            
+            EditButton()
+                .simultaneousGesture(TapGesture().onEnded {
+                        // Do your thing
+                    doujinApi.removing = true
+                    print("touched")
+                    })
+            
         }
         .transition(.scale)
     }

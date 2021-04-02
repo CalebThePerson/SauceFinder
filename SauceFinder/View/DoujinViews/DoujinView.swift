@@ -14,6 +14,9 @@ struct DoujinView: View {
     @State private var doujinshis: Results<DoujinInfo> = realm.objects(DoujinInfo.self)
     @State private var detailViewShowing: Bool = false
     @State private var selectedDoujin: DoujinInfo?
+    @State var alertShow:Bool = false
+    @State var testing:Bool = DoujinAPI().removing
+    
     
     var body: some View {
         
@@ -29,7 +32,7 @@ struct DoujinView: View {
                         
                     }
                     .sheet(isPresented: $detailViewShowing, content: {
-                        DoujinInformation(theDoujin: $selectedDoujin)
+                        DoujinInformation(theDoujin: $selectedDoujin, theAPI: doujin)
                     })
                 }
                 
@@ -52,9 +55,19 @@ struct DoujinView: View {
                             DoujinCell(image: convertBase64ToImage(doujinshi.PictureString))
                         }
                     }
+                    .lineSpacing(0)
 
-                    .sheet(isPresented: $detailViewShowing, content: {
-                        DoujinInformation(theDoujin: $selectedDoujin)
+                    //This will ask if the user is sure they would like to delete the curent sauce
+                    .alert(isPresented: $alertShow){
+                        Alert(title: Text("Would you like to delete this entry"),message: Text(selectedDoujin!.Name),dismissButton:
+                                .default(Text("Delete")) {
+                                    SauceFinder.delete(doujin: selectedDoujin!)
+                                })
+                    }
+                    
+                    //This will preseent the sheet that displays information for the doujin
+                    .sheet(isPresented: $detailViewShowing, onDismiss: {if doujin.removing == true {BigDelete(doujin: selectedDoujin!)}}, content: {
+                        DoujinInformation(theDoujin: $selectedDoujin, theAPI: doujin)
                     })
                     
                     if doujin.loadingCirclePresent == true{
@@ -63,10 +76,18 @@ struct DoujinView: View {
                     }
                 }
             }
-            .lineSpacing(0)
-
+            
             .edgesIgnoringSafeArea(.all)
         }
+        
+    }
+    //Code that may be helpful later when deleting multiple rows
+    func deleteRow(with indexSet: IndexSet){
+        indexSet.forEach ({ index in
+            try! realm.write {
+                realm.delete(self.doujinshis[index])
+            }
+        })
     }
 }
 
@@ -82,8 +103,18 @@ extension DoujinView {
         let decodedimage = UIImage(data: dataDecoded)
         return decodedimage!
     }
-    
-    func PrintTheThing(Doujin: DoujinInfo){
-        print(Doujin.Name)
+    func BigDelete(doujin: DoujinInfo){
+        do {
+            try realm.write{
+                realm.delete(doujin)
+            }
+        }
+        catch {
+            print("There was an error \(error)")
+        }
+        print("Deleted")
+        self.doujinshis = realm.objects(DoujinInfo.self)
     }
+    
+    
 }
