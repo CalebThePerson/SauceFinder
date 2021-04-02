@@ -9,77 +9,47 @@ import SwiftUI
 
 struct DoujinInformation: View {
     @Binding var theDoujin: DoujinInfo?
-    @State var alertShow:Bool = false
-    @Environment(\.presentationMode) var presentationMode
-    var theAPI:DoujinAPI
-
     
     var body: some View {
         GeometryReader{ geo in
             ScrollView(.vertical){
-                ZStack{
-                    
-                    Button(action: {
-                        alertShow.toggle()
-                    }) {
-                        Image(systemName: "trash.circle")
-                            .resizable()
-                            .foregroundColor(.red)
-                            .frame(width:25, height: 25)
+                VStack{
+                    Group{
+//                        Spacer()
                         
-                    }
-                    .offset(x:-160, y:-235)
-                    
-                    
-                    VStack{
-                        Group{
-                            //                        Spacer()
-                            
-                            
-                            
-                            Text(theDoujin!.Name)
-                                .font(.title)
-                                .fontWeight(.regular)
-                                .multilineTextAlignment(.center)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .frame(alignment:.center)
-                                .padding([.leading, .trailing,.top], 50)
-                            //                            .font(.headline)
-                            
-                            
-                            
-                            Text("Sauce:\(theDoujin!.Id)")
-                                .font(.title2)
-                                .padding(.bottom, 25)
-                            
-                            
-                            Text("Tags:")
-                                .frame(alignment: .center)
-                            
-                            TagView(tagArray: theDoujin!.Tags)
-                                .padding(.bottom, 150)
-                                .padding([.trailing, .leading], 10)
-                            
-                            
-                            
-                            Spacer()
-                            
-                            ImageView(image: convertBase64ToImage(theDoujin!.PictureString))
-                                .frame(alignment:.center)
-                                .padding([.leading, .trailing], 50)
-                            
-                            
-                            
-                            
-                        }
-                        .alert(isPresented: $alertShow){
-                            Alert(title: Text("Would you like to delete this entry"),message: Text(theDoujin!.Name),dismissButton:
-                                    .default(Text("Delete")) {
-                                        theAPI.removing = true
-                                        presentationMode.wrappedValue.dismiss()
-//                                        SauceFinder.delete(doujin: theDoujin!)
-                                    })
-                        }
+                        Text(theDoujin!.Name)
+                            .font(.title)
+                            .fontWeight(.regular)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(alignment:.center)
+                            .padding([.leading, .trailing,.top], 50)
+                        //                            .font(.headline)
+                        
+                        
+                        
+                        Text("Sauce:\(theDoujin!.Id)")
+                            .font(.title2)
+                            .padding(.bottom, 25)
+                        
+                        
+                        Text("Tags:")
+                            .frame(alignment: .center)
+                        
+                        TagView(tagArray: theDoujin!.Tags)
+                            .padding(.bottom, 150)
+                            .padding([.trailing, .leading], 10)
+                        
+                        
+                        
+                        Spacer()
+                        
+                        ImageView(image: convertBase64ToImage(theDoujin!.PictureString))
+                            .frame(alignment:.center)
+                            .padding([.leading, .trailing], 50)
+                        
+
+                        
                     }
                 }
             }
@@ -90,7 +60,7 @@ struct DoujinInformation: View {
 
 struct DoujinInformation_Previews: PreviewProvider {
     static var previews: some View {
-        DoujinInformation(theDoujin: .constant(DoujinInfo()), theAPI: DoujinAPI())
+        DoujinInformation(theDoujin: .constant(DoujinInfo()))
     }
 }
 
