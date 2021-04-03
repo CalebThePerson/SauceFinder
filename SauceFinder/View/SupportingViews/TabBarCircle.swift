@@ -81,29 +81,22 @@ struct PlusMenu: View {
                     }
                 }
             }
-//            Button(action: {
-//
-//                doujinApi.removing.toggle()
-//            }){
-//                ZStack {
-//                    Circle()
-//                        .foregroundColor(Color("DarkPurple"))
-//                        .frame(width: widthAndHeight, height: widthAndHeight)
-//                    Image(systemName: "minus")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .padding(15)
-//                        .frame(width: widthAndHeight, height: widthAndHeight)
-//                        .foregroundColor(.white)
-//                }
-//            }
-            
-            EditButton()
-                .simultaneousGesture(TapGesture().onEnded {
-                        // Do your thing
-                    doujinApi.removing = true
-                    print("touched")
-                    })
+            Button(action: {
+
+                doujinApi.removing.toggle()
+            }){
+                ZStack {
+                    Circle()
+                        .foregroundColor(Color("DarkPurple"))
+                        .frame(width: widthAndHeight, height: widthAndHeight)
+                    Image(systemName: "magnifyingglass")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(15)
+                        .frame(width: widthAndHeight, height: widthAndHeight)
+                        .foregroundColor(.white)
+                }
+            }
             
         }
         .transition(.scale)

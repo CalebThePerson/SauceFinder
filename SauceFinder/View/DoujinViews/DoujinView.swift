@@ -55,7 +55,6 @@ struct DoujinView: View {
                             DoujinCell(image: convertBase64ToImage(doujinshi.PictureString))
                         }
                     }
-                    .lineSpacing(0)
 
                     //This will ask if the user is sure they would like to delete the curent sauce
                     .alert(isPresented: $alertShow){
@@ -76,6 +75,7 @@ struct DoujinView: View {
                     }
                 }
             }
+            .lineSpacing(0)
             
             .edgesIgnoringSafeArea(.all)
         }
