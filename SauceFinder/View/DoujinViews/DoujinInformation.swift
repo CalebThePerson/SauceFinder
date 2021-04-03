@@ -73,12 +73,12 @@ struct DoujinInformation: View {
                             
                         }
                         .alert(isPresented: $alertShow){
-                            Alert(title: Text("Would you like to delete this entry"),message: Text(theDoujin!.Name),dismissButton:
+                            Alert(title: Text("Would you like to delete this entry"),message: Text(theDoujin!.Name),primaryButton:
                                     .default(Text("Delete")) {
                                         theAPI.removing = true
                                         presentationMode.wrappedValue.dismiss()
 //                                        SauceFinder.delete(doujin: theDoujin!)
-                                    })
+                                    }, secondaryButton: .cancel())
                         }
                     }
                 }
