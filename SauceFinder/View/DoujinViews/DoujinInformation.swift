@@ -33,9 +33,6 @@ struct DoujinInformation: View {
                     
                     VStack{
                         Group{
-                            //                        Spacer()
-                            
-                            
                             
                             Text(theDoujin!.Name)
                                 .font(.title)
@@ -50,10 +47,14 @@ struct DoujinInformation: View {
                             
                             Text("Sauce:\(theDoujin!.Id)")
                                 .font(.title2)
+//                                .padding(.bottom, 25)
+                            
+                            Text("\(theDoujin!.NumPages) pages")
+                                .font(.title2)
                                 .padding(.bottom, 25)
                             
                             
-                            Text("Tags:")
+                            Text("Tags")
                                 .frame(alignment: .center)
                             
                             TagView(tagArray: theDoujin!.Tags)
@@ -61,9 +62,13 @@ struct DoujinInformation: View {
                                 .padding([.trailing, .leading], 10)
                             
                             
+//                            Text("\(theDoujin!.NumPages) pages")
+
+                            
+                            
                             
                             Spacer()
-                            
+                                                        
                             ImageView(image: convertBase64ToImage(theDoujin!.PictureString))
                                 .frame(alignment:.center)
                                 .padding([.leading, .trailing], 50)
