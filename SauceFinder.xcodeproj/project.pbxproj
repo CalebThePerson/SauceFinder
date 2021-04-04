@@ -17,6 +17,7 @@
 		C35E54DD25D5FEC100977E0A /* AddSauceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35E54DC25D5FEC100977E0A /* AddSauceView.swift */; };
 		C35FB4B325A2A074005D4536 /* DoujinInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35FB4B225A2A074005D4536 /* DoujinInformation.swift */; };
 		C3679945259D3C100098BF78 /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3679944259D3C100098BF78 /* LoadingCircle.swift */; };
+		C36811622619AA15001F8280 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36811612619AA15001F8280 /* ImagePicker.swift */; };
 		C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224B25760ABD0005CDEE /* AppDelegate.swift */; };
 		C38F224E25760ABD0005CDEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224D25760ABD0005CDEE /* SceneDelegate.swift */; };
 		C38F225025760ABD0005CDEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224F25760ABD0005CDEE /* ContentView.swift */; };
@@ -44,6 +45,7 @@
 		C35E54DC25D5FEC100977E0A /* AddSauceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSauceView.swift; sourceTree = "<group>"; };
 		C35FB4B225A2A074005D4536 /* DoujinInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinInformation.swift; sourceTree = "<group>"; };
 		C3679944259D3C100098BF78 /* LoadingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
+		C36811612619AA15001F8280 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C38F224825760ABD0005CDEE /* SauceFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SauceFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38F224B25760ABD0005CDEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C38F224D25760ABD0005CDEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			children = (
 				C3C0FF3925776AE800B8E4BE /* DoujinAPI.swift */,
 				C352603A25AE810400651006 /* FileRouter.swift */,
+				C36811612619AA15001F8280 /* ImagePicker.swift */,
 				C3C0FF3C257777AD00B8E4BE /* Saves */,
 			);
 			path = Model;
@@ -326,6 +329,7 @@
 				C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */,
 				C35FB4B325A2A074005D4536 /* DoujinInformation.swift in Sources */,
 				C352603B25AE810400651006 /* FileRouter.swift in Sources */,
+				C36811622619AA15001F8280 /* ImagePicker.swift in Sources */,
 				C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */,
 				C352603825AE7EB800651006 /* TabBarCircle.swift in Sources */,
 			);

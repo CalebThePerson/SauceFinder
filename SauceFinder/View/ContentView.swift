@@ -7,15 +7,24 @@
 
 import SwiftUI
 import RealmSwift
-import Swift_SauceNao
+
+enum sheetPicker:Identifiable{
+    var id: Int{
+        hashValue
+    }
+    
+    case addDoujin
+    case imagePick
+}
 
 struct ContentView: View {
     
     @ObservedObject var doujin = DoujinAPI()
     @StateObject var viewRouter = ViewRouter()
-    @State var addDoujinShow: Bool = false
-    @State var removal: Bool = false
-    @State var showView:Bool = false
+    @State var showing:Bool = false
+    
+    @State var sheetPicker: sheetPicker? = .none
+    @State private var InputImage: UIImage?
     
     var body: some View {
         GeometryReader {geo in
@@ -38,7 +47,7 @@ struct ContentView: View {
                             .padding(.trailing, 10)
                             .offset(y:-10)
                         
-                        TabBarCircle(length: 50, additionShowing: $addDoujinShow, delete: $removal)
+                        TabBarCircle(length: 50, showingViews: $showing, sheetPicker: $sheetPicker )
                             .offset(y: -40)
                         
                         TabBarIcon(currentPage: $viewRouter.currentPage, width: 30, height: 30, systemIconName: "plus", tabName: "Hentai", assignedPage: .hentai)
@@ -51,10 +60,17 @@ struct ContentView: View {
                     
                 }
                 .edgesIgnoringSafeArea(.bottom)
-                //            .background(Color("TabBarColor").shadow(radius:2))
-                .sheet(isPresented: $addDoujinShow, content: {
-                    AddSauceView(DoujinApi: doujin, isPresented: $addDoujinShow)
-                })
+
+                .sheet(item: $sheetPicker, onDismiss: {LoadImage()}){item in
+                    switch item{
+                    
+                    case .addDoujin:
+                        AddSauceView(DoujinApi: doujin, isPresented: $showing)
+
+                    case .imagePick:
+                        ImagePicker(image: self.$InputImage)
+                    }
+                }
             }
         }
     }
@@ -65,7 +81,20 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
+extension ContentView {
+    func LoadImage(){
+        guard let InputImage = InputImage else {return}
+        
+        print("yeth")
+        print(convertImageToBase64(InputImage))
+        
+    }
+    func convertImageToBase64(_ image: UIImage) {
+        let imageData:NSData = image.jpegData(compressionQuality: 0.4)! as NSData
+        let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
+        print("Damn")
+    }
+}
 struct TabBarIcon: View {
     @Binding var currentPage: Page
     
@@ -86,7 +115,7 @@ struct TabBarIcon: View {
                     .frame(width: width, height: height)
                     .padding(.top, 10)
                     .foregroundColor(Color("TabNames"))
-
+                
                 
                 Text(tabName)
                     .font(.footnote)

@@ -10,13 +10,13 @@ import SwiftUI
 struct TabBarCircle: View {
     var length: CGFloat
     @State var showPopUp = false
-    @Binding var additionShowing:Bool
-    @Binding var delete: Bool
+    @Binding var showingViews:Bool
+    @Binding var sheetPicker: sheetPicker?
     
     var body: some View {
         ZStack {
             if showPopUp {
-                PlusMenu(widthAndHeight: length, ShowOne: $additionShowing, ShowTwo: $delete)
+                PlusMenu(widthAndHeight: length, show: $showingViews, sheet: $sheetPicker)
                     .offset(y: -length)
             }
             
@@ -49,7 +49,7 @@ struct TabBarCircle: View {
 struct TabBarCircle_Previews: PreviewProvider {
     static var previews: some View {
         
-        TabBarCircle(length: 50, additionShowing: .constant(false), delete: .constant(false))
+        TabBarCircle(length: 50, showingViews: .constant(false), sheetPicker: .constant(sheetPicker.addDoujin))
         
     }
 }
@@ -57,16 +57,18 @@ struct TabBarCircle_Previews: PreviewProvider {
 struct PlusMenu: View {
     
     let widthAndHeight: CGFloat
-    @Binding var ShowOne: Bool
-    @Binding var ShowTwo: Bool
+    @Binding var show: Bool
     @ObservedObject var doujinApi = DoujinAPI()
+    @Binding var sheet: sheetPicker?
+
 
     
     var body: some View {
         HStack(spacing: 50) {
             ZStack {
                 Button(action: {
-                    self.ShowOne.toggle()
+                    self.sheet = .addDoujin
+                    self.show.toggle()
                 }){
                     ZStack {
                         Circle()
@@ -83,7 +85,8 @@ struct PlusMenu: View {
             }
             Button(action: {
 
-                doujinApi.removing.toggle()
+                self.sheet = .imagePick
+                self.show.toggle()
             }){
                 ZStack {
                     Circle()
