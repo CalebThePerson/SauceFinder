@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import Swift_SauceNao
 
 struct ContentView: View {
     

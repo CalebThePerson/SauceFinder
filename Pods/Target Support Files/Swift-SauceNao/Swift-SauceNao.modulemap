@@ -1,0 +1,6 @@
+framework module Swift_SauceNao {
+  umbrella header "Swift-SauceNao-umbrella.h"
+
+  export *
+  module * { export * }
+}

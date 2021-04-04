@@ -1,0 +1,30 @@
+{
+  "name": "Swift-SauceNao",
+  "version": "0.6.0",
+  "license": "MIT",
+  "summary": "Swift-SauceNao Pod",
+  "homepage": "https://github.com/CalebThePerson/Swift-SauceNao-Pod",
+  "authors": {
+    "Caleb": "calebtheedev@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/CalebThePerson/Swift-SauceNao-Pod.git",
+    "tag": "0.6.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": [
+    "5.1",
+    "5.2",
+    "5.3"
+  ],
+  "source_files": "Swift-SauceNao/**/*.{swift}",
+  "dependencies": {
+    "Alamofire": [
+      "~> 5.2"
+    ]
+  },
+  "frameworks": "Foundation",
+  "swift_version": "5.3"
+}
