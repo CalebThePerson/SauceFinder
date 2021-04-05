@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2DF4B8E7EA98A708657DF9AF /* Pods_SauceFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */; };
+		C3016106261AB5D200B695CE /* SauceNao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3016105261AB5D200B695CE /* SauceNao.swift */; };
 		C31F35C725D7558C00EB65E9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C625D7558800EB65E9 /* ImageView.swift */; };
 		C31F35CA25D759E000EB65E9 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C925D759E000EB65E9 /* TagView.swift */; };
 		C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065A25785F4500E99E2F /* DoujinView.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		302E1E27763EAC938CA32C6A /* Pods-SauceFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SauceFinder.debug.xcconfig"; path = "Target Support Files/Pods-SauceFinder/Pods-SauceFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SauceFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3016105261AB5D200B695CE /* SauceNao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SauceNao.swift; sourceTree = "<group>"; };
 		C31F35C625D7558800EB65E9 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		C31F35C925D759E000EB65E9 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		C33F065A25785F4500E99E2F /* DoujinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinView.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				C3C0FF3925776AE800B8E4BE /* DoujinAPI.swift */,
 				C352603A25AE810400651006 /* FileRouter.swift */,
 				C36811612619AA15001F8280 /* ImagePicker.swift */,
+				C3016105261AB5D200B695CE /* SauceNao.swift */,
 				C3C0FF3C257777AD00B8E4BE /* Saves */,
 			);
 			path = Model;
@@ -331,6 +334,7 @@
 				C352603B25AE810400651006 /* FileRouter.swift in Sources */,
 				C36811622619AA15001F8280 /* ImagePicker.swift in Sources */,
 				C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */,
+				C3016106261AB5D200B695CE /* SauceNao.swift in Sources */,
 				C352603825AE7EB800651006 /* TabBarCircle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

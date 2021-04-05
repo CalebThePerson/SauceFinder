@@ -21,6 +21,8 @@ struct ContentView: View {
     
     @ObservedObject var doujin = DoujinAPI()
     @StateObject var viewRouter = ViewRouter()
+    var sauceAPI = SauceNaoAPI()
+    
     @State var showing:Bool = false
     
     @State var sheetPicker: sheetPicker? = .none
@@ -74,14 +76,6 @@ struct ContentView: View {
             }
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-extension ContentView {
     func LoadImage(){
         guard let InputImage = InputImage else {return}
         
@@ -93,7 +87,17 @@ extension ContentView {
         let imageData:NSData = image.jpegData(compressionQuality: 0.4)! as NSData
         let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
         print("Damn")
+        sauceAPI.FindDoujin(imageString: strBase64)
     }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+extension ContentView {
+    
 }
 struct TabBarIcon: View {
     @Binding var currentPage: Page

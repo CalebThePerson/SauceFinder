@@ -116,5 +116,4 @@ extension DoujinView {
         self.doujinshis = realm.objects(DoujinInfo.self)
     }
     
-    
 }
