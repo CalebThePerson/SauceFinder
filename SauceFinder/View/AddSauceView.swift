@@ -10,6 +10,7 @@ import SwiftUI
 struct AddSauceView: View {
     var DoujinApi:DoujinAPI
     @Binding var isPresented:Bool
+    @Environment(\.presentationMode) var presentationMode
     var PickerOptions = ["Doujin", "Hentai"]
     @State var PickerSelected = ""
     @State var CurrentSelectionForPicker = 0
@@ -66,7 +67,7 @@ struct AddSauceView: View {
                                     Spacer()
                                     Button(action: {
                                         if CheckLength(Numbers: InputDoujin) == true {
-                                            DoujinApi.bookInfo(SauceNum: InputDoujin);self.isPresented.toggle();DoujinApi.loadingCirclePresent=true
+                                            DoujinApi.bookInfo(SauceNum: InputDoujin);presentationMode.wrappedValue.dismiss();DoujinApi.loadingCirclePresent=true
                                         } else {
                                             
                                             //If it requires to be redone it sets the variable to true and clear the textfield prompting the user to renter because of the issue
