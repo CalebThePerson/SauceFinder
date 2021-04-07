@@ -7,87 +7,42 @@
 
 import SwiftUI
 import RealmSwift
+import Combine
 
 struct DoujinView: View {
     
     @ObservedObject var doujin = DoujinAPI()
-    @State private var doujinshis: Results<DoujinInfo> = realm.objects(DoujinInfo.self)
+    //    @ObservedResults(DoujinInfo.self) var doujinshis
     @State private var detailViewShowing: Bool = false
     @State private var selectedDoujin: DoujinInfo?
     @State var alertShow:Bool = false
     @State var testing:Bool = DoujinAPI().removing
-    
+    @StateObject var doujinModel = DoujinInfoViewModel()
     
     var body: some View {
-        
-        if doujinshis.count == 0 {
-            //Code if there aren't doujins
-            
-            ScrollView(.vertical) {
-                VStack(spacing: 0) {
+        //Code if there are any Doujins
+        ScrollView(.vertical) {
+            VStack(spacing: 0) {
+                ForEach(doujinModel.doujins, id: \.UniqueID) { doujinshi in
                     Button(action: {
-                        self.detailViewShowing.toggle()
-                    }){
-                        DoujinCellWithNODoujin()
-                        
-                    }
-                    .sheet(isPresented: $detailViewShowing, content: {
-                        DoujinInformation(theDoujin: $selectedDoujin, theAPI: doujin)
-                    })
-                }
-                
-                if doujin.loadingCirclePresent == true{
-                    LoadingCircle(TheAPI: doujin)
-                        .padding(.top)
-                }
-            }
-            .edgesIgnoringSafeArea(.all)
-            
-        } else {
-            //Code if there are any Doujins
-            ScrollView(.vertical) {
-                VStack(spacing: 0) {
-                    ForEach(doujinshis, id: \.UniqueID) { doujinshi in
-                        Button(action: {
-                            self.detailViewShowing = true
-                            self.selectedDoujin = doujinshi
-                        }) {
-                            DoujinCell(image: convertBase64ToImage(doujinshi.PictureString))
-                        }
-                    }
+                        self.detailViewShowing = true
+                        self.doujinModel.selectedDoujin = doujinshi
 
-                    //This will ask if the user is sure they would like to delete the curent sauce
-                    .alert(isPresented: $alertShow){
-                        Alert(title: Text("Would you like to delete this entry"),message: Text(selectedDoujin!.Name),dismissButton:
-                                .default(Text("Delete")) {
-                                    SauceFinder.delete(doujin: selectedDoujin!)
-                                })
-                    }
-                    
-                    //This will preseent the sheet that displays information for the doujin
-                    .sheet(isPresented: $detailViewShowing, onDismiss: {if doujin.removing == true {BigDelete(doujin: selectedDoujin!)}}, content: {
-                        DoujinInformation(theDoujin: $selectedDoujin, theAPI: doujin)
-                    })
-                    
-                    if doujin.loadingCirclePresent == true{
-                        LoadingCircle(TheAPI: doujin)
-                            .padding(.top)
+                    }) {
+                        DoujinCell(image: convertBase64ToImage(doujinshi.PictureString))
                     }
                 }
+                //This will preseent the sheet that displays information for the doujin
+                .sheet(isPresented: $detailViewShowing, onDismiss: {if doujinModel.deleting == true {doujinModel.deleteDoujin()}}, content: {
+                    DoujinInformation(theAPI: doujin, doujinModel: doujinModel)
+                })
+                
+                
             }
-            .lineSpacing(0)
-            
-            .edgesIgnoringSafeArea(.all)
         }
+        .lineSpacing(0)
         
-    }
-    //Code that may be helpful later when deleting multiple rows
-    func deleteRow(with indexSet: IndexSet){
-        indexSet.forEach ({ index in
-            try! realm.write {
-                realm.delete(self.doujinshis[index])
-            }
-        })
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -103,17 +58,6 @@ extension DoujinView {
         let decodedimage = UIImage(data: dataDecoded)
         return decodedimage!
     }
-    func BigDelete(doujin: DoujinInfo){
-        do {
-            try realm.write{
-                realm.delete(doujin)
-            }
-        }
-        catch {
-            print("There was an error \(error)")
-        }
-        print("Deleted")
-        self.doujinshis = realm.objects(DoujinInfo.self)
-    }
-    
 }
+
+

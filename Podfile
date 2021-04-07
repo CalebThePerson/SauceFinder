@@ -9,9 +9,10 @@ target 'SauceFinder' do
   use_frameworks!
     pod 'SwiftyJSON', '~> 4.0'
 #pod 'Alamofire', '~> 5.2'
-    pod 'RealmSwift'
+  pod 'RealmSwift', '=10.7.2'
 pod 'AlamofireImage', '~> 4.1'
 pod 'Swift-SauceNao',:git => "https://github.com/CalebThePerson/Swift-SauceNao-Pod.git"
+
 
 
 

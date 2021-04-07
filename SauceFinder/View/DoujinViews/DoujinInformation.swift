@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DoujinInformation: View {
-    @Binding var theDoujin: DoujinInfo?
     @State var alertShow:Bool = false
     @Environment(\.presentationMode) var presentationMode
     var theAPI:DoujinAPI
+    var doujinModel: DoujinInfoViewModel
 
     
     var body: some View {
@@ -34,7 +34,7 @@ struct DoujinInformation: View {
                     VStack{
                         Group{
                             
-                            Text(theDoujin!.Name)
+                            Text(doujinModel.name)
                                 .font(.title)
                                 .fontWeight(.regular)
                                 .multilineTextAlignment(.center)
@@ -45,11 +45,11 @@ struct DoujinInformation: View {
                             
                             
                             
-                            Text("Sauce:\(theDoujin!.Id)")
+                            Text("Sauce:\(doujinModel.id)")
                                 .font(.title2)
 //                                .padding(.bottom, 25)
                             
-                            Text("\(theDoujin!.NumPages) pages")
+                            Text("\(doujinModel.numPages) pages")
                                 .font(.title2)
                                 .padding(.bottom, 25)
                             
@@ -57,19 +57,14 @@ struct DoujinInformation: View {
                             Text("Tags")
                                 .frame(alignment: .center)
                             
-                            TagView(tagArray: theDoujin!.Tags)
+                            TagView(tagArray: doujinModel.doujinTags)
                                 .padding(.bottom, 150)
                                 .padding([.trailing, .leading], 10)
                             
                             
-//                            Text("\(theDoujin!.NumPages) pages")
-
-                            
-                            
-                            
                             Spacer()
                                                         
-                            ImageView(image: convertBase64ToImage(theDoujin!.PictureString))
+                            ImageView(image: convertBase64ToImage(doujinModel.pictureString))
                                 .frame(alignment:.center)
                                 .padding([.leading, .trailing], 50)
                             
@@ -77,12 +72,13 @@ struct DoujinInformation: View {
                             
                             
                         }
+                        //This will ask the user if they would like to delete the current entry
                         .alert(isPresented: $alertShow){
-                            Alert(title: Text("Would you like to delete this entry"),message: Text(theDoujin!.Name),primaryButton:
+                            Alert(title: Text("Would you like to Delete this entry"),message: Text(doujinModel.name),primaryButton:
                                     .default(Text("Delete")) {
-                                        theAPI.removing = true
+                                        alertShow.toggle()
+                                        doujinModel.deleting = true
                                         presentationMode.wrappedValue.dismiss()
-//                                        SauceFinder.delete(doujin: theDoujin!)
                                     }, secondaryButton: .cancel())
                         }
                     }
@@ -93,11 +89,11 @@ struct DoujinInformation: View {
     }
 }
 
-struct DoujinInformation_Previews: PreviewProvider {
-    static var previews: some View {
-        DoujinInformation(theDoujin: .constant(DoujinInfo()), theAPI: DoujinAPI())
-    }
-}
+//struct DoujinInformation_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DoujinInformation(theDoujin: .constant(DoujinInfo()), theAPI: DoujinAPI() ,doujinModel: .constant(DoujinInfoViewModel))
+//    }
+//}
 
 extension DoujinInformation{
     func convertBase64ToImage(_ str: String) -> UIImage {

@@ -10,14 +10,18 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 import RealmSwift
+import Combine
+import SwiftUI
+
+
 
 
 class DoujinAPI:ObservableObject {
     @Published var enterSauceAlert: Bool = false
     @Published var loadingCirclePresent: Bool = false
     @Published var removing:Bool = false
-    
-    
+    var doujinModel = DoujinInfoViewModel()
+
     //Function that gets all the detils of the doujin
     func bookInfo(SauceNum: String) {
         self.loadingCirclePresent = true
@@ -33,18 +37,17 @@ class DoujinAPI:ObservableObject {
                 let NewDoujin = DoujinInfo()
                 
                 guard let Name = json["title"]["pretty"].string else {return}
-                
                 guard let Pages = json["num_pages"].int else {return}
-                
                 guard let MediaID = json["media_id"].string else {return}
-                let Tags = List<String>()
+                
+                let Tags = RealmSwift.List<String>()
+
                 var count = 0
                 let TagJson = json["tags"]
                 
                 for tag in TagJson {
                     let TheTags = DoujinTags()
                     TheTags.Name = json["tags"][count]["name"].string!
-                    //                    print(TheTags.Name)
                     NewDoujin.Tags.append(TheTags)
                     count += 1
                 }
@@ -57,9 +60,7 @@ class DoujinAPI:ObservableObject {
                     NewDoujin.UniqueID = UUID().uuidString
                     NewDoujin.similarity = "100%"
 
-                    
-                    save(Doujin: NewDoujin)
-                    print("Saved")
+                    self.doujinModel.addDoujin(theDoujin: NewDoujin)
                     self.loadingCirclePresent.toggle()
                 }
             }
@@ -67,28 +68,22 @@ class DoujinAPI:ObservableObject {
     }
     
     func bookInfoWithName(with theName: String,the similarity: String){
+        self.loadingCirclePresent = true
         let headers: HTTPHeaders = [.accept("application/json")]
         
         AF.request("https://nhentai.net/api/galleries/search?query=\(theName)&page=PAGE=1&sort=SORT=recent", method: .get, headers: headers).responseJSON {response in
             if let Data = response.data{
                 let json = try! JSON(data: Data)
-                print(json)
                 
                 let NewDoujin = DoujinInfo()
                 
                 guard let Name = json["result"][0]["title"]["pretty"].string else {return}
-                print("boom")
                 guard let Pages = json["result"][0]["num_pages"].int else {return}
-                print("boom")
-
                 guard let MediaID = json["result"][0]["media_id"].string else {return}
-                print("boom")
-
                 guard let SauceNum = json["result"][0]["id"].int else {return}
-                print("bam")
 
                 
-                let Tags = List<String>()
+                let Tags = RealmSwift.List<String>()
                 var count = 0
                 let TagJson = json["result"][0]["tags"]
                 
@@ -108,8 +103,9 @@ class DoujinAPI:ObservableObject {
                     NewDoujin.UniqueID = UUID().uuidString
                     NewDoujin.similarity = "\(similarity)%"
                     
-                    save(Doujin: NewDoujin)
+                    self.doujinModel.addDoujin(theDoujin: NewDoujin)
                     print("Saved")
+                    self.loadingCirclePresent = false
                 }
             }
         }

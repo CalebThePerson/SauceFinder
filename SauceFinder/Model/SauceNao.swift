@@ -28,6 +28,7 @@ class SauceNaoAPI{
                 print("Next steep")
                 englishName = theResults.eng_name!
                 similarity = "\(theResults.similarity)"
+                print(englishName)
                 englishName = englishName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
                 self.doujinAPI.bookInfoWithName(with: englishName, the: similarity)
 

@@ -8,6 +8,8 @@
 import SwiftUI
 import RealmSwift
 
+
+
 enum sheetPicker:Identifiable{
     var id: Int{
         hashValue
@@ -37,6 +39,10 @@ struct ContentView: View {
                     DoujinView()
                 case .hentai:
                     Text("HentaiView my guy")
+                }
+                
+                if doujin.loadingCirclePresent == true{
+                    LoadingCircle(Degrees: 0.0, TheAPI: doujin)
                 }
                 
                 VStack {
