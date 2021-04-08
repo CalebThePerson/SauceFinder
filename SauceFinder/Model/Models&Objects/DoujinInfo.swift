@@ -15,6 +15,6 @@ class DoujinInfo:Object, Identifiable,ObjectKeyIdentifiable {
     @objc dynamic var NumPages: Int = 0
     @objc dynamic var PictureString:String = ""
     @objc dynamic var UniqueID:String = ""
-    @objc dynamic var similarity:String = ""
+    @objc dynamic var similarity:Double = 0.0
     var Tags = List<DoujinTags>()
 }

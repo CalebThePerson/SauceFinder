@@ -58,7 +58,7 @@ class DoujinAPI:ObservableObject {
                     NewDoujin.NumPages = Pages
                     NewDoujin.PictureString = newstring
                     NewDoujin.UniqueID = UUID().uuidString
-                    NewDoujin.similarity = "100%"
+                    NewDoujin.similarity = 100
 
                     self.doujinModel.addDoujin(theDoujin: NewDoujin)
                     self.loadingCirclePresent.toggle()
@@ -101,7 +101,7 @@ class DoujinAPI:ObservableObject {
                     NewDoujin.NumPages = Pages
                     NewDoujin.PictureString = newstring
                     NewDoujin.UniqueID = UUID().uuidString
-                    NewDoujin.similarity = "\(similarity)%"
+                    NewDoujin.similarity = Double(similarity)!
                     
                     self.doujinModel.addDoujin(theDoujin: NewDoujin)
                     print("Saved")

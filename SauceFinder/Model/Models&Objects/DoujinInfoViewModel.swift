@@ -9,6 +9,16 @@ import Foundation
 import Combine
 import RealmSwift
 
+enum colorSquare:Identifiable{
+    var id: Int{
+        hashValue
+    }
+    
+    case green
+    case yellow
+    case red
+}
+
 class DoujinInfoViewModel: ObservableObject{
     var theDoujin:DoujinInfo? = nil
     var realm:Realm?
@@ -18,6 +28,8 @@ class DoujinInfoViewModel: ObservableObject{
 
     @Published var deleting:Bool = false
     @Published var selectedDoujin:DoujinInfo? = nil
+        
+    
     
     init(){
         let realm = try? Realm()
@@ -66,11 +78,26 @@ class DoujinInfoViewModel: ObservableObject{
             selectedDoujin!.PictureString
         }
     }
-    var similarity:String{
+    var similarity:Double{
         get {
             selectedDoujin!.similarity
         }
     }
+    var color:colorSquare{
+        get{
+            switch selectedDoujin!.similarity{
+            case 0...50:
+                return .red
+            case 50...75:
+                return .yellow
+            case 75...100:
+                return .green
+            default:
+                return .green
+            }
+        }
+    }
+    
     var doujinTags: List<DoujinTags>{
         get {
             selectedDoujin!.Tags

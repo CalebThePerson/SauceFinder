@@ -39,7 +39,7 @@ struct DoujinInformation: View {
                     .padding(.bottom, 150)
                     .padding([.trailing, .leading], 10)
                 
-                Spacer()
+                //                Spacer()
                 
                 Image(uiImage: convertBase64ToImage(doujinModel.pictureString))
                     .resizable()
@@ -49,6 +49,7 @@ struct DoujinInformation: View {
                 
             }
             .overlay(
+                //Delete Button overlay
                 VStack {
                     HStack {
                         Button(action: {
@@ -66,6 +67,39 @@ struct DoujinInformation: View {
                     Spacer()
                 }
             )
+            .overlay(
+                //Similarity Portion
+                VStack{
+                    HStack{
+                        switch doujinModel.color{
+                        case .green:
+                            VStack{
+                                Image(systemName: "square.fill")
+                                    .foregroundColor(Color(.green))
+
+                                Text("\(doujinModel.similarity, specifier: "%.2f")%")
+                                
+                                
+                            }
+                        case .yellow:
+                            VStack{
+                                Image(systemName: "square.fill")
+                                    .foregroundColor(Color(.yellow))
+                                Text("\(doujinModel.similarity)%")
+                                    .padding(.top,50)
+                                
+                            }
+                        case .red:
+                            VStack{
+                                Image(systemName: "square.fill")
+                                    .foregroundColor(Color(.yellow))
+                                Text("\(doujinModel.similarity)%")
+                            }
+                            .padding(10)
+                            
+                        }
+                    }
+                }, alignment: .topTrailing)
             //This will ask the user if they would like to delete the current entry
             .alert(isPresented: $alertShow){
                 Alert(title: Text("Would you like to Delete this entry"),message: Text(doujinModel.name),primaryButton:

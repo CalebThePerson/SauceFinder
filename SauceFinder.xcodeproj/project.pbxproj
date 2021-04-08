@@ -13,11 +13,13 @@
 		C31F35CA25D759E000EB65E9 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C925D759E000EB65E9 /* TagView.swift */; };
 		C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065A25785F4500E99E2F /* DoujinView.swift */; };
 		C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065E2578622800E99E2F /* DoujinCell.swift */; };
-		C34117EB261E50C100FAC115 /* DoujinInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34117EA261E50C100FAC115 /* DoujinInfoViewModel.swift */; };
 		C352603825AE7EB800651006 /* TabBarCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352603725AE7EB800651006 /* TabBarCircle.swift */; };
 		C352603B25AE810400651006 /* FileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352603A25AE810400651006 /* FileRouter.swift */; };
 		C35E54DD25D5FEC100977E0A /* AddSauceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35E54DC25D5FEC100977E0A /* AddSauceView.swift */; };
 		C35FB4B325A2A074005D4536 /* DoujinInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35FB4B225A2A074005D4536 /* DoujinInformation.swift */; };
+		C362F63F261EA3BC00991850 /* DoujinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362F63E261EA3BC00991850 /* DoujinAPI.swift */; };
+		C362F643261EA3CA00991850 /* DoujinInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362F642261EA3CA00991850 /* DoujinInfoViewModel.swift */; };
+		C362F647261EA3D400991850 /* DoujinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362F646261EA3D400991850 /* DoujinInfo.swift */; };
 		C3679945259D3C100098BF78 /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3679944259D3C100098BF78 /* LoadingCircle.swift */; };
 		C36811622619AA15001F8280 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36811612619AA15001F8280 /* ImagePicker.swift */; };
 		C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224B25760ABD0005CDEE /* AppDelegate.swift */; };
@@ -28,8 +30,6 @@
 		C38F225825760AC00005CDEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38F225625760AC00005CDEE /* LaunchScreen.storyboard */; };
 		C39525162579DEBD0052099B /* AddDoujin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39525152579DEBC0052099B /* AddDoujin.swift */; };
 		C3B9F71D25AF5CF7005EBB3B /* TestingAddDoujin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B9F71C25AF5CF7005EBB3B /* TestingAddDoujin.swift */; };
-		C3C0FF3A25776AE800B8E4BE /* DoujinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF3925776AE800B8E4BE /* DoujinAPI.swift */; };
-		C3C0FF422577785B00B8E4BE /* DoujinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF412577785B00B8E4BE /* DoujinInfo.swift */; };
 		C3C0FF452577797A00B8E4BE /* DoujinTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF442577797A00B8E4BE /* DoujinTags.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,11 +41,13 @@
 		C31F35C925D759E000EB65E9 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		C33F065A25785F4500E99E2F /* DoujinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinView.swift; sourceTree = "<group>"; };
 		C33F065E2578622800E99E2F /* DoujinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinCell.swift; sourceTree = "<group>"; };
-		C34117EA261E50C100FAC115 /* DoujinInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoujinInfoViewModel.swift; sourceTree = "<group>"; };
 		C352603725AE7EB800651006 /* TabBarCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCircle.swift; sourceTree = "<group>"; };
 		C352603A25AE810400651006 /* FileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRouter.swift; sourceTree = "<group>"; };
 		C35E54DC25D5FEC100977E0A /* AddSauceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSauceView.swift; sourceTree = "<group>"; };
 		C35FB4B225A2A074005D4536 /* DoujinInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinInformation.swift; sourceTree = "<group>"; };
+		C362F63E261EA3BC00991850 /* DoujinAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoujinAPI.swift; sourceTree = "<group>"; };
+		C362F642261EA3CA00991850 /* DoujinInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoujinInfoViewModel.swift; sourceTree = "<group>"; };
+		C362F646261EA3D400991850 /* DoujinInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoujinInfo.swift; sourceTree = "<group>"; };
 		C3679944259D3C100098BF78 /* LoadingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
 		C36811612619AA15001F8280 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C38F224825760ABD0005CDEE /* SauceFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SauceFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,8 +60,6 @@
 		C38F225925760AC00005CDEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C39525152579DEBC0052099B /* AddDoujin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoujin.swift; sourceTree = "<group>"; };
 		C3B9F71C25AF5CF7005EBB3B /* TestingAddDoujin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAddDoujin.swift; sourceTree = "<group>"; };
-		C3C0FF3925776AE800B8E4BE /* DoujinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinAPI.swift; sourceTree = "<group>"; };
-		C3C0FF412577785B00B8E4BE /* DoujinInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinInfo.swift; sourceTree = "<group>"; };
 		C3C0FF442577797A00B8E4BE /* DoujinTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinTags.swift; sourceTree = "<group>"; };
 		EBDB7BF13992D3F2245173CF /* Pods-SauceFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SauceFinder.release.xcconfig"; path = "Target Support Files/Pods-SauceFinder/Pods-SauceFinder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,8 +167,8 @@
 		C3C0FF3C257777AD00B8E4BE /* Models&Objects */ = {
 			isa = PBXGroup;
 			children = (
-				C34117EA261E50C100FAC115 /* DoujinInfoViewModel.swift */,
-				C3C0FF412577785B00B8E4BE /* DoujinInfo.swift */,
+				C362F642261EA3CA00991850 /* DoujinInfoViewModel.swift */,
+				C362F646261EA3D400991850 /* DoujinInfo.swift */,
 				C3C0FF442577797A00B8E4BE /* DoujinTags.swift */,
 			);
 			path = "Models&Objects";
@@ -189,7 +189,7 @@
 		C3E41B9D25775BAB0032C85B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C3C0FF3925776AE800B8E4BE /* DoujinAPI.swift */,
+				C362F63E261EA3BC00991850 /* DoujinAPI.swift */,
 				C352603A25AE810400651006 /* FileRouter.swift */,
 				C36811612619AA15001F8280 /* ImagePicker.swift */,
 				C3016105261AB5D200B695CE /* SauceNao.swift */,
@@ -316,19 +316,19 @@
 				C3C0FF452577797A00B8E4BE /* DoujinTags.swift in Sources */,
 				C3B9F71D25AF5CF7005EBB3B /* TestingAddDoujin.swift in Sources */,
 				C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */,
-				C3C0FF3A25776AE800B8E4BE /* DoujinAPI.swift in Sources */,
-				C3C0FF422577785B00B8E4BE /* DoujinInfo.swift in Sources */,
 				C35E54DD25D5FEC100977E0A /* AddSauceView.swift in Sources */,
 				C31F35C725D7558C00EB65E9 /* ImageView.swift in Sources */,
 				C3679945259D3C100098BF78 /* LoadingCircle.swift in Sources */,
 				C38F224E25760ABD0005CDEE /* SceneDelegate.swift in Sources */,
-				C34117EB261E50C100FAC115 /* DoujinInfoViewModel.swift in Sources */,
+				C362F643261EA3CA00991850 /* DoujinInfoViewModel.swift in Sources */,
+				C362F63F261EA3BC00991850 /* DoujinAPI.swift in Sources */,
 				C38F225025760ABD0005CDEE /* ContentView.swift in Sources */,
 				C39525162579DEBD0052099B /* AddDoujin.swift in Sources */,
 				C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */,
 				C35FB4B325A2A074005D4536 /* DoujinInformation.swift in Sources */,
 				C352603B25AE810400651006 /* FileRouter.swift in Sources */,
 				C36811622619AA15001F8280 /* ImagePicker.swift in Sources */,
+				C362F647261EA3D400991850 /* DoujinInfo.swift in Sources */,
 				C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */,
 				C3016106261AB5D200B695CE /* SauceNao.swift in Sources */,
 				C352603825AE7EB800651006 /* TabBarCircle.swift in Sources */,
