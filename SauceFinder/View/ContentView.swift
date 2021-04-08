@@ -37,6 +37,7 @@ struct ContentView: View {
                 switch viewRouter.currentPage {
                 case .sauce:
                     DoujinView()
+                        .padding(.bottom, 50)
                 case .hentai:
                     Text("HentaiView my guy")
                 }

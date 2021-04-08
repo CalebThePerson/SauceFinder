@@ -36,7 +36,7 @@ struct DoujinInformation: View {
                 Text("Tags")
                 
                 TagView(tagArray: doujinModel.doujinTags)
-                    .padding(.bottom, 150)
+                    .padding(.bottom, 50)
                     .padding([.trailing, .leading], 10)
                 
                 //                Spacer()
@@ -76,7 +76,6 @@ struct DoujinInformation: View {
                             VStack{
                                 Image(systemName: "square.fill")
                                     .foregroundColor(Color(.green))
-
                                 Text("\(doujinModel.similarity, specifier: "%.2f")%")
                                 
                                 
@@ -86,7 +85,6 @@ struct DoujinInformation: View {
                                 Image(systemName: "square.fill")
                                     .foregroundColor(Color(.yellow))
                                 Text("\(doujinModel.similarity)%")
-                                    .padding(.top,50)
                                 
                             }
                         case .red:
@@ -95,8 +93,6 @@ struct DoujinInformation: View {
                                     .foregroundColor(Color(.yellow))
                                 Text("\(doujinModel.similarity)%")
                             }
-                            .padding(10)
-                            
                         }
                     }
                 }, alignment: .topTrailing)
@@ -110,6 +106,12 @@ struct DoujinInformation: View {
                         }, secondaryButton: .cancel())
             }
         }
+        .background(Color(.clear))
+        .background(Image(uiImage: convertBase64ToImage(doujinModel.pictureString))
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .opacity(0.1)
+                        .ignoresSafeArea())
     }
 }
 
