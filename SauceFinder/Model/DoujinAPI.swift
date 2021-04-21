@@ -20,6 +20,8 @@ class DoujinAPI:ObservableObject {
     @Published var enterSauceAlert: Bool = false
     @Published var loadingCirclePresent: Bool = false
     @Published var removing:Bool = false
+    @Published var cantfindAlert:Bool = false
+    
     var doujinModel = DoujinInfoViewModel()
 
     //Function that gets all the detils of the doujin
@@ -36,7 +38,7 @@ class DoujinAPI:ObservableObject {
                 
                 let NewDoujin = DoujinInfo()
                 
-                guard let Name = json["title"]["pretty"].string else {return}
+                guard let Name = json["title"]["pretty"].string else {return; self.cantfindAlert.toggle()}
                 guard let Pages = json["num_pages"].int else {return}
                 guard let MediaID = json["media_id"].string else {return}
                 
@@ -77,7 +79,7 @@ class DoujinAPI:ObservableObject {
                 
                 let NewDoujin = DoujinInfo()
                 
-                guard let Name = json["result"][0]["title"]["pretty"].string else {return}
+                guard let Name = json["result"][0]["title"]["pretty"].string else {self.cantfindAlert.toggle();print(self.cantfindAlert);return}
                 guard let Pages = json["result"][0]["num_pages"].int else {return}
                 guard let MediaID = json["result"][0]["media_id"].string else {return}
                 guard let SauceNum = json["result"][0]["id"].int else {return}

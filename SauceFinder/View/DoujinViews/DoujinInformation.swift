@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import MobileCoreServices
 
 struct DoujinInformation: View {
-    @State var alertShow:Bool = false
+    @State private var alertShow:Bool = false
+    @State private var copiedMsg:Bool = false
     @Environment(\.presentationMode) var presentationMode
     var theAPI:DoujinAPI
     var doujinModel: DoujinInfoViewModel
@@ -45,9 +47,25 @@ struct DoujinInformation: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .padding(.horizontal, 50)
+                    
+                    //Once Tapped this wil copy the link to the doujin
+                    .onTapGesture(count:1) {
+                        UIPasteboard.general.string = "https://nhentai.net/g/\(doujinModel.id)/"
+                        copiedMsg = true
+                    }
                 
                 
             }
+            .overlay(
+                //Displays Link Copied message for 0.5 seconds
+                VStack{
+                    HStack{
+                        if copiedMsg == true {
+                            LinkCopied(showing: $copiedMsg)
+                                .padding(.top, 20)
+                        }
+                    }
+                }, alignment: .top)
             .overlay(
                 //Delete Button overlay
                 VStack {
@@ -76,6 +94,7 @@ struct DoujinInformation: View {
                             VStack{
                                 Image(systemName: "square.fill")
                                     .foregroundColor(Color(.green))
+                                    .padding(.top,10)
                                 Text("\(doujinModel.similarity, specifier: "%.2f")%")
                                 
                                 
@@ -84,6 +103,7 @@ struct DoujinInformation: View {
                             VStack{
                                 Image(systemName: "square.fill")
                                     .foregroundColor(Color(.yellow))
+                                    .padding(.top,10)
                                 Text("\(doujinModel.similarity)%")
                                 
                             }
@@ -91,6 +111,7 @@ struct DoujinInformation: View {
                             VStack{
                                 Image(systemName: "square.fill")
                                     .foregroundColor(Color(.yellow))
+                                    .padding(.top,10)
                                 Text("\(doujinModel.similarity)%")
                             }
                         }
@@ -122,7 +143,7 @@ struct DoujinInformation: View {
 //}
 
 extension DoujinInformation{
-    func convertBase64ToImage(_ str: String) -> UIImage {
+    private func convertBase64ToImage(_ str: String) -> UIImage {
         let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
         let decodedimage = UIImage(data: dataDecoded)
         return decodedimage!

@@ -18,6 +18,7 @@ struct DoujinView: View {
     @State var alertShow:Bool = false
     @State var testing:Bool = DoujinAPI().removing
     @StateObject var doujinModel = DoujinInfoViewModel()
+    @State var present = DoujinAPI().cantfindAlert
     
     var body: some View {
         //Code if there are any Doujins
@@ -39,6 +40,9 @@ struct DoujinView: View {
                 
                 
             }
+        }
+        .alert(isPresented: $present){
+            Alert(title: Text("Sorry"), message: Text("Couldn't find that Sauce"), dismissButton: .default(Text("Dismiss")))
         }
         .lineSpacing(0)
         

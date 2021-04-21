@@ -22,6 +22,7 @@
 		C362F647261EA3D400991850 /* DoujinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362F646261EA3D400991850 /* DoujinInfo.swift */; };
 		C3679945259D3C100098BF78 /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3679944259D3C100098BF78 /* LoadingCircle.swift */; };
 		C36811622619AA15001F8280 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36811612619AA15001F8280 /* ImagePicker.swift */; };
+		C3749F212630C69000ED80C3 /* LinkCopied.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3749F202630C68F00ED80C3 /* LinkCopied.swift */; };
 		C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224B25760ABD0005CDEE /* AppDelegate.swift */; };
 		C38F224E25760ABD0005CDEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224D25760ABD0005CDEE /* SceneDelegate.swift */; };
 		C38F225025760ABD0005CDEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F224F25760ABD0005CDEE /* ContentView.swift */; };
@@ -50,6 +51,7 @@
 		C362F646261EA3D400991850 /* DoujinInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoujinInfo.swift; sourceTree = "<group>"; };
 		C3679944259D3C100098BF78 /* LoadingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
 		C36811612619AA15001F8280 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		C3749F202630C68F00ED80C3 /* LinkCopied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCopied.swift; sourceTree = "<group>"; };
 		C38F224825760ABD0005CDEE /* SauceFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SauceFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38F224B25760ABD0005CDEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C38F224D25760ABD0005CDEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				C31F35C625D7558800EB65E9 /* ImageView.swift */,
 				C31F35C925D759E000EB65E9 /* TagView.swift */,
 				C3679944259D3C100098BF78 /* LoadingCircle.swift */,
+				C3749F202630C68F00ED80C3 /* LinkCopied.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				C38F225025760ABD0005CDEE /* ContentView.swift in Sources */,
 				C39525162579DEBD0052099B /* AddDoujin.swift in Sources */,
 				C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */,
+				C3749F212630C69000ED80C3 /* LinkCopied.swift in Sources */,
 				C35FB4B325A2A074005D4536 /* DoujinInformation.swift in Sources */,
 				C352603B25AE810400651006 /* FileRouter.swift in Sources */,
 				C36811622619AA15001F8280 /* ImagePicker.swift in Sources */,
