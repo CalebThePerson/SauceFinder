@@ -6,7 +6,8 @@
 //
 
 import Foundation
-import Swift_SauceNao
+import SwiftPackage_SauceNao
+import SwiftUI
 
 class SauceNaoAPI{
 //    var theApiKey = "39c06c99f48a6c895c979ed0509251812547441b"
