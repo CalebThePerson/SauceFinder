@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5827EF2D110AC45085AA9567 /* Pods_SauceFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */; };
 		C3016106261AB5D200B695CE /* SauceNao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3016105261AB5D200B695CE /* SauceNao.swift */; };
 		C31F35C725D7558C00EB65E9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C625D7558800EB65E9 /* ImageView.swift */; };
 		C31F35CA25D759E000EB65E9 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C925D759E000EB65E9 /* TagView.swift */; };
 		C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065A25785F4500E99E2F /* DoujinView.swift */; };
 		C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065E2578622800E99E2F /* DoujinCell.swift */; };
-		C34295F426338058007435CE /* SwiftPackage-SauceNao in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F326338058007435CE /* SwiftPackage-SauceNao */; };
-		C34295F7263380B9007435CE /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F6263380B9007435CE /* SwiftyJSON */; };
-		C34295FA263380DF007435CE /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F9263380DF007435CE /* AlamofireImage */; };
-		C34295FF26338211007435CE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C34295FE26338211007435CE /* RealmSwift */; };
-		C342960126338211007435CE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C342960026338211007435CE /* Realm */; };
+		C34295F426338058007435CE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F326338058007435CE /* SwiftPackageProductDependency */; };
+		C34295F7263380B9007435CE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F6263380B9007435CE /* SwiftPackageProductDependency */; };
+		C34295FA263380DF007435CE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F9263380DF007435CE /* SwiftPackageProductDependency */; };
+		C34295FF26338211007435CE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C34295FE26338211007435CE /* SwiftPackageProductDependency */; };
+		C342960126338211007435CE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C342960026338211007435CE /* SwiftPackageProductDependency */; };
 		C352603825AE7EB800651006 /* TabBarCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352603725AE7EB800651006 /* TabBarCircle.swift */; };
 		C352603B25AE810400651006 /* FileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352603A25AE810400651006 /* FileRouter.swift */; };
 		C35E54DD25D5FEC100977E0A /* AddSauceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35E54DC25D5FEC100977E0A /* AddSauceView.swift */; };
@@ -39,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B1AC615E243C7B7AC250306 /* Pods-SauceFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SauceFinder.release.xcconfig"; path = "Target Support Files/Pods-SauceFinder/Pods-SauceFinder.release.xcconfig"; sourceTree = "<group>"; };
+		179C2A1C56A32218FD9FC3F1 /* Pods-SauceFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SauceFinder.debug.xcconfig"; path = "Target Support Files/Pods-SauceFinder/Pods-SauceFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SauceFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3016105261AB5D200B695CE /* SauceNao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SauceNao.swift; sourceTree = "<group>"; };
 		C31F35C625D7558800EB65E9 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
@@ -73,11 +76,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C342960126338211007435CE /* Realm in Frameworks */,
-				C34295F7263380B9007435CE /* SwiftyJSON in Frameworks */,
-				C34295FA263380DF007435CE /* AlamofireImage in Frameworks */,
-				C34295F426338058007435CE /* SwiftPackage-SauceNao in Frameworks */,
-				C34295FF26338211007435CE /* RealmSwift in Frameworks */,
+				C342960126338211007435CE /* BuildFile in Frameworks */,
+				C34295F7263380B9007435CE /* BuildFile in Frameworks */,
+				C34295FA263380DF007435CE /* BuildFile in Frameworks */,
+				C34295F426338058007435CE /* BuildFile in Frameworks */,
+				C34295FF26338211007435CE /* BuildFile in Frameworks */,
+				5827EF2D110AC45085AA9567 /* Pods_SauceFinder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,12 +96,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8551F243F94643EEBDA297A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				179C2A1C56A32218FD9FC3F1 /* Pods-SauceFinder.debug.xcconfig */,
+				0B1AC615E243C7B7AC250306 /* Pods-SauceFinder.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C38F223F25760ABD0005CDEE = {
 			isa = PBXGroup;
 			children = (
 				C38F224A25760ABD0005CDEE /* SauceFinder */,
 				C38F224925760ABD0005CDEE /* Products */,
 				044C1A46B90768C6B5C6C80A /* Frameworks */,
+				8551F243F94643EEBDA297A3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C38F225C25760AC00005CDEE /* Build configuration list for PBXNativeTarget "SauceFinder" */;
 			buildPhases = (
+				57C85EBB500DF56D70FA2FEF /* [CP] Check Pods Manifest.lock */,
 				C38F224425760ABD0005CDEE /* Sources */,
 				C38F224525760ABD0005CDEE /* Frameworks */,
 				C38F224625760ABD0005CDEE /* Resources */,
+				3CAA034163656999EE618BDB /* [CP] Embed Pods Frameworks */,
+				DE1DA49C8987D9DEA02250E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,11 +232,11 @@
 			);
 			name = SauceFinder;
 			packageProductDependencies = (
-				C34295F326338058007435CE /* SwiftPackage-SauceNao */,
-				C34295F6263380B9007435CE /* SwiftyJSON */,
-				C34295F9263380DF007435CE /* AlamofireImage */,
-				C34295FE26338211007435CE /* RealmSwift */,
-				C342960026338211007435CE /* Realm */,
+				C34295F326338058007435CE /* SwiftPackageProductDependency */,
+				C34295F6263380B9007435CE /* SwiftPackageProductDependency */,
+				C34295F9263380DF007435CE /* SwiftPackageProductDependency */,
+				C34295FE26338211007435CE /* SwiftPackageProductDependency */,
+				C342960026338211007435CE /* SwiftPackageProductDependency */,
 			);
 			productName = SauceFinder;
 			productReference = C38F224825760ABD0005CDEE /* SauceFinder.app */;
@@ -248,10 +266,10 @@
 			);
 			mainGroup = C38F223F25760ABD0005CDEE;
 			packageReferences = (
-				C34295F226338058007435CE /* XCRemoteSwiftPackageReference "SwiftPackage-SauceNao" */,
-				C34295F5263380B9007435CE /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				C34295F8263380DF007435CE /* XCRemoteSwiftPackageReference "AlamofireImage" */,
-				C34295FD26338211007435CE /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				C34295F226338058007435CE /* RemoteSwiftPackageReference */,
+				C34295F5263380B9007435CE /* RemoteSwiftPackageReference */,
+				C34295F8263380DF007435CE /* RemoteSwiftPackageReference */,
+				C34295FD26338211007435CE /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = C38F224925760ABD0005CDEE /* Products */;
 			projectDirPath = "";
@@ -274,6 +292,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3CAA034163656999EE618BDB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SauceFinder/Pods-SauceFinder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SauceFinder/Pods-SauceFinder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SauceFinder/Pods-SauceFinder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57C85EBB500DF56D70FA2FEF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SauceFinder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE1DA49C8987D9DEA02250E4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SauceFinder/Pods-SauceFinder-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SauceFinder/Pods-SauceFinder-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SauceFinder/Pods-SauceFinder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C38F224425760ABD0005CDEE /* Sources */ = {
@@ -436,6 +513,7 @@
 		};
 		C38F225D25760AC00005CDEE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 179C2A1C56A32218FD9FC3F1 /* Pods-SauceFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -458,6 +536,7 @@
 		};
 		C38F225E25760AC00005CDEE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B1AC615E243C7B7AC250306 /* Pods-SauceFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -502,7 +581,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C34295F226338058007435CE /* XCRemoteSwiftPackageReference "SwiftPackage-SauceNao" */ = {
+		C34295F226338058007435CE /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CalebThePerson/SwiftPackage-SauceNao.git";
 			requirement = {
@@ -510,7 +589,7 @@
 				minimumVersion = 1.0.1;
 			};
 		};
-		C34295F5263380B9007435CE /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		C34295F5263380B9007435CE /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
@@ -518,7 +597,7 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		C34295F8263380DF007435CE /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+		C34295F8263380DF007435CE /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
 			requirement = {
@@ -526,7 +605,7 @@
 				minimumVersion = 4.2.0;
 			};
 		};
-		C34295FD26338211007435CE /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+		C34295FD26338211007435CE /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
 			requirement = {
@@ -537,29 +616,29 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C34295F326338058007435CE /* SwiftPackage-SauceNao */ = {
+		C34295F326338058007435CE /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C34295F226338058007435CE /* XCRemoteSwiftPackageReference "SwiftPackage-SauceNao" */;
+			package = C34295F226338058007435CE /* RemoteSwiftPackageReference */;
 			productName = "SwiftPackage-SauceNao";
 		};
-		C34295F6263380B9007435CE /* SwiftyJSON */ = {
+		C34295F6263380B9007435CE /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C34295F5263380B9007435CE /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = C34295F5263380B9007435CE /* RemoteSwiftPackageReference */;
 			productName = SwiftyJSON;
 		};
-		C34295F9263380DF007435CE /* AlamofireImage */ = {
+		C34295F9263380DF007435CE /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C34295F8263380DF007435CE /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			package = C34295F8263380DF007435CE /* RemoteSwiftPackageReference */;
 			productName = AlamofireImage;
 		};
-		C34295FE26338211007435CE /* RealmSwift */ = {
+		C34295FE26338211007435CE /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C34295FD26338211007435CE /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = C34295FD26338211007435CE /* RemoteSwiftPackageReference */;
 			productName = RealmSwift;
 		};
-		C342960026338211007435CE /* Realm */ = {
+		C342960026338211007435CE /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C34295FD26338211007435CE /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = C34295FD26338211007435CE /* RemoteSwiftPackageReference */;
 			productName = Realm;
 		};
 /* End XCSwiftPackageProductDependency section */
