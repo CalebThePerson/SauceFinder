@@ -2,13 +2,13 @@
 ![Logo](https://raw.githubusercontent.com/CalebThePerson/Assets/master/Icons/Maikaicon.png)
 
     
-## Badges
 
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8f3c4911ba464a86b4283a5d114d15f6)](https://www.codacy.com/gh/CalebThePerson/SauceFinder/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CalebThePerson/SauceFinder&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/calebtheperson/saucefinder/badge)](https://www.codefactor.io/repository/github/calebtheperson/saucefinder)
 ![Maintenance](https://img.shields.io/maintenance/yes/2021)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/CalebThePerson/SauceFinder)
+![custom](https://img.shields.io/badge/My-CustomProject-blueviolet)
 ![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FCalebDaPerson)
   
 # SauceFinder
