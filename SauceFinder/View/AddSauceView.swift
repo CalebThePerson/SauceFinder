@@ -9,22 +9,26 @@ import SwiftUI
 
 
 struct AddSauceView: View {
-    
     var DoujinApi:DoujinAPI
-    @Binding var isPresented:Bool
+
+    //Strings for the pickers
     var PickerOptions = ["Doujin", "Hentai"]
     var secondPicker = ["Manual", "Pictures"]
+    
+    //@States for ubdating pickers and the selections
     @State var secondPickerSelected = ""
     @State var PickerSelected = ""
     @State var CurrentSelectionForPicker = 0
     @State var currentSelectionforSecond = 0
-    
-    //Vaiables for theAddDoujin view
-    
+
     @State private var RedoEntry:Bool = false
     @State private var InputDoujin:String = ""
     
+    //Variables from the contentView
     @Binding var changeSheet: Bool
+    @Binding var isPresented:Bool
+    
+    //Var that we can use to instantly dismiss the view from inside
     @Environment(\.presentationMode) var presentationMode
     
     
@@ -32,6 +36,7 @@ struct AddSauceView: View {
     var body: some View {
         VStack{
             Form{
+                //This code is for the picker between Doujin and Hentai
                 Section(header:Text("What are you looking for?")) {
                     Picker(selection: $CurrentSelectionForPicker, label: Text("Please select one")){
                         ForEach(0..<PickerOptions.count){
@@ -60,7 +65,7 @@ struct AddSauceView: View {
                                 TextField("Numbers Here", text: $InputDoujin)
                                     .keyboardType(.numberPad)
                             }
-                            //If it is more than 6 digits, it will prompt thiss
+                            //If it is more than 6 digits, it will prompt this
                             else{
                                 TextField("Under 6 Digits Sped", text:$InputDoujin)
                                     .keyboardType(.numberPad)
@@ -101,6 +106,7 @@ struct AddSauceView: View {
                     
                     //If pictures is selected
                     if currentSelectionforSecond == 1{
+                        //This will close the current sheet and open up imagepicker
                         Text("Opening")
                             .onAppear(perform: {
                                 print("noticed")
@@ -116,13 +122,12 @@ struct AddSauceView: View {
                 }
             }
         }
-        //        .padding(.top, 50)
         
     }
 }
 struct AddSauceView_Previews: PreviewProvider {
     static var previews: some View {
-        AddSauceView(DoujinApi: DoujinAPI(), isPresented: .constant(false), changeSheet: .constant(false))
+        AddSauceView(DoujinApi: DoujinAPI(), changeSheet: .constant(false), isPresented: .constant(false))
     }
 }
 

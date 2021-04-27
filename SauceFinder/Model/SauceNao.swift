@@ -23,11 +23,11 @@ class SauceNaoAPI{
         var englishName = ""
         var similarity = ""
         
+        //Converts the picture into base64 and then runs it through the SauceNao API
         saucenao.search(data: imageData!, fileName: fileName, mimeType: mimeType) {(result, error) in
-            print("step one")
             if let theResults = result?.results?[0]{
-                print("Next steep")
-                englishName = theResults.eng_name!
+                guard var englishName = theResults.eng_name else {self.doujinAPI.enterSauceAlert.toggle();return}
+//                englishName = theResults.eng_name!
                 similarity = "\(theResults.similarity)"
                 print(englishName)
                 englishName = englishName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!

@@ -45,9 +45,9 @@ struct ContentView: View {
                     Text("HentaiView my guy")
                 }
                 
-                if doujin.loadingCirclePresent == true{
-                    LoadingCircle(Degrees: 0.0, TheAPI: doujin)
-                }
+//                if doujin.loadingCirclePresent == true{
+//                    LoadingCircle(Degrees: 0.0, TheAPI: doujin)
+//                }
                 
                 VStack {
                     
@@ -76,21 +76,23 @@ struct ContentView: View {
                 .sheet(item: $sheetPicker){item in
                     switch item{
                     
+                    //This case will open the addSauce view
                     case .addDoujin:
-                        AddSauceView(DoujinApi: doujin, isPresented: $showing, changeSheet: $changeSheet)
-                            //                        AnotherAddDoujin(DoujinApi: doujin, isPresented: $showing, changeSheet: $changeSheet)
+                        AddSauceView(DoujinApi: doujin, changeSheet: $changeSheet, isPresented: $showing)
                             .onDisappear(perform: {
+                                //Once it disspaears it will run this function
                                 sheet()
                             })
                         
+                    //This case will open the image picture
                     case .imagePick:
                         ImagePicker(image: self.$InputImage)
                             .onDisappear(perform: {
                                 LoadImage()
                             })
-                        
+                    
+                    //Opens the image picker however, it will do something different on dismisal
                     case .imageSauce:
-                        //                        Text("Swag")
                         ImagePicker(image: self.$InputImage)
                             .onDisappear(perform: {
                                 textRecog()
@@ -99,24 +101,32 @@ struct ContentView: View {
                     }
                 }
             }
+//            .overlay(
+//                VStack{
+//                    if doujin.loadingCirclePresent == true {
+//                        LoadingCircle(Degrees: 0.0, TheAPI: doujin)
+//                    }
+//                }, alignment: .center)
+            
         }
     }
     func LoadImage(){
+        //Loads the image into a variable and then converts it into base 64 allowing it to be used by SauceNao api
         guard let InputImage = InputImage else {return}
         
         print("yeth")
         print(convertImageToBase64(InputImage))
-        
-        
-        
         self.InputImage = nil
     }
     
     
     func sheet(){
+        //A function that changes the sheetPicker selectin based on a variable
         if changeSheet == true{
             sheetPicker = .imageSauce
         }
+        changeSheet = false
+        
     }
     func convertImageToBase64(_ image: UIImage) {
         let imageData:NSData = image.jpegData(compressionQuality: 0.4)! as NSData
@@ -133,6 +143,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 extension ContentView {
     func textRecog(){
+        //Function that takes care of all of the text recognition of the numbers then passes it to the API
         guard let InputImage = InputImage else {return}
         
         let image = VisionImage(image: InputImage)

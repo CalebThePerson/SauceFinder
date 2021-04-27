@@ -33,6 +33,8 @@ struct DoujinView: View {
                         DoujinCell(image: convertBase64ToImage(doujinshi.PictureString))
                     }
                 }
+                
+                
                 //This will preseent the sheet that displays information for the doujin
                 .sheet(isPresented: $detailViewShowing, onDismiss: {if doujinModel.deleting == true {doujinModel.deleteDoujin()}}, content: {
                     DoujinInformation(theAPI: doujin, doujinModel: doujinModel)

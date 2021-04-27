@@ -37,7 +37,6 @@
 		C39525162579DEBD0052099B /* AddDoujin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39525152579DEBC0052099B /* AddDoujin.swift */; };
 		C3B9F71D25AF5CF7005EBB3B /* TestingAddDoujin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B9F71C25AF5CF7005EBB3B /* TestingAddDoujin.swift */; };
 		C3C0FF452577797A00B8E4BE /* DoujinTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF442577797A00B8E4BE /* DoujinTags.swift */; };
-		C3D26169263636490089709F /* AnotherAddDoujin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D26168263636490089709F /* AnotherAddDoujin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +69,6 @@
 		C39525152579DEBC0052099B /* AddDoujin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoujin.swift; sourceTree = "<group>"; };
 		C3B9F71C25AF5CF7005EBB3B /* TestingAddDoujin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAddDoujin.swift; sourceTree = "<group>"; };
 		C3C0FF442577797A00B8E4BE /* DoujinTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinTags.swift; sourceTree = "<group>"; };
-		C3D26168263636490089709F /* AnotherAddDoujin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherAddDoujin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				C3B9F71C25AF5CF7005EBB3B /* TestingAddDoujin.swift */,
-				C3D26168263636490089709F /* AnotherAddDoujin.swift */,
 			);
 			path = TestingViews;
 			sourceTree = "<group>";
@@ -361,7 +358,6 @@
 			files = (
 				C31F35CA25D759E000EB65E9 /* TagView.swift in Sources */,
 				C3C0FF452577797A00B8E4BE /* DoujinTags.swift in Sources */,
-				C3D26169263636490089709F /* AnotherAddDoujin.swift in Sources */,
 				C3B9F71D25AF5CF7005EBB3B /* TestingAddDoujin.swift in Sources */,
 				C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */,
 				C35E54DD25D5FEC100977E0A /* AddSauceView.swift in Sources */,
