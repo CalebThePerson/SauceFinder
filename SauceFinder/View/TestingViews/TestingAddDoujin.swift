@@ -67,7 +67,7 @@ struct TestingAddDoujin: View {
                                     Spacer()
                                     Button(action: {
                                         if CheckLength(Numbers: InputDoujin) == true {
-                                            DoujinApi.bookInfo(SauceNum: InputDoujin);self.isPresented.toggle()
+                                            DoujinApi.bookInfo(Sauces: [InputDoujin]);self.isPresented.toggle()
                                         } else {
                                             //If it requires to be redone it sets the variable to true and clear the textfield prompting the user to renter because of the issue
                                             RedoEntry = true

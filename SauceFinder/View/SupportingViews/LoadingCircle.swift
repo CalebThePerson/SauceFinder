@@ -21,7 +21,7 @@ struct LoadingCircle: View {
                 .frame(width: 120, height:120)
                 .rotationEffect(Angle(degrees:-90))
             
-//            Text("\(TheAPI.Percetage)%")
+            Text("\(TheAPI.progress)%")
             
             //Create a dynamic circle dependent on teh degree state
             Circle()

@@ -13,11 +13,11 @@
 		C31F35CA25D759E000EB65E9 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C925D759E000EB65E9 /* TagView.swift */; };
 		C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065A25785F4500E99E2F /* DoujinView.swift */; };
 		C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065E2578622800E99E2F /* DoujinCell.swift */; };
-		C34295F426338058007435CE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F326338058007435CE /* SwiftPackageProductDependency */; };
-		C34295F7263380B9007435CE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F6263380B9007435CE /* SwiftPackageProductDependency */; };
-		C34295FA263380DF007435CE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F9263380DF007435CE /* SwiftPackageProductDependency */; };
-		C34295FF26338211007435CE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C34295FE26338211007435CE /* SwiftPackageProductDependency */; };
-		C342960126338211007435CE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C342960026338211007435CE /* SwiftPackageProductDependency */; };
+		C34295F426338058007435CE /* SwiftPackage-SauceNao in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F326338058007435CE /* SwiftPackage-SauceNao */; };
+		C34295F7263380B9007435CE /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F6263380B9007435CE /* SwiftyJSON */; };
+		C34295FA263380DF007435CE /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F9263380DF007435CE /* AlamofireImage */; };
+		C34295FF26338211007435CE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C34295FE26338211007435CE /* RealmSwift */; };
+		C342960126338211007435CE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C342960026338211007435CE /* Realm */; };
 		C352603825AE7EB800651006 /* TabBarCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352603725AE7EB800651006 /* TabBarCircle.swift */; };
 		C352603B25AE810400651006 /* FileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C352603A25AE810400651006 /* FileRouter.swift */; };
 		C35E54DD25D5FEC100977E0A /* AddSauceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35E54DC25D5FEC100977E0A /* AddSauceView.swift */; };
@@ -37,6 +37,7 @@
 		C39525162579DEBD0052099B /* AddDoujin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39525152579DEBC0052099B /* AddDoujin.swift */; };
 		C3B9F71D25AF5CF7005EBB3B /* TestingAddDoujin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B9F71C25AF5CF7005EBB3B /* TestingAddDoujin.swift */; };
 		C3C0FF452577797A00B8E4BE /* DoujinTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF442577797A00B8E4BE /* DoujinTags.swift */; };
+		C3D26169263636490089709F /* AnotherAddDoujin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D26168263636490089709F /* AnotherAddDoujin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		C39525152579DEBC0052099B /* AddDoujin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoujin.swift; sourceTree = "<group>"; };
 		C3B9F71C25AF5CF7005EBB3B /* TestingAddDoujin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAddDoujin.swift; sourceTree = "<group>"; };
 		C3C0FF442577797A00B8E4BE /* DoujinTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinTags.swift; sourceTree = "<group>"; };
+		C3D26168263636490089709F /* AnotherAddDoujin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherAddDoujin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +78,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C342960126338211007435CE /* BuildFile in Frameworks */,
-				C34295F7263380B9007435CE /* BuildFile in Frameworks */,
-				C34295FA263380DF007435CE /* BuildFile in Frameworks */,
-				C34295F426338058007435CE /* BuildFile in Frameworks */,
-				C34295FF26338211007435CE /* BuildFile in Frameworks */,
+				C342960126338211007435CE /* Realm in Frameworks */,
+				C34295F7263380B9007435CE /* SwiftyJSON in Frameworks */,
+				C34295FA263380DF007435CE /* AlamofireImage in Frameworks */,
+				C34295F426338058007435CE /* SwiftPackage-SauceNao in Frameworks */,
+				C34295FF26338211007435CE /* RealmSwift in Frameworks */,
 				5827EF2D110AC45085AA9567 /* Pods_SauceFinder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,7 +104,6 @@
 				179C2A1C56A32218FD9FC3F1 /* Pods-SauceFinder.debug.xcconfig */,
 				0B1AC615E243C7B7AC250306 /* Pods-SauceFinder.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -163,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				C3B9F71C25AF5CF7005EBB3B /* TestingAddDoujin.swift */,
+				C3D26168263636490089709F /* AnotherAddDoujin.swift */,
 			);
 			path = TestingViews;
 			sourceTree = "<group>";
@@ -232,11 +234,11 @@
 			);
 			name = SauceFinder;
 			packageProductDependencies = (
-				C34295F326338058007435CE /* SwiftPackageProductDependency */,
-				C34295F6263380B9007435CE /* SwiftPackageProductDependency */,
-				C34295F9263380DF007435CE /* SwiftPackageProductDependency */,
-				C34295FE26338211007435CE /* SwiftPackageProductDependency */,
-				C342960026338211007435CE /* SwiftPackageProductDependency */,
+				C34295F326338058007435CE /* SwiftPackage-SauceNao */,
+				C34295F6263380B9007435CE /* SwiftyJSON */,
+				C34295F9263380DF007435CE /* AlamofireImage */,
+				C34295FE26338211007435CE /* RealmSwift */,
+				C342960026338211007435CE /* Realm */,
 			);
 			productName = SauceFinder;
 			productReference = C38F224825760ABD0005CDEE /* SauceFinder.app */;
@@ -266,10 +268,10 @@
 			);
 			mainGroup = C38F223F25760ABD0005CDEE;
 			packageReferences = (
-				C34295F226338058007435CE /* RemoteSwiftPackageReference */,
-				C34295F5263380B9007435CE /* RemoteSwiftPackageReference */,
-				C34295F8263380DF007435CE /* RemoteSwiftPackageReference */,
-				C34295FD26338211007435CE /* RemoteSwiftPackageReference */,
+				C34295F226338058007435CE /* XCRemoteSwiftPackageReference "SwiftPackage-SauceNao" */,
+				C34295F5263380B9007435CE /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				C34295F8263380DF007435CE /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				C34295FD26338211007435CE /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = C38F224925760ABD0005CDEE /* Products */;
 			projectDirPath = "";
@@ -359,6 +361,7 @@
 			files = (
 				C31F35CA25D759E000EB65E9 /* TagView.swift in Sources */,
 				C3C0FF452577797A00B8E4BE /* DoujinTags.swift in Sources */,
+				C3D26169263636490089709F /* AnotherAddDoujin.swift in Sources */,
 				C3B9F71D25AF5CF7005EBB3B /* TestingAddDoujin.swift in Sources */,
 				C38F224C25760ABD0005CDEE /* AppDelegate.swift in Sources */,
 				C35E54DD25D5FEC100977E0A /* AddSauceView.swift in Sources */,
@@ -581,7 +584,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C34295F226338058007435CE /* RemoteSwiftPackageReference */ = {
+		C34295F226338058007435CE /* XCRemoteSwiftPackageReference "SwiftPackage-SauceNao" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CalebThePerson/SwiftPackage-SauceNao.git";
 			requirement = {
@@ -589,7 +592,7 @@
 				minimumVersion = 1.0.1;
 			};
 		};
-		C34295F5263380B9007435CE /* RemoteSwiftPackageReference */ = {
+		C34295F5263380B9007435CE /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
@@ -597,7 +600,7 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		C34295F8263380DF007435CE /* RemoteSwiftPackageReference */ = {
+		C34295F8263380DF007435CE /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
 			requirement = {
@@ -605,7 +608,7 @@
 				minimumVersion = 4.2.0;
 			};
 		};
-		C34295FD26338211007435CE /* RemoteSwiftPackageReference */ = {
+		C34295FD26338211007435CE /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
 			requirement = {
@@ -616,29 +619,29 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C34295F326338058007435CE /* SwiftPackageProductDependency */ = {
+		C34295F326338058007435CE /* SwiftPackage-SauceNao */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C34295F226338058007435CE /* RemoteSwiftPackageReference */;
+			package = C34295F226338058007435CE /* XCRemoteSwiftPackageReference "SwiftPackage-SauceNao" */;
 			productName = "SwiftPackage-SauceNao";
 		};
-		C34295F6263380B9007435CE /* SwiftPackageProductDependency */ = {
+		C34295F6263380B9007435CE /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C34295F5263380B9007435CE /* RemoteSwiftPackageReference */;
+			package = C34295F5263380B9007435CE /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
-		C34295F9263380DF007435CE /* SwiftPackageProductDependency */ = {
+		C34295F9263380DF007435CE /* AlamofireImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C34295F8263380DF007435CE /* RemoteSwiftPackageReference */;
+			package = C34295F8263380DF007435CE /* XCRemoteSwiftPackageReference "AlamofireImage" */;
 			productName = AlamofireImage;
 		};
-		C34295FE26338211007435CE /* SwiftPackageProductDependency */ = {
+		C34295FE26338211007435CE /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C34295FD26338211007435CE /* RemoteSwiftPackageReference */;
+			package = C34295FD26338211007435CE /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
 		};
-		C342960026338211007435CE /* SwiftPackageProductDependency */ = {
+		C342960026338211007435CE /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C34295FD26338211007435CE /* RemoteSwiftPackageReference */;
+			package = C34295FD26338211007435CE /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = Realm;
 		};
 /* End XCSwiftPackageProductDependency section */

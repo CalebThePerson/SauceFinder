@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import MLKit
 
 
 
@@ -17,6 +18,7 @@ enum sheetPicker:Identifiable{
     
     case addDoujin
     case imagePick
+    case imageSauce
 }
 
 struct ContentView: View {
@@ -29,6 +31,7 @@ struct ContentView: View {
     
     @State var sheetPicker: sheetPicker? = .none
     @State private var InputImage: UIImage?
+    @State var changeSheet = false
     
     var body: some View {
         GeometryReader {geo in
@@ -69,15 +72,30 @@ struct ContentView: View {
                     
                 }
                 .edgesIgnoringSafeArea(.bottom)
-
-                .sheet(item: $sheetPicker, onDismiss: {LoadImage()}){item in
+                
+                .sheet(item: $sheetPicker){item in
                     switch item{
                     
                     case .addDoujin:
-                        AddSauceView(DoujinApi: doujin, isPresented: $showing)
-
+                        AddSauceView(DoujinApi: doujin, isPresented: $showing, changeSheet: $changeSheet)
+                            //                        AnotherAddDoujin(DoujinApi: doujin, isPresented: $showing, changeSheet: $changeSheet)
+                            .onDisappear(perform: {
+                                sheet()
+                            })
+                        
                     case .imagePick:
                         ImagePicker(image: self.$InputImage)
+                            .onDisappear(perform: {
+                                LoadImage()
+                            })
+                        
+                    case .imageSauce:
+                        //                        Text("Swag")
+                        ImagePicker(image: self.$InputImage)
+                            .onDisappear(perform: {
+                                textRecog()
+                            })
+                        
                     }
                 }
             }
@@ -89,6 +107,16 @@ struct ContentView: View {
         print("yeth")
         print(convertImageToBase64(InputImage))
         
+        
+        
+        self.InputImage = nil
+    }
+    
+    
+    func sheet(){
+        if changeSheet == true{
+            sheetPicker = .imageSauce
+        }
     }
     func convertImageToBase64(_ image: UIImage) {
         let imageData:NSData = image.jpegData(compressionQuality: 0.4)! as NSData
@@ -104,8 +132,42 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 extension ContentView {
-    
+    func textRecog(){
+        guard let InputImage = InputImage else {return}
+        
+        let image = VisionImage(image: InputImage)
+        var sauceFound = [String]()
+        
+        let textRecognizer = TextRecognizer.textRecognizer()
+        textRecognizer.process(image){ result, error in
+            guard error == nil, let result = result else{
+                print("error: \(String(describing: error))")
+                return
+            }
+            
+            for block in result.blocks{
+                for line in block.lines{
+                    for element in line.elements{
+                        let elementText = element.text
+                        if (Int(elementText) != nil) {
+                            print(elementText)
+                            sauceFound.append(elementText)
+                        }
+                    }
+                }
+            }
+            print("running")
+            
+            
+            doujin.bookInfo(Sauces: sauceFound)
+            changeSheet = false
+        }
+        
+        
+    }
 }
+
+
 struct TabBarIcon: View {
     @Binding var currentPage: Page
     

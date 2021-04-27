@@ -1,14 +1,13 @@
 //
-//  AddSauceView.swift
+//  AnotherAddDoujin.swift
 //  SauceFinder
 //
-//  Created by Caleb Wheeler on 2/11/21.
+//  Created by Caleb Wheeler on 4/25/21.
 //
 
 import SwiftUI
 
-
-struct AddSauceView: View {
+struct AnotherAddDoujin: View {
     
     var DoujinApi:DoujinAPI
     @Binding var isPresented:Bool
@@ -120,13 +119,15 @@ struct AddSauceView: View {
         
     }
 }
-struct AddSauceView_Previews: PreviewProvider {
+
+
+struct AnotherAddDoujin_Previews: PreviewProvider {
     static var previews: some View {
-        AddSauceView(DoujinApi: DoujinAPI(), isPresented: .constant(false), changeSheet: .constant(false))
+        AnotherAddDoujin(DoujinApi: DoujinAPI(), isPresented: .constant(false), changeSheet: .constant(false))
     }
 }
 
-extension AddSauceView{
+extension AnotherAddDoujin{
     func CheckLength(Numbers:String)-> Bool {
         if Numbers.count == 0 {
             return false

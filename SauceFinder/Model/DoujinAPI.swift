@@ -21,52 +21,60 @@ class DoujinAPI:ObservableObject {
     @Published var loadingCirclePresent: Bool = false
     @Published var removing:Bool = false
     @Published var cantfindAlert:Bool = false
+    @Published var progress:String = "''"
     
     var doujinModel = DoujinInfoViewModel()
-
+    
     //Function that gets all the detils of the doujin
-    func bookInfo(SauceNum: String) {
+    func bookInfo(Sauces: [String]) {
         self.loadingCirclePresent = true
         
         let headers: HTTPHeaders = [.accept("application/json")]
         
-        AF.request("https://nhentai.net/api/gallery/\(SauceNum)", method: .get, headers: headers).responseJSON { response in
-            print("Working")
-            
-            if let Data = response.data {
-                let json = try! JSON(data: Data)
+        var count = 0
+        for SauceNum in Sauces {
+            sleep(1)
+            AF.request("https://nhentai.net/api/gallery/\(SauceNum)", method: .get, headers: headers).responseJSON { response in
+                print("Working")
                 
-                let NewDoujin = DoujinInfo()
-                
-                guard let Name = json["title"]["pretty"].string else {return; self.cantfindAlert.toggle()}
-                guard let Pages = json["num_pages"].int else {return}
-                guard let MediaID = json["media_id"].string else {return}
-                
-                let Tags = RealmSwift.List<String>()
-
-                var count = 0
-                let TagJson = json["tags"]
-                
-                for tag in TagJson {
-                    let TheTags = DoujinTags()
-                    TheTags.Name = json["tags"][count]["name"].string!
-                    NewDoujin.Tags.append(TheTags)
-                    count += 1
-                }
-                self.getPitcture(Media: MediaID) {(newstring) in
-                    NewDoujin.Name = Name
-                    NewDoujin.Id = SauceNum
-                    NewDoujin.MediaID = MediaID
-                    NewDoujin.NumPages = Pages
-                    NewDoujin.PictureString = newstring
-                    NewDoujin.UniqueID = UUID().uuidString
-                    NewDoujin.similarity = 100
-
-                    self.doujinModel.addDoujin(theDoujin: NewDoujin)
-                    self.loadingCirclePresent.toggle()
+                if let Data = response.data {
+                        let json = try! JSON(data: Data)
+                    
+                    let NewDoujin = DoujinInfo()
+                    
+                    guard let Name = json["title"]["pretty"].string else {return; self.cantfindAlert.toggle()}
+                    guard let Pages = json["num_pages"].int else {return}
+                    guard let MediaID = json["media_id"].string else {return}
+                    
+                    let Tags = RealmSwift.List<String>()
+                    
+                    var count = 0
+                    let TagJson = json["tags"]
+                    
+                    for tag in TagJson {
+                        let TheTags = DoujinTags()
+                        TheTags.Name = json["tags"][count]["name"].string!
+                        NewDoujin.Tags.append(TheTags)
+                        count += 1
+                    }
+                    self.getPitcture(Media: MediaID) {(newstring) in
+                        NewDoujin.Name = Name
+                        NewDoujin.Id = SauceNum
+                        print(SauceNum)
+                        NewDoujin.MediaID = MediaID
+                        NewDoujin.NumPages = Pages
+                        NewDoujin.PictureString = newstring
+                        NewDoujin.UniqueID = UUID().uuidString
+                        NewDoujin.similarity = 100
+                        
+                        self.doujinModel.addDoujin(theDoujin: NewDoujin)
+                    }
                 }
             }
+            self.progress = "\(count)/\(Sauces.count)"
+            count += 1
         }
+        self.loadingCirclePresent = false
     }
     
     func bookInfoWithName(with theName: String,the similarity: String){
@@ -83,7 +91,7 @@ class DoujinAPI:ObservableObject {
                 guard let Pages = json["result"][0]["num_pages"].int else {return}
                 guard let MediaID = json["result"][0]["media_id"].string else {return}
                 guard let SauceNum = json["result"][0]["id"].int else {return}
-
+                
                 
                 let Tags = RealmSwift.List<String>()
                 var count = 0
@@ -123,7 +131,7 @@ extension DoujinAPI{
         AF.request("https://t.nhentai.net/galleries/\(Media)/cover.jpg").responseImage { response in
             
             if case .success(let image) = response.result {
-                print("Image downlaoded \(image)")
+//                print("Image downlaoded \(image)")
                 
                 ImageString = self.convertImageToBase64(image)
                 completion(ImageString)
