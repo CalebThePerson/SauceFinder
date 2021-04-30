@@ -10,15 +10,10 @@
   
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8f3c4911ba464a86b4283a5d114d15f6)](https://www.codacy.com/gh/CalebThePerson/SauceFinder/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CalebThePerson/SauceFinder&amp;utm_campaign=Badge_Grade)
-
 [![CodeFactor](https://www.codefactor.io/repository/github/calebtheperson/saucefinder/badge)](https://www.codefactor.io/repository/github/calebtheperson/saucefinder)
-
 ![Maintenance](https://img.shields.io/maintenance/yes/2021)
-
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/CalebThePerson/SauceFinder)
-
 ![custom](https://img.shields.io/badge/My-CustomProject-blueviolet)
-
 ![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FCalebDaPerson)
 
 # SauceFinder
@@ -53,8 +48,7 @@ to simply find Doujinshi and Hentai straight from your phone with ease.
 
   
 
-Currently there is no IPA for the project.  However you can download the entire project and sideload it onto your phone through Xcode.
-
+Ipa is avaiable however, if you wish to install the project and edit it these are the instructions. 
   
 
 1. Fork the Repo or download the project to your computer
