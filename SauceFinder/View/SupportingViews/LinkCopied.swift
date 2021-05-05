@@ -24,10 +24,4 @@ struct LinkCopied_Previews: PreviewProvider {
     }
 }
 
-extension LinkCopied{
-    private func msgShown(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-            showing = false
-        }
-    }
-}
+

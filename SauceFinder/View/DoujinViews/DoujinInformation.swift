@@ -142,10 +142,3 @@ struct DoujinInformation: View {
 //    }
 //}
 
-extension DoujinInformation{
-    private func convertBase64ToImage(_ str: String) -> UIImage {
-        let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
-        let decodedimage = UIImage(data: dataDecoded)
-        return decodedimage!
-    }
-}

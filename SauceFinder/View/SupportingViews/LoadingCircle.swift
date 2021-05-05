@@ -21,7 +21,7 @@ struct LoadingCircle: View {
                 .frame(width: 120, height:120)
                 .rotationEffect(Angle(degrees:-90))
             
-            Text("\(TheAPI.progress)%")
+            Text("\(DoujinAPI.progress)%")
             
             //Create a dynamic circle dependent on teh degree state
             Circle()
@@ -30,6 +30,7 @@ struct LoadingCircle: View {
                 .frame(width:120, height:120)
                 .rotationEffect(Angle(degrees: Degrees))
         }
+        .frame(width: 120, height: 120)
         .onAppear(perform: {
             self.start()
         })
@@ -43,16 +44,5 @@ struct LoadingCircle_Previews: PreviewProvider {
     }
 }
 
-extension LoadingCircle{
-    private func start() {
-        _ = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { (timer) in
-            withAnimation{
-                self.Degrees += 10.0
-            }
-            if self.Degrees == 360.0 {
-                self.Degrees = 0
-            }
-        })
-    }
-}
+
 

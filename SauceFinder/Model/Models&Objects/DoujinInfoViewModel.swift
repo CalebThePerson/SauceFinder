@@ -28,6 +28,7 @@ class DoujinInfoViewModel: ObservableObject{
 
     @Published var deleting:Bool = false
     @Published var selectedDoujin:DoujinInfo? = nil
+    @Published var loading:Bool = false
         
     
     
@@ -111,9 +112,19 @@ class DoujinInfoViewModel: ObservableObject{
         deleting = false
     }
     
+    func easyDelete(at indexSet: IndexSet){
+        if let index = indexSet.first{
+            let realm = doujins[index].realm
+            try? realm?.write({
+                realm?.delete(doujins[index])
+            })
+        }
+    }
+    
     func addDoujin(theDoujin: DoujinInfo){
         try? realm?.write({
             realm?.add(theDoujin)
         })
     }
+    
 }

@@ -74,8 +74,11 @@ struct AddSauceView: View {
                             //Button to iniate the search
                             VStack{
                                 Button(action: {
-                                    if CheckLength(Numbers: InputDoujin) == true {
-                                        DoujinApi.bookInfo(Sauces: [InputDoujin]);self.isPresented.toggle();presentationMode.wrappedValue.dismiss()
+                                    if self.CheckLength(Numbers: InputDoujin) == true {
+                                        DoujinAPI.loadingCirclePresent = true
+                                        
+                                        presentationMode.wrappedValue.dismiss()
+                                        DoujinApi.bookInfo(Sauces: [InputDoujin])
                                         
                                     } else {
                                         //If it requires to be redone it sets the variable to true and clear the textfield prompting the user to renter because of the issue
@@ -131,18 +134,4 @@ struct AddSauceView_Previews: PreviewProvider {
     }
 }
 
-extension AddSauceView{
-    func CheckLength(Numbers:String)-> Bool {
-        if Numbers.count == 0 {
-            return false
-        } else if Numbers.count < 6{
-            return true
-        }
-        else if Numbers.count == 6{
-            return true
-        }
-        else{
-            return false
-        }
-    }
-}
+

@@ -18,7 +18,11 @@ struct DoujinView: View {
     @State var alertShow:Bool = false
     @State var testing:Bool = DoujinAPI().removing
     @StateObject var doujinModel = DoujinInfoViewModel()
-    @State var present = DoujinAPI().cantfindAlert
+
+    @State var present = DoujinAPI.enterSauceAlert
+    @State var skadosh = DoujinAPI.loadingCirclePresent
+    
+    @State static var loading:Bool = false
     
     var body: some View {
         //Code if there are any Doujins
@@ -28,11 +32,16 @@ struct DoujinView: View {
                     Button(action: {
                         self.detailViewShowing = true
                         self.doujinModel.selectedDoujin = doujinshi
-
+                        
                     }) {
                         DoujinCell(image: convertBase64ToImage(doujinshi.PictureString))
                     }
                 }
+                
+                
+                //                .onDelete(perform: { indexSet in
+                //                    self.doujinModel.easyDelete(at: indexSet)
+                //                })
                 
                 
                 //This will preseent the sheet that displays information for the doujin
@@ -41,8 +50,18 @@ struct DoujinView: View {
                 })
                 
                 
+                
+
+//                Loading circle that doesn't work
+//                if DoujinAPI.loadingCirclePresent == true{
+//                    LoadingCircle(TheAPI: doujin)
+//                        .frame(width:120, height: 120)
+//                }
+                
+                
             }
         }
+        //The Alert that doesn't work
         .alert(isPresented: $present){
             Alert(title: Text("Sorry"), message: Text("Couldn't find that Sauce"), dismissButton: .default(Text("Dismiss")))
         }
@@ -55,14 +74,6 @@ struct DoujinView: View {
 struct DoujinView_Previews: PreviewProvider {
     static var previews: some View {
         DoujinView()
-    }
-}
-
-extension DoujinView {
-    func convertBase64ToImage(_ str: String) -> UIImage {
-        let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
-        let decodedimage = UIImage(data: dataDecoded)
-        return decodedimage!
     }
 }
 

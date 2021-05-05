@@ -40,6 +40,8 @@ to simply find Doujinshi and Hentai straight from your phone with ease.
 
 - Utilizes Text Recognition, to detect multiple sauce digits in a photo
 
+- Tap on the Cover to copy link to clipboard
+
 - Soon to work with hentai
 
   

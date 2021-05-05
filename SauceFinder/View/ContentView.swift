@@ -33,22 +33,25 @@ struct ContentView: View {
     @State private var InputImage: UIImage?
     @State var changeSheet = false
     
+    static var poop:Bool = true
+    
     var body: some View {
         GeometryReader {geo in
             
             ZStack {
+                
                 switch viewRouter.currentPage {
                 case .sauce:
                     DoujinView()
                         .padding(.bottom, 50)
+                    if doujin.testing == true{
+                        LoadingCircle(TheAPI: doujin)
+                        
+                        //                    .padding(.top, 20)
+                    }
                 case .hentai:
                     Text("HentaiView my guy")
                 }
-                
-//                if doujin.loadingCirclePresent == true{
-//                    LoadingCircle(Degrees: 0.0, TheAPI: doujin)
-//                }
-                
                 VStack {
                     
                     Spacer()
@@ -90,23 +93,23 @@ struct ContentView: View {
                             .onDisappear(perform: {
                                 LoadImage()
                             })
-                    
+                        
                     //Opens the image picker however, it will do something different on dismisal
                     case .imageSauce:
                         ImagePicker(image: self.$InputImage)
                             .onDisappear(perform: {
-                                textRecog()
+                                textRecog(with: InputImage)
                             })
                         
                     }
                 }
             }
-//            .overlay(
-//                VStack{
-//                    if doujin.loadingCirclePresent == true {
-//                        LoadingCircle(Degrees: 0.0, TheAPI: doujin)
-//                    }
-//                }, alignment: .center)
+            //            .overlay(
+            //                VStack{
+            //                    if doujin.loadingCirclePresent == true {
+            //                        LoadingCircle(TheAPI: doujin)
+            //                    }
+            //                }, alignment: .center)
             
         }
     }
@@ -115,6 +118,8 @@ struct ContentView: View {
         guard let InputImage = InputImage else {return}
         
         print("yeth")
+        DoujinAPI.loadingCirclePresent = true
+        
         print(convertImageToBase64(InputImage))
         self.InputImage = nil
     }
@@ -141,44 +146,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-extension ContentView {
-    func textRecog(){
-        //Function that takes care of all of the text recognition of the numbers then passes it to the API
-        guard let InputImage = InputImage else {return}
-        
-        let image = VisionImage(image: InputImage)
-        var sauceFound = [String]()
-        
-        let textRecognizer = TextRecognizer.textRecognizer()
-        textRecognizer.process(image){ result, error in
-            guard error == nil, let result = result else{
-                print("error: \(String(describing: error))")
-                return
-            }
-            
-            for block in result.blocks{
-                for line in block.lines{
-                    for element in line.elements{
-                        let elementText = element.text
-                        if (Int(elementText) != nil) {
-                            print(elementText)
-                            sauceFound.append(elementText)
-                        }
-                    }
-                }
-            }
-            print("running")
-            
-            
-            doujin.bookInfo(Sauces: sauceFound)
-            changeSheet = false
-        }
-        
-        
-    }
-}
-
-
 struct TabBarIcon: View {
     @Binding var currentPage: Page
     

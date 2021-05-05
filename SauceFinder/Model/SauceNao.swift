@@ -26,12 +26,14 @@ class SauceNaoAPI{
         //Converts the picture into base64 and then runs it through the SauceNao API
         saucenao.search(data: imageData!, fileName: fileName, mimeType: mimeType) {(result, error) in
             if let theResults = result?.results?[0]{
-                guard var englishName = theResults.eng_name else {self.doujinAPI.enterSauceAlert.toggle();return}
+                guard var englishName = theResults.eng_name else {DoujinAPI.enterSauceAlert.toggle();return}
 //                englishName = theResults.eng_name!
                 similarity = "\(theResults.similarity)"
                 print(englishName)
                 englishName = englishName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                DoujinAPI.loadingCirclePresent = true
                 self.doujinAPI.bookInfoWithName(with: englishName, the: similarity)
+                DoujinAPI.loadingCirclePresent = false
 
             }
         }
@@ -39,11 +41,3 @@ class SauceNaoAPI{
     }
 }
 
-extension SauceNaoAPI{
-    func convertBase64ToImage(_ str: String) -> UIImage {
-        let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
-        let decodedimage = UIImage(data: dataDecoded)
-        return decodedimage!
-    }
-    
-}
