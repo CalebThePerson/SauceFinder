@@ -106,16 +106,9 @@ struct ContentView: View {
         //Loads the image into a variable and then converts it into base 64 allowing it to be used by SauceNao api
         guard let InputImage = InputImage else {return}
         
+        //Displays the loading circle
         doujin.loadingCircle = true
-        DispatchQueue.background(background: {
-            //Does something in background
-            convertImageToBase64(InputImage)
-
-        }, completion: {
-            //When the task finally completes it updates the published var
-            doujin.loadingCircle = false
-
-        })
+        convertImageToBase64(InputImage)
         self.InputImage = nil
     }
     
@@ -131,11 +124,7 @@ struct ContentView: View {
     func convertImageToBase64(_ image: UIImage) {
         let imageData:NSData = image.jpegData(compressionQuality: 0.4)! as NSData
         let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
-        print("cog")
-        sauceAPI.FindDoujin(imageString: strBase64)
-
-        
-
+        sauceAPI.FindDoujin(with: doujin,imageString: strBase64)
     }
 }
 

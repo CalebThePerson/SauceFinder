@@ -47,9 +47,6 @@ struct DoujinView: View {
                     DoujinInformation(theAPI: doujin, doujinModel: doujinModel)
                 })
                 
-                
-                
-
 //                Loading circle
                 if doujin.loadingCircle == true{
                     LoadingCircle(theApi: doujin)

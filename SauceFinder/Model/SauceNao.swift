@@ -14,7 +14,7 @@ class SauceNaoAPI{
     let saucenao = SauceNao(apiKey: "39c06c99f48a6c895c979ed0509251812547441b")
     var doujinAPI = DoujinAPI()
     
-    func FindDoujin(imageString: String){
+    func FindDoujin(with api: DoujinAPI,imageString: String){
         print("running")
         let image = convertBase64ToImage(imageString)
         let imageData = image.pngData()
@@ -31,7 +31,17 @@ class SauceNaoAPI{
                 similarity = "\(theResults.similarity)"
                 print(englishName)
                 englishName = englishName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-                self.doujinAPI.bookInfoWithName(with: englishName, the: similarity)
+                
+                //Making the API call in the background and when it's done it updates to make the loading circle turn off
+                DispatchQueue.background(background: {
+                    //Does something in background
+                    self.doujinAPI.bookInfoWithName(with: englishName, the: similarity)
+                }, completion: {
+                    //When the task finally completes it updates the published var
+                    sleep(2)
+                    api.loadingCircle = false
+                })
+                
 
             }
         }
