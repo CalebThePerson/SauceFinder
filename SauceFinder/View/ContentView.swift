@@ -94,7 +94,9 @@ struct ContentView: View {
                     case .imageSauce:
                         ImagePicker(image: self.$InputImage)
                             .onDisappear(perform: {
-                                textRecog(with: InputImage)
+                                guard let theImage = InputImage else {return}
+                                doujin.loadingCircle = true
+                                textRecog(the: doujin,with: theImage)
                             })
                         
                     }

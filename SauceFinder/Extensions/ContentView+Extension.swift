@@ -9,7 +9,7 @@ import Foundation
 import MLKit
 
 extension ContentView {
-    func textRecog(with InputImage: UIImage?){        
+    func textRecog(the api: DoujinAPI, with InputImage: UIImage?){
         //Function that takes care of all of the text recognition of the numbers then passes it to the API
         guard let InputImage = InputImage else {return}
         
@@ -36,9 +36,16 @@ extension ContentView {
             }
             print("running")
             
+            DispatchQueue.background(background: {
+                //Does something in background
+                doujin.bookInfo(Sauces: sauceFound)
+            }, completion: {
+                //When the task finally completes it updates the published var
+                sleep(2)
+                api.loadingCircle = false
+                changeSheet = false
+            })
             
-            doujin.bookInfo(Sauces: sauceFound)
-            changeSheet = false
         }
         
         
