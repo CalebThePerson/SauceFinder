@@ -75,10 +75,22 @@ struct AddSauceView: View {
                             VStack{
                                 Button(action: {
                                     if self.CheckLength(Numbers: InputDoujin) == true {
-                                        DoujinAPI.loadingCirclePresent = true
                                         
+
+                                        DoujinApi.loadingCircle = true
+
+                                        isPresented.toggle()
                                         presentationMode.wrappedValue.dismiss()
-                                        DoujinApi.bookInfo(Sauces: [InputDoujin])
+
+                                        DispatchQueue.background(background: {
+                                            //Does something in background
+                                            DoujinApi.bookInfo(Sauces: [InputDoujin])
+
+                                        }, completion: {
+                                            //When the task finally completes it updates the published var
+                                            DoujinApi.loadingCircle = false
+
+                                        })
                                         
                                     } else {
                                         //If it requires to be redone it sets the variable to true and clear the textfield prompting the user to renter because of the issue

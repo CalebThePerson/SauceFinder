@@ -11,7 +11,7 @@ import Combine
 
 struct DoujinView: View {
     
-    @ObservedObject var doujin = DoujinAPI()
+    @ObservedObject var doujin: DoujinAPI
     //    @ObservedResults(DoujinInfo.self) var doujinshis
     @State private var detailViewShowing: Bool = false
     @State private var selectedDoujin: DoujinInfo?
@@ -19,8 +19,6 @@ struct DoujinView: View {
     @State var testing:Bool = DoujinAPI().removing
     @StateObject var doujinModel = DoujinInfoViewModel()
 
-    @State var present = DoujinAPI.enterSauceAlert
-    @State var skadosh = DoujinAPI.loadingCirclePresent
     
     @State static var loading:Bool = false
     
@@ -52,17 +50,15 @@ struct DoujinView: View {
                 
                 
 
-//                Loading circle that doesn't work
-//                if DoujinAPI.loadingCirclePresent == true{
-//                    LoadingCircle(TheAPI: doujin)
-//                        .frame(width:120, height: 120)
-//                }
-                
-                
+//                Loading circle
+                if doujin.loadingCircle == true{
+                    LoadingCircle(theApi: doujin)
+                }
             }
+            
         }
         //The Alert that doesn't work
-        .alert(isPresented: $present){
+        .alert(isPresented: $doujin.cantfindAlert){
             Alert(title: Text("Sorry"), message: Text("Couldn't find that Sauce"), dismissButton: .default(Text("Dismiss")))
         }
         .lineSpacing(0)
@@ -73,7 +69,7 @@ struct DoujinView: View {
 
 struct DoujinView_Previews: PreviewProvider {
     static var previews: some View {
-        DoujinView()
+        DoujinView(doujin: DoujinAPI())
     }
 }
 

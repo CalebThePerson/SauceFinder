@@ -15,6 +15,7 @@
 		C3072F152643536900741B72 /* LoadingCircle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3072F142643536900741B72 /* LoadingCircle+Extension.swift */; };
 		C3072F172643538700741B72 /* LinkCopied+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3072F162643538700741B72 /* LinkCopied+Extension.swift */; };
 		C3072F19264356E300741B72 /* DoujinAPI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3072F18264356E300741B72 /* DoujinAPI+Extension.swift */; };
+		C3072F1B264361C300741B72 /* DispatchQueue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3072F1A264361C300741B72 /* DispatchQueue+Extension.swift */; };
 		C31F35C725D7558C00EB65E9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C625D7558800EB65E9 /* ImageView.swift */; };
 		C31F35CA25D759E000EB65E9 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C925D759E000EB65E9 /* TagView.swift */; };
 		C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065A25785F4500E99E2F /* DoujinView.swift */; };
@@ -55,6 +56,7 @@
 		C3072F142643536900741B72 /* LoadingCircle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadingCircle+Extension.swift"; sourceTree = "<group>"; };
 		C3072F162643538700741B72 /* LinkCopied+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkCopied+Extension.swift"; sourceTree = "<group>"; };
 		C3072F18264356E300741B72 /* DoujinAPI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoujinAPI+Extension.swift"; sourceTree = "<group>"; };
+		C3072F1A264361C300741B72 /* DispatchQueue+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extension.swift"; sourceTree = "<group>"; };
 		C31F35C625D7558800EB65E9 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		C31F35C925D759E000EB65E9 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		C33F065A25785F4500E99E2F /* DoujinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				C3072F142643536900741B72 /* LoadingCircle+Extension.swift */,
 				C3072F162643538700741B72 /* LinkCopied+Extension.swift */,
 				C3072F18264356E300741B72 /* DoujinAPI+Extension.swift */,
+				C3072F1A264361C300741B72 /* DispatchQueue+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				C352603B25AE810400651006 /* FileRouter.swift in Sources */,
 				C36811622619AA15001F8280 /* ImagePicker.swift in Sources */,
 				C362F647261EA3D400991850 /* DoujinInfo.swift in Sources */,
+				C3072F1B264361C300741B72 /* DispatchQueue+Extension.swift in Sources */,
 				C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */,
 				C3072F19264356E300741B72 /* DoujinAPI+Extension.swift in Sources */,
 				C3016106261AB5D200B695CE /* SauceNao.swift in Sources */,

@@ -9,9 +9,7 @@ import Foundation
 import MLKit
 
 extension ContentView {
-    func textRecog(with InputImage: UIImage?){
-        DoujinAPI.loadingCirclePresent = true
-        
+    func textRecog(with InputImage: UIImage?){        
         //Function that takes care of all of the text recognition of the numbers then passes it to the API
         guard let InputImage = InputImage else {return}
         

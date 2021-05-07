@@ -25,6 +25,9 @@ struct ContentView: View {
     
     @ObservedObject var doujin = DoujinAPI()
     @StateObject var viewRouter = ViewRouter()
+    @StateObject var doujinModel = DoujinInfoViewModel()
+
+    
     var sauceAPI = SauceNaoAPI()
     
     @State var showing:Bool = false
@@ -33,8 +36,6 @@ struct ContentView: View {
     @State private var InputImage: UIImage?
     @State var changeSheet = false
     
-    static var poop:Bool = true
-    
     var body: some View {
         GeometryReader {geo in
             
@@ -42,13 +43,8 @@ struct ContentView: View {
                 
                 switch viewRouter.currentPage {
                 case .sauce:
-                    DoujinView()
+                    DoujinView(doujin: doujin)
                         .padding(.bottom, 50)
-                    if doujin.testing == true{
-                        LoadingCircle(TheAPI: doujin)
-                        
-                        //                    .padding(.top, 20)
-                    }
                 case .hentai:
                     Text("HentaiView my guy")
                 }
@@ -104,23 +100,22 @@ struct ContentView: View {
                     }
                 }
             }
-            //            .overlay(
-            //                VStack{
-            //                    if doujin.loadingCirclePresent == true {
-            //                        LoadingCircle(TheAPI: doujin)
-            //                    }
-            //                }, alignment: .center)
-            
         }
     }
     func LoadImage(){
         //Loads the image into a variable and then converts it into base 64 allowing it to be used by SauceNao api
         guard let InputImage = InputImage else {return}
         
-        print("yeth")
-        DoujinAPI.loadingCirclePresent = true
-        
-        print(convertImageToBase64(InputImage))
+        doujin.loadingCircle = true
+        DispatchQueue.background(background: {
+            //Does something in background
+            convertImageToBase64(InputImage)
+
+        }, completion: {
+            //When the task finally completes it updates the published var
+            doujin.loadingCircle = false
+
+        })
         self.InputImage = nil
     }
     
@@ -136,8 +131,11 @@ struct ContentView: View {
     func convertImageToBase64(_ image: UIImage) {
         let imageData:NSData = image.jpegData(compressionQuality: 0.4)! as NSData
         let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
-        print("Damn")
+        print("cog")
         sauceAPI.FindDoujin(imageString: strBase64)
+
+        
+
     }
 }
 

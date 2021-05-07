@@ -16,22 +16,11 @@ import SwiftUI
 
 
 class DoujinAPI:ObservableObject {
-    
-    static var loadingCirclePresent: Bool = false {
-        didSet{
-            print("updated")
-        }
-    }
-    static var enterSauceAlert: Bool = false{
-        didSet{
-            print("FUCKIN UPDATED")
-        }
-    }
-    static var progress:String = ""
-    
-    @Published var testing:Bool = false
     //Similar to @state, vars taht will help update views
     @Published var removing:Bool = false
+    @Published var loadingCircle:Bool = false
+    @Published var progress:String = ""
+    @Published var enterSaucealert:Bool = false
     @State var cantfindAlert:Bool = false
     
     //The Doujin model
@@ -39,16 +28,15 @@ class DoujinAPI:ObservableObject {
     
     //Function that gets all the detils of the doujin
     func bookInfo(Sauces: [String]) {
-        testing = true
         var theCount = 0
-
-        DoujinAPI.progress = "\(theCount)/\(Sauces.count)"
+        
+        progress = "\(theCount)/\(Sauces.count)"
 
         
         let headers: HTTPHeaders = [.accept("application/json")]
         
         for SauceNum in Sauces {
-            sleep(7)
+            sleep(2)
             AF.request("https://nhentai.net/api/gallery/\(SauceNum)", method: .get, headers: headers).responseJSON { response in
                 print("Working")
                 
@@ -71,7 +59,7 @@ class DoujinAPI:ObservableObject {
                         NewDoujin.Tags.append(TheTags)
                         count += 1
                     }
-                    self.getPitcture(Media: MediaID) {(newstring) in
+                    self.getPitcture(Media: MediaID) { [self](newstring) in
                         NewDoujin.Name = Name
                         NewDoujin.Id = SauceNum
                         print(SauceNum)
@@ -82,24 +70,22 @@ class DoujinAPI:ObservableObject {
                         NewDoujin.similarity = 100
                         
                         self.doujinModel.addDoujin(theDoujin: NewDoujin)
-                        DoujinAPI.progress = "\(theCount)/\(Sauces.count)"
                         theCount += 1
+                        self.progress = "\(theCount)/\(Sauces.count)"
 
                     }
                 }
             }
-
         }
-        testing = false
-
-        DoujinAPI.loadingCirclePresent = false
+        sleep(1)
     }
     
     func bookInfoWithName(with theName: String,the similarity: String){
 //        DoujinAPI.loadingCirclePresent = true
-        testing = true
         let headers: HTTPHeaders = [.accept("application/json")]
         
+        sleep(7)
+
         AF.request("https://nhentai.net/api/galleries/search?query=\(theName)&page=PAGE=1&sort=SORT=recent", method: .get, headers: headers).responseJSON {response in
             if let Data = response.data{
                 let json = try! JSON(data: Data)
@@ -133,7 +119,6 @@ class DoujinAPI:ObservableObject {
                     
                     self.doujinModel.addDoujin(theDoujin: NewDoujin)
                     print("Saved")
-                    DoujinAPI.loadingCirclePresent = false
                 }
             }
         }

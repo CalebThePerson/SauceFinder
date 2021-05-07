@@ -11,7 +11,7 @@ struct LoadingCircle: View {
     
     //How we keep track of the indicator
     @State var Degrees = 0.0
-    var TheAPI: DoujinAPI
+    var theApi: DoujinAPI
     
     var body: some View {
         ZStack {
@@ -21,7 +21,7 @@ struct LoadingCircle: View {
                 .frame(width: 120, height:120)
                 .rotationEffect(Angle(degrees:-90))
             
-            Text("\(DoujinAPI.progress)%")
+            Text("\(theApi.progress)%")
             
             //Create a dynamic circle dependent on teh degree state
             Circle()
@@ -40,7 +40,7 @@ struct LoadingCircle: View {
 
 struct LoadingCircle_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingCircle(TheAPI: DoujinAPI())
+        LoadingCircle(theApi: DoujinAPI())
     }
 }
 
