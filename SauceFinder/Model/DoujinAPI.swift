@@ -13,19 +13,17 @@ import RealmSwift
 import SwiftUI
 
 
-
-
 class DoujinAPI:ObservableObject {
     //Similar to @state, vars taht will help update views
     @Published var removing:Bool = false
     @Published var loadingCircle:Bool = false
     @Published var progress:String = ""
-    @Published var enterSaucealert:Bool = false
-    @State var cantfindAlert:Bool = false
+    
+    @Published var showAlert:Bool = false
+    @Published var activeAlert:ActiveAlert? = .none
     
     //The Doujin model
     var doujinModel = DoujinInfoViewModel()
-    
     //Function that gets all the detils of the doujin
     func bookInfo(Sauces: [String]) {
         var theCount = 0
@@ -45,9 +43,9 @@ class DoujinAPI:ObservableObject {
                     
                     let NewDoujin = DoujinInfo()
                     
-                    guard let Name = json["title"]["pretty"].string else {self.cantfindAlert.toggle(); return}
-                    guard let Pages = json["num_pages"].int else {return}
-                    guard let MediaID = json["media_id"].string else {return}
+                    guard let Name = json["title"]["pretty"].string else {self.showAlert.toggle();self.activeAlert = .error;return}
+                    guard let Pages = json["num_pages"].int else {self.showAlert.toggle();self.activeAlert = .error;return}
+                    guard let MediaID = json["media_id"].string else {self.showAlert.toggle();self.activeAlert = .error;return}
                     
                     
                     var count = 0
@@ -83,8 +81,9 @@ class DoujinAPI:ObservableObject {
     func bookInfoWithName(with theName: String,the similarity: String){
 //        DoujinAPI.loadingCirclePresent = true
         let headers: HTTPHeaders = [.accept("application/json")]
-        
-        sleep(7)
+        progress = "0/1"
+
+        sleep(2)
 
         AF.request("https://nhentai.net/api/galleries/search?query=\(theName)&page=PAGE=1&sort=SORT=recent", method: .get, headers: headers).responseJSON {response in
             if let Data = response.data{
@@ -92,10 +91,10 @@ class DoujinAPI:ObservableObject {
                 
                 let NewDoujin = DoujinInfo()
                 
-                guard let Name = json["result"][0]["title"]["pretty"].string else {self.cantfindAlert.toggle();print(self.cantfindAlert);return}
-                guard let Pages = json["result"][0]["num_pages"].int else {return}
-                guard let MediaID = json["result"][0]["media_id"].string else {return}
-                guard let SauceNum = json["result"][0]["id"].int else {return}
+                guard let Name = json["result"][0]["title"]["pretty"].string else {self.showAlert.toggle();self.activeAlert = .error;return}
+                guard let Pages = json["result"][0]["num_pages"].int else {self.showAlert.toggle();self.activeAlert = .error;return}
+                guard let MediaID = json["result"][0]["media_id"].string else {self.showAlert.toggle();self.activeAlert = .error;return}
+                guard let SauceNum = json["result"][0]["id"].int else {self.showAlert.toggle();self.activeAlert = .error;return}
                 
                 
                 var count = 0
@@ -104,7 +103,6 @@ class DoujinAPI:ObservableObject {
                 for _ in TagJson {
                     let TheTags = DoujinTags()
                     TheTags.Name = json["result"][0]["tags"][count]["name"].string!
-                    //                    print(TheTags.Name)
                     NewDoujin.Tags.append(TheTags)
                     count += 1
                 }
@@ -118,10 +116,13 @@ class DoujinAPI:ObservableObject {
                     NewDoujin.similarity = Double(similarity)!
                     
                     self.doujinModel.addDoujin(theDoujin: NewDoujin)
+                    self.progress = "1çççç/1"
+
                     print("Saved")
                 }
             }
         }
+        sleep(1)
     }
 }
 

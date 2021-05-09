@@ -10,7 +10,7 @@ import SwiftPackage_SauceNao
 import SwiftUI
 
 class SauceNaoAPI{
-//    var theApiKey = "39c06c99f48a6c895c979ed0509251812547441b"
+    //    var theApiKey = "39c06c99f48a6c895c979ed0509251812547441b"
     let saucenao = SauceNao(apiKey: "39c06c99f48a6c895c979ed0509251812547441b")
     var doujinAPI = DoujinAPI()
     
@@ -20,14 +20,16 @@ class SauceNaoAPI{
         let imageData = image.pngData()
         let fileName = "image.jpg"
         let mimeType = "image/jpeg"
-        var englishName = ""
         var similarity = ""
         
         //Converts the picture into base64 and then runs it through the SauceNao API
         saucenao.search(data: imageData!, fileName: fileName, mimeType: mimeType) {(result, error) in
+            print("skadosh")
             if let theResults = result?.results?[0]{
-                guard var englishName = theResults.eng_name else {return}
-//                englishName = theResults.eng_name!
+                print(type(of: theResults))
+                print("here")
+                guard var englishName = theResults.eng_name else {api.loadingCircle = false;api.activeAlert = .noSauce;api.showAlert.toggle();return}
+                //                englishName = theResults.eng_name!
                 similarity = "\(theResults.similarity)"
                 print(englishName)
                 englishName = englishName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
@@ -42,10 +44,11 @@ class SauceNaoAPI{
                     api.loadingCircle = false
                 })
                 
-
+                
+                
             }
         }
-
+        
     }
 }
 

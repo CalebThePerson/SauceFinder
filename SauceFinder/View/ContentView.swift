@@ -22,7 +22,6 @@ enum sheetPicker:Identifiable{
 }
 
 struct ContentView: View {
-    
     @ObservedObject var doujin = DoujinAPI()
     @StateObject var viewRouter = ViewRouter()
     @StateObject var doujinModel = DoujinInfoViewModel()
@@ -35,6 +34,8 @@ struct ContentView: View {
     @State var sheetPicker: sheetPicker? = .none
     @State private var InputImage: UIImage?
     @State var changeSheet = false
+    
+
     
     var body: some View {
         GeometryReader {geo in
@@ -110,8 +111,9 @@ struct ContentView: View {
         
         //Displays the loading circle
         doujin.loadingCircle = true
-        convertImageToBase64(InputImage)
         self.InputImage = nil
+
+        convertImageToBase64(InputImage)
     }
     
     

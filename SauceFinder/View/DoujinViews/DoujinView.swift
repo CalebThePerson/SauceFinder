@@ -9,19 +9,17 @@ import SwiftUI
 import RealmSwift
 import Combine
 
+enum ActiveAlert{
+    case error, noSauce
+}
+
 struct DoujinView: View {
-    
     @ObservedObject var doujin: DoujinAPI
     //    @ObservedResults(DoujinInfo.self) var doujinshis
     @State private var detailViewShowing: Bool = false
     @State private var selectedDoujin: DoujinInfo?
-    @State var alertShow:Bool = false
-    @State var testing:Bool = DoujinAPI().removing
+    
     @StateObject var doujinModel = DoujinInfoViewModel()
-
-    
-    @State static var loading:Bool = false
-    
     var body: some View {
         //Code if there are any Doujins
         ScrollView(.vertical) {
@@ -47,27 +45,47 @@ struct DoujinView: View {
                     DoujinInformation(theAPI: doujin, doujinModel: doujinModel)
                 })
                 
-//                Loading circle
+                //                Loading circle
                 if doujin.loadingCircle == true{
                     LoadingCircle(theApi: doujin)
                 }
+                
             }
             
         }
-        //The Alert that doesn't work
-        .alert(isPresented: $doujin.cantfindAlert){
-            Alert(title: Text("Sorry"), message: Text("Couldn't find that Sauce"), dismissButton: .default(Text("Dismiss")))
-        }
         .lineSpacing(0)
-        
         .edgesIgnoringSafeArea(.all)
+
+
+        //Alert if the sauce can't be found
+        .alert(isPresented: $doujin.showAlert){
+            switch doujin.activeAlert{
+            case .error:
+                return Alert(title: Text("Sorry"), message: Text("There was an error please report to Devs"), dismissButton: .default(Text("Dismiss")){
+                    doujin.showAlert.toggle()
+                })
+                
+            case .noSauce:
+                return Alert(title: Text("Sorry"), message: Text("Couldn't find that Sauce"), dismissButton: .default(Text("Dismiss")){
+                    doujin.showAlert.toggle()
+                })
+            case .none:
+                return Alert(title: Text("Sorry"), message: Text("There is an error please report to dev"), dismissButton: .default(Text("Dismiss")){
+                    doujin.showAlert.toggle()
+                })
+                
+            }
+        }
+        
     }
+    
 }
 
-struct DoujinView_Previews: PreviewProvider {
-    static var previews: some View {
-        DoujinView(doujin: DoujinAPI())
-    }
-}
+
+//struct DoujinView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DoujinView(doujin: DoujinAPI())
+//    }
+//}
 
 
