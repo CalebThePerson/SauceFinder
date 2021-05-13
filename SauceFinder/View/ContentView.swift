@@ -25,7 +25,7 @@ struct ContentView: View {
     @ObservedObject var doujin = DoujinAPI()
     @StateObject var viewRouter = ViewRouter()
     @StateObject var doujinModel = DoujinInfoViewModel()
-
+    
     
     var sauceAPI = SauceNaoAPI()
     
@@ -35,7 +35,7 @@ struct ContentView: View {
     @State private var InputImage: UIImage?
     @State var changeSheet = false
     
-
+    
     
     var body: some View {
         GeometryReader {geo in
@@ -46,6 +46,9 @@ struct ContentView: View {
                 case .sauce:
                     DoujinView(doujin: doujin)
                         .padding(.bottom, 50)
+                        .frame(alignment: .center)
+                    
+                    
                 case .hentai:
                     Text("HentaiView my guy")
                 }
@@ -112,7 +115,7 @@ struct ContentView: View {
         //Displays the loading circle
         doujin.loadingCircle = true
         self.InputImage = nil
-
+        
         convertImageToBase64(InputImage)
     }
     

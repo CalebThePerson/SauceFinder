@@ -19,26 +19,47 @@ struct DoujinView: View {
     @State private var detailViewShowing: Bool = false
     @State private var selectedDoujin: DoujinInfo?
     
+    @State private var listCellIndex:Int = 0
+    
+    
+    //Change this to @StateObject ?/
     @StateObject var doujinModel = DoujinInfoViewModel()
     var body: some View {
         //Code if there are any Doujins
         ScrollView(.vertical) {
-            VStack(spacing: 0) {
-                ForEach(doujinModel.doujins, id: \.UniqueID) { doujinshi in
-                    Button(action: {
-                        self.detailViewShowing = true
-                        self.doujinModel.selectedDoujin = doujinshi
+            LazyVStack(spacing: 0) {
+                //doujinModel.doujins.indicies / index
+                ForEach(doujinModel.doujins){ doujinshi in
+                    
+                    SwipeDeleteRow(isSelected: doujinModel.doujins.index(of: doujinshi) == listCellIndex, selectedIndex: $listCellIndex, index: doujinModel.doujins.index(of: doujinshi)!){
                         
-                    }) {
-                        DoujinCell(image: convertBase64ToImage(doujinshi.PictureString))
+                        if doujinshi.isInvalidated == false{
+                                                    DoujinCell(image: convertBase64ToImage(doujinshi.PictureString))
+
+                        }
+                    } onDelete:{
+                        doujinModel.easyDelete(at: doujinModel.doujins.index(of: doujinshi)!)
+                        listCellIndex = -1
                     }
+                    //                    SwipeDeleteRow(isSelected: index == listCellIndex, selectedIndex: $listCellIndex, index: index){
+                    //                        if let item = doujinModel.doujins[index]{
+                    ////                            DoujinCell(image: convertBase64ToImage(item.PictureString))
+                    //                            Text("Pog")
+                    //
+                    //                        }
+                    //                    }onDelete:{
+                    //                        doujinModel.easyDelete(at: index)
+                    //                        listCellIndex = 1
+                    //                    }
+                    //                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    
+                    //                    Button(action: {
+                    //                        self.detailViewShowing = true
+                    //                        self.doujinModel.selectedDoujin = doujinshi
+                    //
+                    //                    }) {
+                    //                    }
                 }
-                
-                
-                //                .onDelete(perform: { indexSet in
-                //                    self.doujinModel.easyDelete(at: indexSet)
-                //                })
-                
                 
                 //This will preseent the sheet that displays information for the doujin
                 .sheet(isPresented: $detailViewShowing, onDismiss: {if doujinModel.deleting == true {doujinModel.deleteDoujin()}}, content: {
@@ -53,10 +74,11 @@ struct DoujinView: View {
             }
             
         }
+        
         .lineSpacing(0)
-        .edgesIgnoringSafeArea(.all)
-
-
+//        .edgesIgnoringSafeArea(.all)
+        
+        
         //Alert if the sauce can't be found
         .alert(isPresented: $doujin.showAlert){
             switch doujin.activeAlert{
@@ -89,3 +111,31 @@ struct DoujinView: View {
 //}
 
 
+//struct Model: Identifiable {
+//    var id = UUID()
+//}
+//
+//struct CustomSwipeDemo: View {
+//
+//    @State var arr: [Model] = [.init(), .init(), .init(), .init(), .init(), .init(), .init(), .init()]
+//
+//    @State private var listCellIndex: Int = 0
+//
+//    var body: some View {
+//        ScrollView(.vertical) {
+//            LazyVStack(spacing: 0) {
+//                ForEach(arr.indices, id: \.self) { index in
+//                    SwipeDeleteRow(isSelected: index == listCellIndex, selectedIndex: $listCellIndex, index: index) {
+//                        if let item = self.arr[safe: index] {
+//                            Text(item.id.description)
+//                        }
+//                    } onDelete: {
+//                        arr.remove(at: index)
+//                        self.listCellIndex = -1
+//                    }
+//                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+//                }
+//            }
+//        }
+//    }
+//}

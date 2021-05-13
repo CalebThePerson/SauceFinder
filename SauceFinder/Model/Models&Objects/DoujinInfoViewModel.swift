@@ -25,17 +25,18 @@ class DoujinInfoViewModel: ObservableObject{
     var token: NotificationToken? = nil
     
     @ObservedResults(DoujinInfo.self) var doujins
-
+    
     @Published var deleting:Bool = false
     @Published var selectedDoujin:DoujinInfo? = nil
     @Published var loading:Bool = false
-        
+    
     
     
     init(){
         let realm = try? Realm()
         self.realm = realm
-
+        self.realm?.autorefresh == true
+        
         token = doujins.observe({ (changes) in
             switch changes{
             case .error(_):break
@@ -53,7 +54,7 @@ class DoujinInfoViewModel: ObservableObject{
             selectedDoujin!.Name
         }
     }
-
+    
     var id: String {
         get {
             selectedDoujin!.Id
@@ -106,25 +107,29 @@ class DoujinInfoViewModel: ObservableObject{
     }
     
     func deleteDoujin(){
-            try? realm?.write{
-                realm?.delete(selectedDoujin!)
-            }
+        try? realm?.write{
+            realm?.delete(selectedDoujin!)
+        }
         deleting = false
     }
     
-    func easyDelete(at indexSet: IndexSet){
-        if let index = indexSet.first{
-            let realm = doujins[index].realm
-            try? realm?.write({
-                realm?.delete(doujins[index])
-            })
-        }
+    func easyDelete(at index: Int){
+        
+        //        let realm = doujins[index].realm
+        try? realm?.write({
+            self.realm?.delete(self.doujins[index])
+            
+            
+        })
+        print("gone")
+        
     }
     
     func addDoujin(theDoujin: DoujinInfo){
         try? realm?.write({
             realm?.add(theDoujin)
         })
+        
     }
     
 }

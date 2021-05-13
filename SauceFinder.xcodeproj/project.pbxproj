@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5827EF2D110AC45085AA9567 /* Pods_SauceFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */; };
 		C3016106261AB5D200B695CE /* SauceNao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3016105261AB5D200B695CE /* SauceNao.swift */; };
+		C301697B264C27D800D2C573 /* SwipeDeleteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301697A264C27D800D2C573 /* SwipeDeleteRow.swift */; };
+		C301697D264C2D4400D2C573 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301697C264C2D4400D2C573 /* Collection+Extension.swift */; };
 		C3072F0F2643514000741B72 /* ContentView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3072F0E2643514000741B72 /* ContentView+Extension.swift */; };
 		C3072F11264351E200741B72 /* AddSauceView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3072F10264351E200741B72 /* AddSauceView+Extension.swift */; };
 		C3072F132643527400741B72 /* ImageConversion+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3072F122643527400741B72 /* ImageConversion+Extensions.swift */; };
@@ -50,6 +52,8 @@
 		179C2A1C56A32218FD9FC3F1 /* Pods-SauceFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SauceFinder.debug.xcconfig"; path = "Target Support Files/Pods-SauceFinder/Pods-SauceFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SauceFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3016105261AB5D200B695CE /* SauceNao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SauceNao.swift; sourceTree = "<group>"; };
+		C301697A264C27D800D2C573 /* SwipeDeleteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDeleteRow.swift; sourceTree = "<group>"; };
+		C301697C264C2D4400D2C573 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		C3072F0E2643514000741B72 /* ContentView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView+Extension.swift"; sourceTree = "<group>"; };
 		C3072F10264351E200741B72 /* AddSauceView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddSauceView+Extension.swift"; sourceTree = "<group>"; };
 		C3072F122643527400741B72 /* ImageConversion+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageConversion+Extensions.swift"; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				C3072F10264351E200741B72 /* AddSauceView+Extension.swift */,
 				C3072F142643536900741B72 /* LoadingCircle+Extension.swift */,
 				C3072F162643538700741B72 /* LinkCopied+Extension.swift */,
+				C301697C264C2D4400D2C573 /* Collection+Extension.swift */,
 				C3072F18264356E300741B72 /* DoujinAPI+Extension.swift */,
 				C3072F1A264361C300741B72 /* DispatchQueue+Extension.swift */,
 			);
@@ -181,6 +186,7 @@
 				C31F35C925D759E000EB65E9 /* TagView.swift */,
 				C3679944259D3C100098BF78 /* LoadingCircle.swift */,
 				C3749F202630C68F00ED80C3 /* LinkCopied.swift */,
+				C301697A264C27D800D2C573 /* SwipeDeleteRow.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -395,7 +401,9 @@
 				C38F224E25760ABD0005CDEE /* SceneDelegate.swift in Sources */,
 				C3072F0F2643514000741B72 /* ContentView+Extension.swift in Sources */,
 				C362F643261EA3CA00991850 /* DoujinInfoViewModel.swift in Sources */,
+				C301697D264C2D4400D2C573 /* Collection+Extension.swift in Sources */,
 				C362F63F261EA3BC00991850 /* DoujinAPI.swift in Sources */,
+				C301697B264C27D800D2C573 /* SwipeDeleteRow.swift in Sources */,
 				C38F225025760ABD0005CDEE /* ContentView.swift in Sources */,
 				C3072F132643527400741B72 /* ImageConversion+Extensions.swift in Sources */,
 				C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */,
