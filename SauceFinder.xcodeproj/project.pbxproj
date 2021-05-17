@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5827EF2D110AC45085AA9567 /* Pods_SauceFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */; };
 		C3016106261AB5D200B695CE /* SauceNao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3016105261AB5D200B695CE /* SauceNao.swift */; };
-		C301697B264C27D800D2C573 /* SwipeDeleteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301697A264C27D800D2C573 /* SwipeDeleteRow.swift */; };
-		C301697D264C2D4400D2C573 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301697C264C2D4400D2C573 /* Collection+Extension.swift */; };
 		C3072F0F2643514000741B72 /* ContentView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3072F0E2643514000741B72 /* ContentView+Extension.swift */; };
 		C3072F11264351E200741B72 /* AddSauceView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3072F10264351E200741B72 /* AddSauceView+Extension.swift */; };
 		C3072F132643527400741B72 /* ImageConversion+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3072F122643527400741B72 /* ImageConversion+Extensions.swift */; };
@@ -21,7 +19,6 @@
 		C31F35C725D7558C00EB65E9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C625D7558800EB65E9 /* ImageView.swift */; };
 		C31F35CA25D759E000EB65E9 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F35C925D759E000EB65E9 /* TagView.swift */; };
 		C33F065B25785F4600E99E2F /* DoujinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065A25785F4500E99E2F /* DoujinView.swift */; };
-		C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F065E2578622800E99E2F /* DoujinCell.swift */; };
 		C34295F426338058007435CE /* SwiftPackage-SauceNao in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F326338058007435CE /* SwiftPackage-SauceNao */; };
 		C34295F7263380B9007435CE /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F6263380B9007435CE /* SwiftyJSON */; };
 		C34295FA263380DF007435CE /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = C34295F9263380DF007435CE /* AlamofireImage */; };
@@ -52,8 +49,6 @@
 		179C2A1C56A32218FD9FC3F1 /* Pods-SauceFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SauceFinder.debug.xcconfig"; path = "Target Support Files/Pods-SauceFinder/Pods-SauceFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B17453E604537E21A0C0FE3F /* Pods_SauceFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SauceFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3016105261AB5D200B695CE /* SauceNao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SauceNao.swift; sourceTree = "<group>"; };
-		C301697A264C27D800D2C573 /* SwipeDeleteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDeleteRow.swift; sourceTree = "<group>"; };
-		C301697C264C2D4400D2C573 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		C3072F0E2643514000741B72 /* ContentView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView+Extension.swift"; sourceTree = "<group>"; };
 		C3072F10264351E200741B72 /* AddSauceView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddSauceView+Extension.swift"; sourceTree = "<group>"; };
 		C3072F122643527400741B72 /* ImageConversion+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageConversion+Extensions.swift"; sourceTree = "<group>"; };
@@ -64,7 +59,6 @@
 		C31F35C625D7558800EB65E9 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		C31F35C925D759E000EB65E9 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		C33F065A25785F4500E99E2F /* DoujinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinView.swift; sourceTree = "<group>"; };
-		C33F065E2578622800E99E2F /* DoujinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoujinCell.swift; sourceTree = "<group>"; };
 		C352603725AE7EB800651006 /* TabBarCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCircle.swift; sourceTree = "<group>"; };
 		C352603A25AE810400651006 /* FileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRouter.swift; sourceTree = "<group>"; };
 		C35E54DC25D5FEC100977E0A /* AddSauceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSauceView.swift; sourceTree = "<group>"; };
@@ -129,7 +123,6 @@
 				C3072F10264351E200741B72 /* AddSauceView+Extension.swift */,
 				C3072F142643536900741B72 /* LoadingCircle+Extension.swift */,
 				C3072F162643538700741B72 /* LinkCopied+Extension.swift */,
-				C301697C264C2D4400D2C573 /* Collection+Extension.swift */,
 				C3072F18264356E300741B72 /* DoujinAPI+Extension.swift */,
 				C3072F1A264361C300741B72 /* DispatchQueue+Extension.swift */,
 			);
@@ -186,7 +179,6 @@
 				C31F35C925D759E000EB65E9 /* TagView.swift */,
 				C3679944259D3C100098BF78 /* LoadingCircle.swift */,
 				C3749F202630C68F00ED80C3 /* LinkCopied.swift */,
-				C301697A264C27D800D2C573 /* SwipeDeleteRow.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -203,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				C33F065A25785F4500E99E2F /* DoujinView.swift */,
-				C33F065E2578622800E99E2F /* DoujinCell.swift */,
 				C35FB4B225A2A074005D4536 /* DoujinInformation.swift */,
 			);
 			path = DoujinViews;
@@ -401,12 +392,9 @@
 				C38F224E25760ABD0005CDEE /* SceneDelegate.swift in Sources */,
 				C3072F0F2643514000741B72 /* ContentView+Extension.swift in Sources */,
 				C362F643261EA3CA00991850 /* DoujinInfoViewModel.swift in Sources */,
-				C301697D264C2D4400D2C573 /* Collection+Extension.swift in Sources */,
 				C362F63F261EA3BC00991850 /* DoujinAPI.swift in Sources */,
-				C301697B264C27D800D2C573 /* SwipeDeleteRow.swift in Sources */,
 				C38F225025760ABD0005CDEE /* ContentView.swift in Sources */,
 				C3072F132643527400741B72 /* ImageConversion+Extensions.swift in Sources */,
-				C33F065F2578622800E99E2F /* DoujinCell.swift in Sources */,
 				C3749F212630C69000ED80C3 /* LinkCopied.swift in Sources */,
 				C35FB4B325A2A074005D4536 /* DoujinInformation.swift in Sources */,
 				C352603B25AE810400651006 /* FileRouter.swift in Sources */,
