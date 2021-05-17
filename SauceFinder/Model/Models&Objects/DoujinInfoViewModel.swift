@@ -107,10 +107,12 @@ class DoujinInfoViewModel: ObservableObject{
     }
     
     func deleteDoujin(){
-        try? realm?.write{
-            realm?.delete(selectedDoujin!)
+        if selectedDoujin?.isInvalidated == false{
+            try? realm?.write{
+                realm?.delete(selectedDoujin!)
+            }
+            deleting = false
         }
-        deleting = false
     }
     
     func easyDelete(at index: Int){

@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "FloatingLabelTextFieldSwiftUI",
+        "repositoryURL": "https://github.com/kishanraja/FloatingLabelTextFieldSwiftUI.git",
+        "state": {
+          "branch": null,
+          "revision": "b9aab8fa5f13474180274cfb7022357e8461b838",
+          "version": "4.2.1"
+        }
+      },
+      {
         "package": "Realm",
         "repositoryURL": "https://github.com/realm/realm-cocoa.git",
         "state": {
