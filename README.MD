@@ -76,12 +76,6 @@ if you do note have it installed please run `sudo gem install cocoapods`
 
 
 ## Roadmap
-
-
-- Error Handling
-
-  
-- Add indicators of loading
 - Fix UI Bugs
 - Implement TraceMoe and Anilist api to recognize hentai
 
