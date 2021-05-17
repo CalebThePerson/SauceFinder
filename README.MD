@@ -50,7 +50,7 @@ to simply find Doujinshi and Hentai straight from your phone with ease.
 
   
 
-Ipa is avaiable however, if you wish to install the project and edit it these are the instructions. 
+Ipa is available however, if you wish to install the project and edit it these are the instructions. 
   
 
 1. Fork the Repo or download the project to your computer
@@ -88,7 +88,7 @@ if you do note have it installed please run `sudo gem install cocoapods`
 
 ## Contributing
 
-Contributions are always welcome!
+Contributions are always welcome, leave an issue if you have a suggestion or need help!
 
 [RecordingOne]:https://raw.githubusercontent.com/CalebThePerson/Assets/master/SauceFinderStuff/Recording1.gif
 [RecordingTwo]:https://raw.githubusercontent.com/CalebThePerson/Assets/master/SauceFinderStuff/Recording2.gif
