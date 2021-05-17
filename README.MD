@@ -72,7 +72,7 @@ if you do note have it installed please run `sudo gem install cocoapods`
 ## Demo
 | Importing Numbers        | Finding Doujin based on page           | Importing multiple numbers from Image  |
 | ------------- |:-------------:| -----:|
-| ![RecordingOne]      | ![RecordingTwo] | ![RecordingThree]|
+| ![RecordingOne]      | ![RecordingThree] | ![RecordingTwo]|
 
 
 ## Roadmap
