@@ -45,7 +45,7 @@ struct ContentView: View {
                 switch viewRouter.currentPage {
                 case .sauce:
                     DoujinView(doujin: doujin)
-                        .padding(.bottom, 50)
+                        .padding(.bottom, 60)
                         .frame(alignment: .center)
                     
                     
