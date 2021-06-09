@@ -16,8 +16,9 @@ struct TabBarCircle: View {
     var body: some View {
         ZStack {
             if showPopUp {
-                PlusMenu(widthAndHeight: length, show: $showingViews, sheet: $sheetPicker)
+                PlusMenu(widthAndHeight: length, show: $showingViews, sheet: $sheetPicker, showPopUp: $showPopUp)
                     .offset(y: -length)
+                    
             }
             
             
@@ -60,6 +61,7 @@ struct PlusMenu: View {
     @Binding var show: Bool
     @ObservedObject var doujinApi = DoujinAPI()
     @Binding var sheet: sheetPicker?
+    @Binding var showPopUp: Bool
 
 
     
@@ -69,6 +71,7 @@ struct PlusMenu: View {
                 Button(action: {
                     self.sheet = .addDoujin
                     self.show.toggle()
+                    self.showPopUp.toggle()
                 }){
                     ZStack {
                         Circle()
@@ -87,6 +90,7 @@ struct PlusMenu: View {
 
                 self.sheet = .imagePick
                 self.show.toggle()
+                self.showPopUp.toggle()
             }){
                 ZStack {
                     Circle()

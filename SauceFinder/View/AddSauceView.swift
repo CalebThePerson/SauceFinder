@@ -63,32 +63,32 @@ struct AddSauceView: View {
                             Text("Enter the Sauce")
                             
                             if RedoEntry == false{
-                                FloatingLabelTextField($InputDoujin, placeholder: "Sauce", editingChanged: { (isChanged) in
-                                    
-                                }) {
-                                    
-                                }
-
-                                .leftView({
-                                    Image(systemName: "book")
-                                })
-                                .isShowError(true)
-                                .textColor(.green)
-                                .addValidations([.init(condition: InputDoujin.isValid(.number), errorMessage: "Invalid Sauce"),
-                                                     .init(condition: InputDoujin.count <= 6, errorMessage: "Maximum is 6 letters")
-                                    ])
-                                .floatingStyle(ThemeTextFieldStyle2())
-                                .frame(height: 70)
-                                
+//                                FloatingLabelTextField($InputDoujin, placeholder: "Sauce", editingChanged: { (isChanged) in
+//
+//                                }) {
+//
+//                                }
+//
+//                                .leftView({
+//                                    Image(systemName: "book")
+//                                })
+//                                .isShowError(true)
+//                                .textColor(.green)
+//                                .addValidations([.init(condition: InputDoujin.isValid(.number), errorMessage: "Invalid Sauce"),
+//                                                     .init(condition: InputDoujin.count <= 6, errorMessage: "Maximum is 6 letters")
+//                                    ])
+//                                .floatingStyle(ThemeTextFieldStyle2())
+//                                .frame(height: 70)
+//
                             
                                 
-//                                TextField("Numbers Here", text: $InputDoujin)
-//                                    .keyboardType(.numberPad)
+                                TextField("Numbers Here", text: $InputDoujin)
+                                    .keyboardType(.numberPad)
                             }
                             //If it is more than 6 digits, it will prompt this
                             else{
-//                                TextField("Under 6 Digits Sped", text:$InputDoujin)
-//                                    .keyboardType(.numberPad)
+                                TextField("Under 6 Digits Sped", text:$InputDoujin)
+                                    .keyboardType(.numberPad)
                             }
                             
                             //Button to iniate the search

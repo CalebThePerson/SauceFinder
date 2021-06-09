@@ -40,7 +40,6 @@
 		C38F225225760AC00005CDEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38F225125760AC00005CDEE /* Assets.xcassets */; };
 		C38F225525760AC00005CDEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38F225425760AC00005CDEE /* Preview Assets.xcassets */; };
 		C38F225825760AC00005CDEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38F225625760AC00005CDEE /* LaunchScreen.storyboard */; };
-		C3B2585C2652249C00D0876B /* FloatingLabelTextFieldSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C3B2585B2652249C00D0876B /* FloatingLabelTextFieldSwiftUI */; };
 		C3B9F71D25AF5CF7005EBB3B /* TestingAddDoujin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B9F71C25AF5CF7005EBB3B /* TestingAddDoujin.swift */; };
 		C3C0FF452577797A00B8E4BE /* DoujinTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C0FF442577797A00B8E4BE /* DoujinTags.swift */; };
 /* End PBXBuildFile section */
@@ -89,7 +88,6 @@
 			files = (
 				C342960126338211007435CE /* Realm in Frameworks */,
 				C34295F7263380B9007435CE /* SwiftyJSON in Frameworks */,
-				C3B2585C2652249C00D0876B /* FloatingLabelTextFieldSwiftUI in Frameworks */,
 				C34295FA263380DF007435CE /* AlamofireImage in Frameworks */,
 				C34295F426338058007435CE /* SwiftPackage-SauceNao in Frameworks */,
 				C34295FF26338211007435CE /* RealmSwift in Frameworks */,
@@ -261,7 +259,6 @@
 				C34295F9263380DF007435CE /* AlamofireImage */,
 				C34295FE26338211007435CE /* RealmSwift */,
 				C342960026338211007435CE /* Realm */,
-				C3B2585B2652249C00D0876B /* FloatingLabelTextFieldSwiftUI */,
 			);
 			productName = SauceFinder;
 			productReference = C38F224825760ABD0005CDEE /* SauceFinder.app */;
@@ -546,6 +543,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 179C2A1C56A32218FD9FC3F1 /* Pods-SauceFinder.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					x86_64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -559,6 +560,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = CalebsDankSwiftUI.SauceFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -571,6 +574,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0B1AC615E243C7B7AC250306 /* Pods-SauceFinder.release.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					x86_64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -584,6 +591,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = CalebsDankSwiftUI.SauceFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -683,11 +692,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C34295FD26338211007435CE /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = Realm;
-		};
-		C3B2585B2652249C00D0876B /* FloatingLabelTextFieldSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C3B2585A2652249B00D0876B /* XCRemoteSwiftPackageReference "FloatingLabelTextFieldSwiftUI" */;
-			productName = FloatingLabelTextFieldSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

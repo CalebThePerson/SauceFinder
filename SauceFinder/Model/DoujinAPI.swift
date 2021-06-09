@@ -116,7 +116,7 @@ class DoujinAPI:ObservableObject {
                     NewDoujin.similarity = Double(similarity)!
                     
                     self.doujinModel.addDoujin(theDoujin: NewDoujin)
-                    self.progress = "1çççç/1"
+                    self.progress = "1/1"
 
                     print("Saved")
                 }
