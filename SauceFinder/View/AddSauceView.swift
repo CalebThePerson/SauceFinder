@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import FloatingLabelTextFieldSwiftUI
 
 
 struct AddSauceView: View {
@@ -163,8 +162,8 @@ struct AddSauceView_Previews: PreviewProvider {
 }
 
 
-struct ThemeTextFieldStyle2: FloatingLabelTextFieldStyle {
-    func body(content: FloatingLabelTextField) -> FloatingLabelTextField {
-        content.selectedTitleColor(.green).errorColor(.init(UIColor.red)).selectedTextColor(.green).selectedLineColor(.green)
-    }
-}
+//struct ThemeTextFieldStyle2: FloatingLabelTextFieldStyle {
+//    func body(content: FloatingLabelTextField) -> FloatingLabelTextField {
+//        content.selectedTitleColor(.green).errorColor(.init(UIColor.red)).selectedTextColor(.green).selectedLineColor(.green)
+//    }
+//}
